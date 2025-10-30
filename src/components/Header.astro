@@ -1,3 +1,191 @@
-<header>
-  
+---
+import { Icon } from 'astro-icon/components';
+import Button from './Button.astro';
+
+type Translations = typeof import('../i18n/en').default;
+type HeaderContent = Translations['header'];
+interface Props {
+  content?: HeaderContent;
+}
+const { content } = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
+---
+
+<header
+  class="fixed top-[26px] left-0 right-0 z-20 w-screen flex flex-col justify-center items-center transition-top duration-300 ease-in-out "
+  id="site-header"
+>
+  <div
+    class="bg-primary  w-[calc(100%-32px)] xl:w-full max-w-screen xl:max-w-[1211px] py-4 px-3 sm:px-6 rounded-[20px] flex justify-between items-center"
+  >
+    <a href="/">
+      <img
+        src="/logo.webp"
+        alt="Logo Las Amecas"
+        height="204"
+        width="1130"
+        class="h-auto w-[130px] sm:w-[263px]"
+      />
+    </a>
+
+    <div class="flex justify-center items-center gap-2">
+      <Button
+        text={content?.button}
+        extraBtnClass="border border-black px-2.5 sm:px-6"
+        textClass="text-[16px] uppercase text-black"
+        iconClass=" text-black hidden sm:block"
+      />
+      <button
+        type="button"
+        aria-label="Abrir menú de navegación"
+        title="Abrir menú"
+        class="bg-accent-3 px-[23px] flex justify-center items-center rounded-4xl py-3 cursor-pointer hover:-translate-y-[3px] transition-all duration-300 ease-in-out"
+        id="hamburger-btn"
+      >
+        <Icon name={'menu'} class={'h-5 w-5'} />
+      </button>
+    </div>
+  </div>
 </header>
+<div
+  class="absolute z-50 top-0 left-0 w-full h-full flex transform translate-x-full transition-transform duration-300 ease-out opacity-0 pointer-events-none"
+  id="mobile-menu"
+  aria-hidden="true"
+>
+  <div
+    class="w-[335px] h-full bg-primary p-10 flex flex-col justify-between items-start relative"
+  >
+    <img
+      src="/menu-bg.webp"
+      alt="Fondo de Menu"
+      width="335"
+      height="791"
+      class="absolute inset-0 w-full h-full"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="w-full flex flex-col justify-center items-center gap-6">
+      <a href="/">
+        <img
+          src="/logo.webp"
+          alt="Logo Las Amecas"
+          height="204"
+          width="1130"
+          class="h-auto w-[263px]"
+        />
+      </a>
+
+      <div class="flex flex-col justify-center items-start gap-5 w-full">
+        <p class="text-[rgba(0,0,0,0.5)] text-[12px] uppercase">MENU:</p>
+        <nav
+          class="relative flex items-start flex-col justify-center w-full gap-5"
+        >
+          {
+            content?.nav.map((item) => {
+              const itemPathWithoutHash = item.href.split('#')[0];
+              const isActive = normalized === itemPathWithoutHash;
+              return (
+                <a
+                  href={`/${lang}${item.href}`}
+                  class={`text-[20px] font-medium uppercase text-[#645044] leading-[130%] hover:text-[#64504480] transition-all duration-300 ease-in-out ${isActive ? 'text-[#64504480] ' : ''}`}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+    </div>
+    <Button
+      text="reservar"
+      extraBtnClass="bg-accent-3 px-6"
+      textClass="text-[13px] uppercase text-white"
+      iconClass=" text-white"
+    />
+  </div>
+  <div class="flex-1 h-full bg-black/50"></div>
+  <button
+    class="absolute top-6 right-2 xs:right-[30px] p-2 xs:p-3.5 rounded-full border border-white cursor-pointer"
+    id="close-btn"
+    aria-label="Cerrar menú de navegación"
+    title="Cerrar menú"
+  >
+    <Icon name={'arrow'} class={'w-4 h-4 '} />
+  </button>
+</div>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.getElementById('mobile-menu');
+    const openBtn = document.getElementById('hamburger-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const body = document.body;
+    const subMenuServices = document.getElementById('sub-menu-services');
+
+    if (!menu) return;
+
+    function openMenu() {
+      menu.classList.replace('translate-x-full', 'translate-x-0');
+      menu.classList.remove('opacity-0', 'pointer-events-none');
+      menu.setAttribute('aria-hidden', 'false');
+      body.classList.add('overflow-hidden');
+    }
+
+    function closeMenu() {
+      menu.classList.replace('translate-x-0', 'translate-x-full');
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      menu.setAttribute('aria-hidden', 'true');
+      body.classList.remove('overflow-hidden');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // Estado inicial: oculto por defecto
+    menu.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+    menu.classList.remove('translate-x-0');
+    menu.setAttribute('aria-hidden', 'true');
+
+    // Asegura comportamientos de submenu si existe
+    if (subMenuServices) {
+      subMenuServices.classList.add('hidden');
+      subMenuServices.classList.remove('flex');
+    }
+
+    // Manejar resize: no abrir automáticamente; solo aseguramos que el menú esté cerrado al cambiar a móvil
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 1024) {
+        // ocultar al cambiar a móvil
+        closeMenu();
+      } else {
+        // al volver a desktop, mantenemos cerrado
+        closeMenu();
+      }
+      if (subMenuServices) {
+        subMenuServices.classList.add('hidden');
+        subMenuServices.classList.remove('flex');
+      }
+    });
+
+    const header = document.getElementById('site-header');
+    let lastScroll = window.pageYOffset;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scroll hacia abajo: escondemos el header completo
+        if (header) header.style.transform = 'translateY(-120%)';
+      } else {
+        // Scroll hacia arriba: lo mostramos
+        if (header) header.style.transform = 'translateY(0)';
+      }
+
+      lastScroll = currentScroll;
+    });
+  });
+</script>

@@ -1,1 +1,17 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@1..1000&display=swap');
+@import 'tailwindcss';
+
+* {
+  font-family: 'Sofia Sans', sans-serif;
+}
+
+@theme {
+  --font-family: 'Sofia Sans', sans-serif;
+  --color-primary: #e5dabd;
+  --color-secondary: #3e512d;
+  --color-accent-1: #eaae06;
+  --color-accent-2: #6db148;
+  --color-accent-3: #c52351;
+  --breakpoint-xs: 25rem;
+  --breakpoint-3xl: 106rem;
+}
