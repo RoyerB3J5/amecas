@@ -79,4 +79,56 @@ export default {
       ],
     },
   },
+  menu: {
+    hero: {
+      nav: [
+        {
+          label: 'Home',
+          href: '/',
+        },
+        {
+          label: 'Menu',
+          href: '/menu',
+        },
+      ],
+      title: 'Menu',
+      text: 'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event. Once submitted, a member of our team will contact you to confirm your order.',
+    },
+  },
+  footer: {
+    part1: {
+      title: 'Contact Us',
+      button: 'Go to Contact',
+      text: 'Follow us:',
+    },
+    part2: {
+      nav: [
+        {
+          label: 'Home',
+          href: '/',
+        },
+        {
+          label: 'Menu',
+          href: '/menu',
+        },
+        {
+          label: 'Catering',
+          href: '/catering',
+        },
+        {
+          label: 'Order',
+          href: '/order',
+        },
+        {
+          label: 'Info',
+          href: '/info',
+        },
+      ],
+      info: {
+        label1: 'Write to us',
+        label2: 'Call us',
+        label3: 'Visit us at',
+      },
+    },
+  },
 };
