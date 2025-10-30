@@ -1,0 +1,24 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div
+  class="slider flex items-center bg-accent-3 w-full"
+  style="--width: 100%; --height: 91px; --quantity: 5;"
+>
+  <div class="list pb-3 pt-7 flex justify-center items-center gap-[74px] w-full">
+    {
+      Array.from({ length: 5 }, (_, index) => (
+        <div
+          class="item flex justify-center items-center gap-[74px]"
+          style={`--position: ${index + 1};`}
+        >
+          <p class="text-[24px] font-normal leading-[200%] uppercase text-white">
+            LOS AMECAS
+          </p>
+          <Icon name={'star'} class={'w-6 h-6 text-white'} />
+        </div>
+      ))
+    }
+  </div>
+</div>
