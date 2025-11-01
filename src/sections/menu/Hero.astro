@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 type Translations = typeof import('../../i18n/es').default;
 type HeroContent = Translations['menu']['hero'];
 interface Props {
@@ -12,16 +14,18 @@ const match = currentPath.match(/^\/(en|es)/);
 const lang = match ? match[1] : 'en';
 ---
 
-<section class="bg-accent-2 min-h-[502px] flex items-center justify-center relative w-full">
+<section
+  class="bg-accent-2 h-full min-h-[634px] md:min-h-[434px] flex items-center justify-center relative w-full"
+>
   <div
-    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-[35px]"
+    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-5 md:gap-[35px] translate-y-10 relative z-30 h-full min-h-[400px] md:min-h-none"
   >
-    <div class="flex justify-center items-center w-full relative">
+    <div class="flex justify-center items-center w-full relative flex-col md:flex-row gap-3">
       <div
-        class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] absolute left-0"
+        class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] relative md:absolute left-0"
       >
         <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
-        <nav class="flex justify-center items-center gap-2">
+        <nav class="flex justify-center items-center gap-2 h-4">
           {
             content.nav.map((item, i) => {
               const itemPathWithoutHash = item.href.split('#')[0];
@@ -31,11 +35,13 @@ const lang = match ? match[1] : 'en';
                 <>
                   <a
                     href={`/${lang}${item.href}`}
-                    class={` uppercase mr-2 ${isActive ? 'text-accent-3' : ''}`}
+                    class={` uppercase mr-1 text-[15px] font-light leading-4 ${isActive ? 'text-accent-3 font-normal' : ''}`}
                   >
                     {item.label}
                   </a>
-                  {!isLast && <p class="mr-2">{`>`}</p>}
+                  {!isLast && (
+                    <p class="text-[15px] font-light leading-4 mr-1">{`>`}</p>
+                  )}
                 </>
               );
             })
@@ -46,9 +52,43 @@ const lang = match ? match[1] : 'en';
         {content.title}
       </h1>
     </div>
-    <div class="flex justify-center items-center">
-      <p class="text-[16px] font-normal leading-[140%] max-w-[454px] text-white">{content.text}</p>
+    <div class="flex w-full flex-col md:flex-row justify-between items-center">
+      <p
+        class="text-[16px] font-normal leading-[140%] max-w-[454px] text-white"
+      >
+        {content.text}
+      </p>
+      <div
+        class="relative md:absolute flex justify-center items-center right-6 md:right-20 z-20"
+      >
+        <div class="relative">
+          <img
+            src="/menu/image-2.webp"
+            alt="Imagen 2"
+            width="366"
+            height="264"
+            class="w-[300px] md:w-[366px] h-auto"
+          />
+          <img
+            src="/menu/image-1.webp"
+            alt="Imagen 1"
+            width="283"
+            height="284"
+            class="w-60 md:w-[283px] h-auto absolute z-10 -bottom-40 -right-[70px] md:-right-30 "
+          />
+        </div>
+      </div>
     </div>
   </div>
-  <img src="/menu-back.webp" alt="Fondo de sección menú" width="335" height="324" class="absolute top-0 right-0 w-[335px] h-auto" />
+  <img
+    src="/menu-back.webp"
+    alt="Fondo de sección menú"
+    width="335"
+    height="324"
+    class="absolute top-0 right-0 w-[335px] h-auto opacity-30 md:opacity-100"
+  />
+  <Icon
+    name={'ondulade'}
+    class={'absolute bottom-0 lg:-bottom-[5%] xl:-bottom-[12%] w-full h-auto z-20 left-0'}
+  />
 </section>

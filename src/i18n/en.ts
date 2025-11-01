@@ -94,6 +94,37 @@ export default {
       title: 'Menu',
       text: 'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event. Once submitted, a member of our team will contact you to confirm your order.',
     },
+    gallery: {
+      title1: 'Category',
+      menus: [
+        {
+          label: 'Home Specials',
+          href: 'home-specials',
+          icon:'home'
+        },
+        {
+          label: 'Tacos',
+          href: 'tacos',
+          icon:'taco'
+        },
+        {
+          label: 'Mexican Snacks',
+          href: 'mexican-snacks',
+          icon:'mexican'
+        },
+        {
+          label: 'Seafood',
+          href: 'seafood',
+          icon:'seafood'
+        },
+        {
+          label: 'Drinks + Desserts',
+          href: 'drinks-desserts',
+          icon:'dessert'
+        },
+      ],
+      title: 'Our <span class="text-accent-3">Gallery</span>',
+    },
   },
   footer: {
     part1: {

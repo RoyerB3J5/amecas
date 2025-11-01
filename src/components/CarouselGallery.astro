@@ -1,0 +1,381 @@
+---
+interface GalleryItem {
+  imgSrc: string;
+}
+
+interface Props {
+  galleryItems: GalleryItem[];
+  interval?: number;
+}
+
+const { galleryItems, interval = 8000 } = Astro.props as Props;
+
+// Dividir las imágenes en grupos de 6 para cada slide
+const slides = [];
+for (let i = 0; i < galleryItems.length; i += 6) {
+  slides.push(galleryItems.slice(i, i + 6));
+}
+---
+
+<div
+  class="relative w-full hero-carousel flex flex-col justify-center items-center gap-[50px]"
+  data-interval={interval}
+>
+  <!-- Viewport -->
+  <div class="overflow-x-hidden w-full h-full">
+    <div
+      class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track h-full w-full"
+    >
+      {
+        slides.map((slideImages, slideIndex) => (
+          <div class="shrink-0 w-full h-full flex items-center justify-center relative ">
+            <div class="w-full max-w-[1200px] mx-auto">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[50px] w-full">
+                {slideImages.map((item, index) => (
+                  <div class="flex justify-center">
+                    <svg
+                      viewBox="0 0 387 187"
+                      width="100%"
+                      height="auto"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="max-w-[387px]"
+                    >
+                      <defs>
+                        <clipPath id={`wavyClip-${slideIndex}-${index}`}>
+                          <path d="M0 187C0.900685 181.273 3.07163 175.772 6.45794 171.091C12.0723 163.33 14.4876 153.111 12.9537 143.254C10.7992 129.41 16.3223 115.479 26.9174 108.032L27.7573 107.441C35.336 102.115 40.5395 93.4084 42.0653 83.5026C44.2036 69.6221 53.4653 58.4956 65.6367 55.1854L66.8724 54.8499C75.6512 52.4623 83.1545 46.0804 87.5901 37.2293C93.8236 24.7906 105.912 17.559 118.564 18.7003L119.579 18.7913C128.689 19.6131 137.705 16.232 144.555 9.42461C154.247 -0.20748 168.175 -2.65158 180.094 2.99552C188.584 7.01856 198.415 7.01856 206.906 2.99552C218.825 -2.65159 232.753 -0.20749 242.445 9.42461C249.295 16.232 258.311 19.6131 267.421 18.7913L268.436 18.7003C281.088 17.559 293.176 24.7905 299.41 37.2293C303.845 46.0803 311.349 52.4623 320.128 54.8499L321.363 55.1853C333.535 58.4956 342.796 69.6221 344.935 83.5026C346.46 93.4084 351.664 102.115 359.243 107.441L360.083 108.032C370.678 115.479 376.201 129.41 374.046 143.254C372.512 153.111 374.928 163.33 380.542 171.091C383.928 175.772 386.099 181.273 387 187L0 187Z" />
+                        </clipPath>
+                      </defs>
+
+                      <image
+                        href={item.imgSrc}
+                        width="387"
+                        height="187"
+                        preserveAspectRatio="xMidYMid slice"
+                        clip-path={`url(#wavyClip-${slideIndex}-${index})`}
+                      />
+                    </svg>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Controles con barra de progreso y botones -->
+  <div class="w-full flex justify-center items-center gap-6 px-1">
+    <div class="flex-1 flex items-center gap-4">
+      <div class="flex-1 bg-[#E7E7E7] rounded-full h-2 backdrop-blur-sm">
+        <div
+          class="hero-carousel-progress bg-accent-3 h-2 rounded-full transition-all duration-500 ease-out"
+          style="width: 33.33%"
+        >
+        </div>
+      </div>
+    </div>
+    <!-- Botón anterior -->
+    <button
+      class="hero-carousel-prev border border-[#111]/50 text-[#111]/50 p-3 rounded-full transition-all duration-200 "
+      aria-label="Previous slide"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+
+    <!-- Barra de progreso -->
+
+    <!-- Botón siguiente -->
+    <button
+      class="hero-carousel-next border border-[#111]/50 text-[#111]/50 p-3 rounded-full transition-all duration-200 "
+      aria-label="Next slide"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+
+    // Función simple para generar un hash (para IDs únicos)
+    String.prototype.hashCode = function () {
+      let hash = 0;
+      for (let i = 0; i < this.length; i++) {
+        const char = this.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash = hash & hash;
+      }
+      return Math.abs(hash);
+    };
+
+    const debounce = (fn, ms = 100) => {
+      let t;
+      return (...a) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, a), ms);
+      };
+    };
+
+    function initCarousel(carousel) {
+      if (!carousel || carousel.dataset.inited) return;
+      carousel.dataset.inited = '1';
+
+      const track = carousel.querySelector('.hero-carousel-track');
+      const prevBtn = carousel.querySelector('.hero-carousel-prev');
+      const nextBtn = carousel.querySelector('.hero-carousel-next');
+      const progressBar = carousel.querySelector('.hero-carousel-progress');
+      const counter = carousel.querySelector('.hero-carousel-counter');
+      const total = carousel.querySelector('.hero-carousel-total');
+
+      const intervalMs =
+        parseInt(carousel.getAttribute('data-interval') || '0', 10) || 5000;
+
+      let slides = Array.from(track.children);
+      const totalSlides = slides.length;
+
+      // Actualizar el contador total
+      if (total && totalSlides > 0) {
+        total.textContent = totalSlides.toString();
+      }
+
+      const setup = () => {
+        // Solo crear clones si hay más de un slide
+        if (slides.length > 1) {
+          const firstClone = slides[0].cloneNode(true);
+          const lastClone = slides[slides.length - 1].cloneNode(true);
+          track.appendChild(firstClone);
+          track.insertBefore(lastClone, track.firstChild);
+        }
+
+        slides = Array.from(track.children);
+
+        let currentIndex = slides.length > 1 ? 1 : 0;
+        let isTransitioning = false;
+        let autoSlide;
+
+        function getSlideWidth() {
+          return slides[0].getBoundingClientRect().width;
+        }
+
+        function updateProgress() {
+          if (slides.length <= 1) return;
+
+          let realIndex = currentIndex - 1;
+          if (currentIndex === 0) realIndex = slides.length - 3;
+          else if (currentIndex === slides.length - 1) realIndex = 0;
+
+          // Calcular progreso (33.33% por slide)
+          const progressPercentage =
+            ((realIndex + 1) / (slides.length - 2)) * 100;
+
+          if (progressBar) {
+            progressBar.style.width = `${progressPercentage}%`;
+          }
+
+          if (counter) {
+            counter.textContent = (realIndex + 1).toString();
+          }
+        }
+
+        function goTo(index, smooth = true) {
+          if (slides.length <= 1) return;
+
+          const maxIndex = slides.length - 1;
+          if (index < 0) index = 0;
+          if (index > maxIndex) index = maxIndex;
+
+          if (isTransitioning && smooth) return;
+          track.style.transition = smooth
+            ? 'transform 0.5s ease-in-out'
+            : 'none';
+          track.style.transform = `translateX(-${getSlideWidth() * index}px)`;
+          currentIndex = index;
+          isTransitioning = smooth;
+          updateProgress();
+        }
+
+        if (slides.length > 1) {
+          track.addEventListener('transitionend', () => {
+            if (slides[currentIndex] === slides[0])
+              goTo(slides.length - 2, false);
+            if (slides[currentIndex] === slides[slides.length - 1])
+              goTo(1, false);
+            isTransitioning = false;
+          });
+        }
+
+        prevBtn?.addEventListener('click', () => {
+          goTo(currentIndex - 1);
+          resetAuto();
+        });
+
+        nextBtn?.addEventListener('click', () => {
+          goTo(currentIndex + 1);
+          resetAuto();
+        });
+
+        function startAuto() {
+          if (slides.length > 1) {
+            autoSlide = setInterval(() => goTo(currentIndex + 1), intervalMs);
+          }
+        }
+
+        function stopAuto() {
+          clearInterval(autoSlide);
+        }
+
+        function resetAuto() {
+          stopAuto();
+          startAuto();
+        }
+
+        carousel.addEventListener('mouseenter', stopAuto, { passive: true });
+        carousel.addEventListener('mouseleave', startAuto, { passive: true });
+
+        // Touch support
+        let startX = 0,
+          deltaX = 0;
+
+        track.addEventListener(
+          'touchstart',
+          (e) => {
+            startX = e.touches[0].clientX;
+            stopAuto();
+          },
+          { passive: true }
+        );
+
+        track.addEventListener(
+          'touchend',
+          (e) => {
+            deltaX = e.changedTouches[0].clientX - startX;
+            if (Math.abs(deltaX) > 50) {
+              const dir = deltaX < 0 ? 1 : -1;
+              goTo(currentIndex + dir);
+            }
+            resetAuto();
+          },
+          { passive: true }
+        );
+
+        // Mouse drag support
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragDelta = 0;
+
+        function onMouseMove(e) {
+          if (!isDragging) return;
+          dragDelta = e.clientX - dragStartX;
+          const translate = -getSlideWidth() * currentIndex + dragDelta;
+          track.style.transform = `translateX(${translate}px)`;
+        }
+
+        function onMouseUp() {
+          if (!isDragging) return;
+          isDragging = false;
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
+          if (Math.abs(dragDelta) > 50) {
+            const dir = dragDelta < 0 ? 1 : -1;
+            goTo(currentIndex + dir);
+          } else {
+            goTo(currentIndex, true);
+          }
+          dragDelta = 0;
+          resetAuto();
+        }
+
+        track.addEventListener('mousedown', (e) => {
+          if (e.button !== 0) return;
+          isDragging = true;
+          dragStartX = e.clientX;
+          dragDelta = 0;
+          stopAuto();
+          track.style.transition = 'none';
+          window.addEventListener('mousemove', onMouseMove);
+          window.addEventListener('mouseup', onMouseUp);
+          e.preventDefault();
+        });
+
+        function init() {
+          slides = Array.from(track.children);
+          if (slides.length > 1) {
+            goTo(1, false);
+          }
+          updateProgress();
+        }
+
+        window.addEventListener(
+          'resize',
+          debounce(() => init(), 120)
+        );
+
+        init();
+        startAuto();
+      };
+
+      if ('requestIdleCallback' in window)
+        requestIdleCallback(setup, { timeout: 1500 });
+      else setTimeout(setup, 600);
+    }
+
+    const carousels = Array.from(
+      document.querySelectorAll('.hero-carousel[data-interval]')
+    );
+    if (carousels.length === 0) return;
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              initCarousel(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: '400px' }
+      );
+      carousels.forEach((c) => io.observe(c));
+    } else {
+      carousels.forEach((c) => initCarousel(c));
+    }
+  })();
+</script>
+
+<style>
+  .hero-carousel-progress {
+    background: linear-gradient(90deg, #c52351 0%, #c52351 100%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .hero-carousel-prev:hover,
+  .hero-carousel-next:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+</style>
