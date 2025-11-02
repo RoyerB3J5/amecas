@@ -1,0 +1,228 @@
+---
+type Translations = typeof import('../../i18n/es').default;
+type RequestContent = Translations['catering']['request'];
+interface Props {
+  content: RequestContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section
+  class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-10 mb-[88px]"
+>
+  <h2
+    set:html={content.title}
+    class="text-[32px] leading-[140%] font-semibold text-black text-center"
+  />
+  <div
+    class="flex flex-col justify-center items-center gap-10 md:gap-[65px] py-10 md:py-[61px] px-4 md:px-[51px] rounded-3xl bg-[#F2ECDD] w-full"
+  >
+    <div
+      class="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-[67px] w-full"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-7 w-full max-w-[626px]"
+      >
+        <div class="flex flex-col justify-center items-start gap-4 w-full">
+          <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+            {content.taco.title}
+          </h3>
+          <p class="text-[16px] font-normal leading-[140%] text-paragraph">
+            {content.taco.description}
+          </p>
+        </div>
+        <div class="flex justify-start items-start w-full gap-5 md:gap-[74px]">
+          <div class="flex flex-col justify-center items-start gap-[18px]">
+            <p class="text-[20px] leading-[120%] text-black">
+              {content.taco.meats.title}
+            </p>
+            <ul class="flex flex-col justify-center items-start gap-[18px]">
+              {
+                content.taco.meats.items.map((item) => (
+                  <li class="flex justify-start items-center gap-2.5">
+                    <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                    <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                      {item}
+                    </p>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="flex flex-col justify-center items-start gap-[18px]">
+            <p class="text-[20px] leading-[120%] text-black">
+              {content.taco.toppings.title}
+            </p>
+            <ul class="flex flex-col justify-center items-start gap-[18px]">
+              {
+                content.taco.toppings.items.map((item) => (
+                  <li class="flex justify-start items-center gap-2.5">
+                    <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                    <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                      {item}
+                    </p>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center items-start gap-7">
+        <div class="flex flex-col justify-center items-start gap-4">
+          <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+            {content.guacamole.title}
+          </h3>
+          <p
+            set:html={content.guacamole.description}
+            class="text-[16px] font-normal leading-[140%] text-paragraph"
+          />
+        </div>
+        <ul class="flex flex-col justify-center items-start gap-[18px]">
+          {
+            content.guacamole.items.map((item) => (
+              <li class="flex justify-start items-center gap-2.5">
+                <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                  {item}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-[31px] w-full"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-7 w-full max-w-[600px]"
+      >
+        <div class="flex flex-col justify-center items-start gap-4 w-full">
+          <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+            {content.specials.title}
+          </h3>
+          <p class="text-[16px] font-normal leading-[140%] text-paragraph">
+            {content.specials.description}
+          </p>
+        </div>
+        <div class="flex flex-col justify-center items-start gap-[18px] w-full">
+          <p class="text-[20px] leading-[120%] text-black">
+            {content.specials.title2}
+          </p>
+          <ul class="flex flex-col justify-center items-start gap-[18px]">
+            {
+              content.specials.items.map((item) => (
+                <li class="flex justify-start items-center gap-2.5">
+                  <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                    {item}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div
+        class="flex flex-col justify-center items-start gap-10 md:gap-[47px]"
+      >
+        <div class="flex flex-col justify-center items-start gap-7">
+          <div class="flex flex-col justify-center items-start gap-4">
+            <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+              {content.desserts.title}
+            </h3>
+            <p
+              set:html={content.desserts.description}
+              class="text-[16px] font-normal leading-[140%] text-paragraph"
+            />
+          </div>
+          <ul class="flex flex-col justify-center items-start gap-[18px]">
+            {
+              content.desserts.items.map((item) => (
+                <li class="flex justify-start items-center gap-2.5">
+                  <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                    {item}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="flex flex-col justify-center items-start gap-7">
+          <div class="flex flex-col justify-center items-start gap-4">
+            <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+              {content.drinks.title}
+            </h3>
+            <p
+              set:html={content.drinks.description}
+              class="text-[16px] font-normal leading-[140%] text-paragraph"
+            />
+          </div>
+          <ul class="flex flex-col justify-center items-start gap-[18px]">
+            {
+              content.drinks.items.map((item) => (
+                <li class="flex justify-start items-center gap-2.5">
+                  <div class="w-4 h-4 rounded-full border-2 border-accent-3" />
+                  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                    {item}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-[51px] w-full"
+    >
+      <div class="w-full md:w-[565px] h-[572px] bg-accent-3"></div>
+      <div
+        class="flex flex-col justify-center items-start gap-10 md:gap-[63px]"
+      >
+        <div class="flex flex-col justify-center items-start gap-8">
+          <div class="flex flex-col justify-center items-start gap-4">
+            <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+              {content.supplies.title}
+            </h3>
+            <p
+              set:html={content.supplies.description}
+              class="text-[16px] font-normal leading-[140%] text-paragraph"
+            />
+          </div>
+          <ul class="flex flex-col justify-center items-start gap-[18px]">
+            {
+              content.supplies.items.map((item) => (
+                <li class="flex justify-start items-center gap-2.5">
+                  <div class="w-4 h-4 aspect-square shrink-0 rounded-full border-2 border-accent-3" />
+                  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                    {item}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="flex flex-col justify-center items-start gap-8">
+          <h3 class="text-[24px] leading-[120%] font-semibold text-accent-3">
+            {content.beer.title}
+          </h3>
+          <ul class="flex flex-col justify-center items-start gap-[18px]">
+            {
+              content.beer.items.map((item) => (
+                <li class="flex justify-start items-center gap-2.5">
+                  <div class="w-4 h-4 rounded-full border-2 border-accent-3" />
+                  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-paragraph">
+                    {item}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

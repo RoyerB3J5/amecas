@@ -1,0 +1,87 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '../../components/Button.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type DescriptionContent = Translations['catering']['description'];
+interface Props {
+  content: DescriptionContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section class="w-full flex justify-center items-center relative">
+  <div
+    class="py-[66px] w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-[69px] pb-[90px] relative"
+  >
+    <div class="flex flex-col justify-center items-center gap-[50px]">
+      <h2
+        class="text-[36px] text-secondary font-extrabold uppercase leading-[120%] text-center"
+        set:html={content.section1.title}
+      />
+      <div class="flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-0">
+        <p
+          class="text-[16px] text-paragraph leading-[140%] max-w-[425px] mr-0 md:mr-[42px]"
+        >
+          {content.section1.text1}
+        </p>
+        <div
+          class="h-[214px] w-[263px] bg-accent-2 rounded-[19px] mr-0 md:mr-[63px] relative"
+        >
+          <img
+            src="/catering/catering-2.webp"
+            alt="Imagen de Catering"
+            width="264"
+            height="215"
+            class="w-[264px] h-auto absolute bottom-10 -right-5"
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-[16px] leading-[140%] text-paragraph max-w-[418px]">
+          {content.section1.text2}
+        </p>
+      </div>
+      <Button
+        text={content.section1.button}
+        extraBtnClass="bg-accent-3 px-6 w-auto"
+        textClass="text-[16px] uppercase text-white"
+        iconClass=" text-white"
+      />
+    </div>
+    <div class="w-full flex flex-col md:flex-row justify-center items-center gap-[41px]">
+      <img
+        src="/catering/catering-3.webp"
+        alt="Imagen de Catering"
+        width="1138"
+        height="742"
+        class="w-[462px] h-auto rounded-[20px]"
+        decoding="async"
+        loading="lazy"
+      />
+      <div class="flex-1 flex flex-col justify-center items-center gap-[26px]">
+        <div class="w-full flex flex-col justify-center items-start gap-5">
+          <h3
+            class="text-[32px] font-bold leading-[120%] uppercase text-secondary"
+          >
+            {content.section2.title1}
+          </h3>
+          <p class="text-[16px] leading-[140%] font-light">
+            {content.section2.text1}
+          </p>
+        </div>
+        <div class="flex flex-col justify-center items-start gap-5 w-full">
+          <h4
+            class="text-[24px] font-semibold leading-[120%] uppercase text-secondary"
+          >
+            {content.section2.title2}
+          </h4>
+          <p
+            class="text-[16px] leading-[140%] font-light"
+            set:html={content.section2.text2}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

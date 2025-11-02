@@ -84,6 +84,7 @@ const langBase = match ? match[1] : 'en';
           width="324"
           height="195"
           class="absolute right-0 -bottom-[30%] w-[324px] h-auto"
+          decoding="async" loading="lazy"
         />
       </div>
       <div class="w-full flex flex-col justify-center items-center text-white">
@@ -91,9 +92,10 @@ const langBase = match ? match[1] : 'en';
           {foodData.text}
         </h2>
         <div
-          class="flex justify-between items-center w-full mt-[51px] font-normal"
+          class="flex justify-between items-center w-full mt-[51px] font-normal gap-[30px]"
         >
           <p class="text-[20px] leading-[120%]">{foodData.first.name}</p>
+          <div class="flex-1 self-end border-b border-dashed border-white mb-2"></div>
           <p class="text-[20px] leading-[120%]">{foodData.first.price}</p>
         </div>
         <div
@@ -101,7 +103,7 @@ const langBase = match ? match[1] : 'en';
         >
           {
             foodData.list.map((item) => (
-              <div class="flex justify-between items-end w-full">
+              <div class="flex justify-between items-end w-full gap-[30px]">
                 <div class="flex flex-col justify-center items-start gap-2.5">
                   <p class="text-[20px] leading-[120%] font-bold">
                     {item.name}
@@ -110,6 +112,7 @@ const langBase = match ? match[1] : 'en';
                     {item.description}
                   </p>
                 </div>
+                <div class="flex-1 self-end border-b border-dashed border-white mb-1"></div>
                 <p class="text-[24px] leading-[120%]"> ${item.price}</p>
               </div>
             ))
@@ -129,6 +132,7 @@ const langBase = match ? match[1] : 'en';
       width="335"
       height="324"
       class="absolute top-0 left-0 w-[335px] h-auto opacity-30 md:opacity-100"
+      decoding="async" loading="lazy"
     />
   </section>
 </Layout>

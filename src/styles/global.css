@@ -2,11 +2,11 @@
 @import 'tailwindcss';
 
 * {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family: 'Sofia Sans','Apple Color Emoji', sans-serif;
 }
 
 @theme {
-  --font-family: 'Sofia Sans', sans-serif;
+  --font-family: 'Sofia Sans', 'Apple Color Emoji',sans-serif;
   --color-primary: #e5dabd;
   --color-back: #eee7d5;
   --color-text: #2f281c;
@@ -14,6 +14,7 @@
   --color-accent-1: #eaae06;
   --color-accent-2: #6db148;
   --color-accent-3: #c52351;
+  --color-paragraph: #6A6A6A;
   --breakpoint-xs: 25rem;
   --breakpoint-3xl: 106rem;
 }
@@ -68,4 +69,11 @@
 .slider .item:hover {
   filter: grayscale(0);
   animation-play-state: running;
+}
+
+.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui, sans-serif;
+  /* line-height y display ayudan a que quede alineado */
+  line-height: 1;
+  display: inline-block;
 }

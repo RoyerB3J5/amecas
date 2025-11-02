@@ -50,7 +50,7 @@ const icons = [
       class="w-full max-w-screen md:max-w-[1211px] px-6 xl:px-0 pt-[55px] flex flex-col justify-center items-center gap-9"
     >
       <div class="w-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-10">
-        <div class="flex flex-col justify-center items-start gap-9">
+        <div class="flex flex-col justify-center items-center md:items-start gap-9">
           <p class="text-[46px] font-semibold leading-[117%] text-white">
             {content?.part1.title}
           </p>
@@ -90,7 +90,7 @@ const icons = [
                 const isActive = normalized === itemNormalized;
                 return (
                   <a
-                    class={`text-[16px] leading-[150%] transition-all duration-200 ease-in-out hover:text-accent-3 ${isActive ? 'font-bold text-accent-3' : 'text-white font-light'}`}
+                    class={`text-[16px] leading-[150%] transition-all duration-200 ease-in-out hover:text-accent-1 ${isActive ? 'font-bold text-accent-1' : 'text-white font-light'}`}
                     href={`/${lang}${item.href}`}
                   >
                     {item.label}

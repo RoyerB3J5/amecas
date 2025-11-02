@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Translations = typeof import('../../i18n/es').default;
+type HeroContent = Translations['catering']['hero'];
+interface Props {
+  content: HeroContent;
+}
+const { content } = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
+---
+<!-- SVG overlay con Tailwind -->
+<section
+  class="relative bg-accent-1 flex justify-center min-h-[645px] sm:min-h-[545px] items-start w-full overflow-y-hidden"
+>
+  <div class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 h-full gap-8 flex flex-col justify-center items-start pt-[134px] z-30">
+    <div
+      class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px]"
+    >
+      <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
+      <nav class="flex justify-center items-center gap-2 h-4">
+        <!-- Tu código de navegación -->
+        {
+          content.nav.map((item, i) => {
+            const itemPathWithoutHash = item.href.split('#')[0];
+            const isActive = normalized === itemPathWithoutHash;
+            const isLast = i === content.nav.length - 1;
+            return (
+              <>
+                <a
+                  href={`/${lang}${item.href}`}
+                  class={` uppercase mr-1 text-[15px]  leading-4 ${isActive ? 'text-accent-3 font-bold' : 'font-light'}`}
+                >
+                  {item.label}
+                </a>
+                {!isLast && (
+                  <p class="text-[15px] font-light leading-4 mr-1">{`>`}</p>
+                )}
+              </>
+            );
+          })
+        }
+      </nav>
+    </div>
+    <h1 class="text-[40px] leading-[110%] uppercase text-white">
+      {content.title}
+    </h1>
+    <p class="text-[16px] font-normal leading-[140%] max-w-[454px] text-white">
+      {content.text}
+    </p>
+  </div>
+  <img src="/catering/hero.webp" alt="Imagen de fondo del Catering" width="621" height="360" class="w-[400px] lg:w-[621px] h-auto absolute bottom-0 lg:-bottom-2 left-[50%] md:left-[70%] -translate-x-1/2 z-20" decoding="async" loading="eager">
+
+  <!-- SVG en la parte inferior que "corta" visualmente -->
+  <svg
+    class="absolute left-0 bottom-0 w-full h-[70px] pointer-events-none z-40"
+    viewBox="0 0 1512 75"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      class="fill-white"
+      d="
+      M1512 60.7086
+      C1494.9 63.5177 1425.54 60.9046 1284.72 27.9794
+      C1108.69 -13.1771 1008.47 17.9621 889.238 52.9228
+      C832.897 69.4432 683.648 93.0332 533.659 34.2153
+      C352.472 -36.8372 218.926 23.6851 156.957 41.6983
+      C92.2856 60.497 25.6276 67.0666 0 67.0666
+      L0 75
+      L1512 75
+      Z
+    "
+    >
+    </path>
+  </svg>
+  <Icon name={'ondulade'} class={'hidden sm:block absolute bottom-12 lg:bottom-8 w-full h-auto z-10 left-0'} />
+</section>
+
+<img
+  src="/catering/back.webp"
+  alt="Fondo de sección catering"
+  width="572"
+  height="304"
+  class="absolute left-[55%] top-0 -translate-x-1/2 w-[300px] md:w-[500px] h-auto opacity-30 md:opacity-100" decoding="async" loading="eager"
+/>
+
