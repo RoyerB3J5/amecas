@@ -1,0 +1,134 @@
+---
+import { Icon } from 'astro-icon/components';
+import en from '../../../i18n/en';
+import es from '../../../i18n/es';
+import Layout from '../../../layouts/Layout.astro';
+import type { Language } from '../../../types/language.type';
+import Button from '../../../components/Button.astro';
+
+export function getStaticPaths() {
+  const foods = [
+    'home-specials',
+    'tacos',
+    'mexican-snacks',
+    'seafood',
+    'drinks-desserts',
+  ];
+  const languages = ['es', 'en'];
+
+  return languages.flatMap((lang) =>
+    foods.map((food) => ({
+      params: { lang, food },
+    }))
+  );
+}
+
+export const defaultRedirect = '/en';
+
+const { lang, food } = Astro.params as { lang: Language; food: string };
+const translations = { es, en };
+const t = translations[lang];
+
+// Obtener los datos del servicio específico
+const foodData = t.foods[food as keyof typeof t.foods];
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const langBase = match ? match[1] : 'en';
+---
+
+<Layout lang={lang} t={t}>
+  <section
+    class="bg-accent-3 py-[142px] pb-[50px] w-full relative flex justify-center items-center"
+  >
+    <div
+      class="w-full max-w-screen lg:w-[1211px] px-6 lg:px-0 flex flex-col justify-center items-center gap-[130px]"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-[72px] w-full relative"
+      >
+        <div
+          class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] self-start"
+        >
+          <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
+          <nav class="flex justify-center items-center gap-2 h-4">
+            {
+              foodData.nav.map((item, i) => {
+                const itemPathWithoutHash = item.href.split('#')[0];
+                const isActive = normalized === itemPathWithoutHash;
+                const isLast = i === foodData.nav.length - 1;
+                return (
+                  <>
+                    <a
+                      href={`/${langBase}${item.href}`}
+                      class={` uppercase mr-1 text-[15px] leading-4 ${isActive ? 'text-accent-3 font-bold' : 'font-light'}`}
+                    >
+                      {item.label}
+                    </a>
+                    {!isLast && (
+                      <p class="text-[15px] font-light leading-4 mr-1">{`>`}</p>
+                    )}
+                  </>
+                );
+              })
+            }
+          </nav>
+        </div>
+        <h1 class="text-[40px] font-normal leading-[110%] uppercase text-white">
+          Section: <span class="text-accent-1">{foodData.title}</span>
+        </h1>
+        <img
+          src={`/menu/${foodData.image}.webp`}
+          alt="Imagen del Menu de Comida"
+          width="324"
+          height="195"
+          class="absolute right-0 -bottom-[30%] w-[324px] h-auto"
+        />
+      </div>
+      <div class="w-full flex flex-col justify-center items-center text-white">
+        <h2 class="text-[36px] font-normal uppercase self-start">
+          {foodData.text}
+        </h2>
+        <div
+          class="flex justify-between items-center w-full mt-[51px] font-normal"
+        >
+          <p class="text-[20px] leading-[120%]">{foodData.first.name}</p>
+          <p class="text-[20px] leading-[120%]">{foodData.first.price}</p>
+        </div>
+        <div
+          class="flex flex-col justify-center items-center gap-[58px] w-full mt-[59px]"
+        >
+          {
+            foodData.list.map((item) => (
+              <div class="flex justify-between items-end w-full">
+                <div class="flex flex-col justify-center items-start gap-2.5">
+                  <p class="text-[20px] leading-[120%] font-bold">
+                    {item.name}
+                  </p>
+                  <p class="text-[16px] leading-[120%] font-light">
+                    {item.description}
+                  </p>
+                </div>
+                <p class="text-[24px] leading-[120%]"> ${item.price}</p>
+              </div>
+            ))
+          }
+        </div>
+        <Button
+          text={foodData.button}
+          extraBtnClass="bg-accent-1 px-6 mt-[60px]"
+          textClass="text-[16px] uppercase text-white"
+          iconClass=" text-white"
+        />
+      </div>
+    </div>
+    <img
+      src="/foods.webp"
+      alt="Fondo de sección menú"
+      width="335"
+      height="324"
+      class="absolute top-0 left-0 w-[335px] h-auto opacity-30 md:opacity-100"
+    />
+  </section>
+</Layout>
