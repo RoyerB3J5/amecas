@@ -1,6 +1,6 @@
 export default {
   header: {
-    button: 'Conocer Más',
+    button: 'Ordena Ya',
     nav: [
       {
         label: 'Inicio',
@@ -26,10 +26,6 @@ export default {
   },
   main: {
     hero: {
-      text: 'Nuestros Servicios',
-      title:
-        "<span class='text-accent-1'>selecciona</span> <br /> lo que<br /> necesites",
-      button: 'CONOCER MÁS',
       slides: [
         {
           image: 'bg-accent-2',
@@ -37,6 +33,7 @@ export default {
           title:
             "<span class='text-accent-1'>selecciona</span> <br /> lo que<br /> necesites",
           button: 'CONOCER MÁS',
+          href: '/en/menu',
         },
         {
           image: 'bg-accent-3',
@@ -44,6 +41,7 @@ export default {
           title:
             "<span class='text-accent-2'>selecciona</span> <br /> lo que<br /> necesites",
           button: 'CONOCER MÁS',
+          href: '/en/menu',
         },
         {
           image: 'bg-accent-1',
@@ -51,6 +49,7 @@ export default {
           title:
             "<span class='text-accent-3'>selecciona</span> <br /> lo que<br /> necesites",
           button: 'CONOCER MÁS',
+          href: '/en/menu',
         },
       ],
     },
@@ -76,6 +75,19 @@ export default {
           image: 'menu-2',
           color: 'bg-accent-3',
         },
+      ],
+    },
+    gallery: {
+      title: 'Our Gallery',
+      items: [
+        'gallery-1',
+        'gallery-2',
+        'gallery-3',
+        'gallery-4',
+        'gallery-5',
+        'gallery-6',
+        'gallery-7',
+        'gallery-8',
       ],
     },
   },

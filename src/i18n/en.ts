@@ -1,6 +1,6 @@
 export default {
   header: {
-    button: 'Learn More',
+    button: 'order now',
     nav: [
       {
         label: 'Home',
@@ -26,17 +26,14 @@ export default {
   },
   main: {
     hero: {
-      text: 'Our Services',
-      title:
-        "<span class='text-accent-1'>select</span> <br /> what you <br /> need",
-      button: 'LEARN MORE',
       slides: [
         {
           image: 'bg-accent-2',
-          text: 'Our Services',
+          text: 'Enjoy the taste of Mexico',
           title:
-            "<span class='text-accent-1'>select</span> <br /> what you <br /> need",
-          button: 'LEARN MORE',
+            "<span class='text-accent-1'>authentic</span> <br /> Mexican <br /> flavor",
+          button: 'View Menu',
+          href: '/en/menu',
         },
         {
           image: 'bg-accent-3',
@@ -44,6 +41,7 @@ export default {
           title:
             "<span class='text-accent-2'>select</span> <br /> what you <br /> need",
           button: 'LEARN MORE',
+          href: '/en/menu',
         },
         {
           image: 'bg-accent-1',
@@ -51,6 +49,7 @@ export default {
           title:
             "<span class='text-accent-3'>select</span> <br /> what you <br /> need",
           button: 'LEARN MORE',
+          href: '/en/menu',
         },
       ],
     },
@@ -76,6 +75,19 @@ export default {
           image: 'menu-2',
           color: 'bg-accent-3',
         },
+      ],
+    },
+    gallery: {
+      title: 'Our Gallery',
+      items: [
+        'gallery-1',
+        'gallery-2',
+        'gallery-3',
+        'gallery-4',
+        'gallery-1',
+        'gallery-2',
+        'gallery-3',
+        'gallery-4',
       ],
     },
   },

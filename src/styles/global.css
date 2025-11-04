@@ -8,12 +8,12 @@
 @theme {
   --font-family: 'Sofia Sans', 'Apple Color Emoji',sans-serif;
   --color-primary: #e5dabd;
-  --color-back: #eee7d5;
+  --color-back: #E5DABD;
   --color-text: #2f281c;
   --color-secondary: #3e512d;
-  --color-accent-1: #eaae06;
-  --color-accent-2: #6db148;
-  --color-accent-3: #c52351;
+  --color-accent-1: #FCB102;
+  --color-accent-2: #147F00;
+  --color-accent-3: #FF0101;
   --color-paragraph: #6A6A6A;
   --breakpoint-xs: 25rem;
   --breakpoint-3xl: 106rem;

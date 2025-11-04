@@ -2,6 +2,7 @@
 import en from '../../i18n/en';
 import es from '../../i18n/es';
 import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../sections/main/Gallery.astro';
 import Hero from '../../sections/main/Hero.astro';
 import Service from '../../sections/main/Service.astro';
 import type { Language } from '../../types/language.type';
@@ -18,4 +19,5 @@ const t = translations[lang];
 <Layout lang={lang} t={t}>
   <Hero content={t.main.hero} />
   <Service content={t.main.service}/>
+  <Gallery content={t.main.gallery}/>
 </Layout>

@@ -10,8 +10,9 @@ const { content } = Astro.props as Props;
 ---
 
 <section
-  class="bg-back w-full min-h-[637px] flex items-center justify-center overflow-y-visible relative"
+  class="bg-white w-full min-h-[637px] flex items-center justify-center overflow-y-visible relative"
 >
+  <img src="/header.webp" alt="Header de Los Amecas" height="97" width="1509" class="absolute w-screen h-auto top-0 right-0 z-10" />
   <div
     class="w-full h-full overflow-hidden rounded-bl-[80px] sm:rounded-bl-[100px] lg:rounded-bl-[130px] xl:rounded-bl-[180px]"
   >
@@ -20,13 +21,19 @@ const { content } = Astro.props as Props;
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex justify-center sm:justify-end items-center absolute bottom-0"
   >
-
-    <div
-      class="flex justify-center items-center gap-[29px] translate-y-1/2 "
-    >
-      <div class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"></div>
-      <div class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"></div>
-      <div class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"></div>
+    <div class="flex justify-center items-center gap-[29px] translate-y-1/2">
+      <div
+        class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"
+      >
+      </div>
+      <div
+        class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"
+      >
+      </div>
+      <div
+        class="w-24 sm:w-[120px] md:w-40 h-24 sm:h-[120px] md:h-40 bg-slate-300 rounded-full"
+      >
+      </div>
     </div>
   </div>
 </section>

@@ -4,6 +4,12 @@ import { Icon } from 'astro-icon/components';
 interface Props {
   /** Texto del botón. Si no se pasa, se renderiza el slot */
   text?: string;
+  /** Si se pasa, el componente renderiza un enlace `<a>` en lugar de `<button>` */
+  href?: string;
+  /** target para el enlace (ej. `_blank`) */
+  target?: string;
+  /** rel para el enlace; por defecto se aplica `noopener noreferrer` cuando target === '_blank' */
+  rel?: string;
   /** Clase base para el botón (layout, paddings, rounded, etc) */
   baseBtnClass?: string;
   /** Clases adicionales que el usuario quiera aplicar (border, bg color, etc) */
@@ -25,6 +31,9 @@ const {
   textClass = '',
   baseIconClass = 'h-[18px] w-[18px]',
   iconClass = '',
+  href,
+  target,
+  rel,
 } = Astro.props as Props;
 
 // Construir clases finales
@@ -33,7 +42,21 @@ const paragraphClasses = `${baseTextClass} ${textClass}`.trim();
 const iconClasses = `${baseIconClass} ${iconClass}`.trim();
 ---
 
-<button type="button" class={buttonClasses}>
-  {text ? <p class={paragraphClasses}>{text}</p> : <slot />}
-  <Icon name={'arrow-d'} class={iconClasses} />
-</button>
+{
+  href ? (
+    <a
+      href={href}
+      class={buttonClasses}
+      target={target}
+      rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
+    >
+      {text ? <p class={paragraphClasses}>{text}</p> : <slot />}
+      <Icon name={'arrow-d'} class={iconClasses} />
+    </a>
+  ) : (
+    <button type="button" class={buttonClasses}>
+      {text ? <p class={paragraphClasses}>{text}</p> : <slot />}
+      <Icon name={'arrow-d'} class={iconClasses} />
+    </button>
+  )
+}
