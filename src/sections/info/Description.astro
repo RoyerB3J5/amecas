@@ -16,15 +16,21 @@ const { content } = Astro.props as Props;
     style="--fondo-color:#FF0101; --wave-color:#FCB102; --dots-color:#FF0101"
   />
   <div
-    class="pt-50 pb-[89px] w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center relative gap-20"
+    class="pt-[100px] md:pt-50 pb-[89px] w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center relative gap-20"
   >
-    <div class="w-full flex justify-between items-center">
+    <div
+      class="w-full flex flex-col lg:flex-row justify-between items-center gap-8"
+    >
       <p
-        class="text-[16px] leading-[140%] font-light max-w-[468px]"
+        class="text-[16px] leading-[140%] font-light max-w-[468px] order-2 lg:order-1"
         set:html={content.text}
+        data-aos="fade-right"
+        data-aos-offset="200"
       />
       <div
-        class="relative w-full h-[360px] rounded-[40px] bg-accent-2 max-w-[671px]"
+        class="relative w-full h-[250px] md:h-[360px] rounded-[40px] bg-accent-2 max-w-[671px] order-1 lg:order-2"
+        data-aos="fade-left"
+        data-aos-offset="200"
       >
         <img
           src="/info/info-1.webp"
@@ -35,7 +41,11 @@ const { content } = Astro.props as Props;
         />
       </div>
     </div>
-    <div class="w-full justify-center items-center gap-[105px]">
+    <div
+      class="w-full justify-center items-center gap-[105px]"
+      data-aos="zoom-in"
+      data-aos-offset="200"
+    >
       <div class="flex flex-col justify-center items-start gap-[26px]">
         <h2
           set:html={content.schedules.title}

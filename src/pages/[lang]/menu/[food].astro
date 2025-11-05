@@ -90,12 +90,16 @@ const langBase = match ? match[1] : 'en';
           alt="Imagen del Menu de Comida"
           width="324"
           height="195"
-          class="absolute right-0 -bottom-[30%] w-[324px] h-auto"
+          class="absolute right-0 -bottom-full lg:-bottom-[30%] w-[250px] lg:w-[324px] h-auto"
           decoding="async"
           loading="lazy"
         />
       </div>
-      <div class="w-full flex flex-col justify-center items-center text-black">
+      <div
+        class="w-full flex flex-col justify-center items-center text-black"
+        data-aos="flip-left"
+        data-aos-offset="200"
+      >
         <h2 class="text-[36px] font-bold uppercase self-start text-accent-2">
           {foodData.text}
         </h2>
@@ -103,16 +107,21 @@ const langBase = match ? match[1] : 'en';
           class="flex justify-between items-center w-full mt-[51px] font-normal gap-[30px]"
         >
           <p class="text-[20px] leading-[120%]">{foodData.first.name}</p>
-          <div class="flex-1 self-end border-b border-dashed border-black mb-2">
+          <div
+            class="flex-1 self-top lg:self-end border-b border-dashed border-black mb-2"
+          >
           </div>
-          <p class="text-[20px] leading-[120%]">{foodData.first.price}</p>
+          <p
+            class="text-[20px] leading-[120%]"
+            set:html={foodData.first.price}
+          />
         </div>
         <div
           class="flex flex-col justify-center items-center gap-[58px] w-full mt-[59px]"
         >
           {
             foodData.list.map((item) => (
-              <div class="flex justify-between items-end w-full gap-[30px]">
+              <div class="flex justify-between items-center w-full gap-2 md:gap-[30px]">
                 <div class="flex flex-col justify-center items-start gap-2.5">
                   <p class="text-[20px] leading-[120%] font-bold">
                     {item.name}
@@ -121,7 +130,7 @@ const langBase = match ? match[1] : 'en';
                     {item.description}
                   </p>
                 </div>
-                <div class="flex-1 self-end border-b border-dashed border-black mb-1" />
+                <div class="flex-1 self-center border-b border-dashed border-black/80 mb-1 mx-3 min-w-10" />
                 <p class="text-[24px] leading-[120%]"> ${item.price}</p>
               </div>
             ))

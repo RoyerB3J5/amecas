@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Button from './Button.astro';
+import ChangeLanguage from './ChangeLanguage.astro';
 
 type Translations = typeof import('../i18n/en').default;
 type HeaderContent = Translations['header'];
@@ -34,9 +35,10 @@ const lang = match ? match[1] : 'en';
     </a>
 
     <div class="flex justify-center items-center gap-2">
+      <ChangeLanguage />
       <Button
         text={content?.button}
-        extraBtnClass="border border-black px-2.5 sm:px-6"
+        extraBtnClass="border border-black px-2.5 sm:px-6 hidden sm:flex"
         textClass="text-[16px] uppercase text-black"
         iconClass=" text-black hidden sm:block"
       />

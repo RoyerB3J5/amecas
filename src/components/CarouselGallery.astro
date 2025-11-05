@@ -10,11 +10,8 @@ interface Props {
 
 const { galleryItems, interval = 8000 } = Astro.props as Props;
 
-// Dividir las imágenes en grupos de 6 para cada slide
-const slides = [];
-for (let i = 0; i < galleryItems.length; i += 6) {
-  slides.push(galleryItems.slice(i, i + 6));
-}
+// Render each gallery item as its own slide; grouping is handled client-side
+// (responsive grouping: lg=6, sm..lg=4, xs=2)
 ---
 
 <div
@@ -27,36 +24,28 @@ for (let i = 0; i < galleryItems.length; i += 6) {
       class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track h-full w-full"
     >
       {
-        slides.map((slideImages, slideIndex) => (
-          <div class="shrink-0 w-full h-full flex items-center justify-center relative ">
-            <div class="w-full max-w-[1200px] mx-auto">
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[50px] w-full">
-                {slideImages.map((item, index) => (
-                  <div class="flex justify-center">
-                    <svg
-                      viewBox="0 0 387 187"
-                      width="100%"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="max-w-[387px] h-auto"
-                    >
-                      <defs>
-                        <clipPath id={`wavyClip-${slideIndex}-${index}`}>
-                          <path d="M0 187C0.900685 181.273 3.07163 175.772 6.45794 171.091C12.0723 163.33 14.4876 153.111 12.9537 143.254C10.7992 129.41 16.3223 115.479 26.9174 108.032L27.7573 107.441C35.336 102.115 40.5395 93.4084 42.0653 83.5026C44.2036 69.6221 53.4653 58.4956 65.6367 55.1854L66.8724 54.8499C75.6512 52.4623 83.1545 46.0804 87.5901 37.2293C93.8236 24.7906 105.912 17.559 118.564 18.7003L119.579 18.7913C128.689 19.6131 137.705 16.232 144.555 9.42461C154.247 -0.20748 168.175 -2.65158 180.094 2.99552C188.584 7.01856 198.415 7.01856 206.906 2.99552C218.825 -2.65159 232.753 -0.20749 242.445 9.42461C249.295 16.232 258.311 19.6131 267.421 18.7913L268.436 18.7003C281.088 17.559 293.176 24.7905 299.41 37.2293C303.845 46.0803 311.349 52.4623 320.128 54.8499L321.363 55.1853C333.535 58.4956 342.796 69.6221 344.935 83.5026C346.46 93.4084 351.664 102.115 359.243 107.441L360.083 108.032C370.678 115.479 376.201 129.41 374.046 143.254C372.512 153.111 374.928 163.33 380.542 171.091C383.928 175.772 386.099 181.273 387 187L0 187Z" />
-                        </clipPath>
-                      </defs>
+        galleryItems.map((item: GalleryItem, index: number) => (
+          <div class="gallery-item flex justify-center p-2">
+            <svg
+              viewBox="0 0 387 187"
+              width="100%"
+              xmlns="http://www.w3.org/2000/svg"
+              class="max-w-[387px] h-auto"
+            >
+              <defs>
+                <clipPath id={`wavyClip-${index}`}>
+                  <path d="M0 187C0.900685 181.273 3.07163 175.772 6.45794 171.091C12.0723 163.33 14.4876 153.111 12.9537 143.254C10.7992 129.41 16.3223 115.479 26.9174 108.032L27.7573 107.441C35.336 102.115 40.5395 93.4084 42.0653 83.5026C44.2036 69.6221 53.4653 58.4956 65.6367 55.1854L66.8724 54.8499C75.6512 52.4623 83.1545 46.0804 87.5901 37.2293C93.8236 24.7906 105.912 17.559 118.564 18.7003L119.579 18.7913C128.689 19.6131 137.705 16.232 144.555 9.42461C154.247 -0.20748 168.175 -2.65158 180.094 2.99552C188.584 7.01856 198.415 7.01856 206.906 2.99552C218.825 -2.65159 232.753 -0.20749 242.445 9.42461C249.295 16.232 258.311 19.6131 267.421 18.7913L268.436 18.7003C281.088 17.559 293.176 24.7905 299.41 37.2293C303.845 46.0803 311.349 52.4623 320.128 54.8499L321.363 55.1853C333.535 58.4956 342.796 69.6221 344.935 83.5026C346.46 93.4084 351.664 102.115 359.243 107.441L360.083 108.032C370.678 115.479 376.201 129.41 374.046 143.254C372.512 153.111 374.928 163.33 380.542 171.091C383.928 175.772 386.099 181.273 387 187L0 187Z" />
+                </clipPath>
+              </defs>
 
-                      <image
-                        href={item.imgSrc}
-                        width="387"
-                        height="187"
-                        preserveAspectRatio="xMidYMid slice"
-                        clip-path={`url(#wavyClip-${slideIndex}-${index})`}
-                      />
-                    </svg>
-                  </div>
-                ))}
-              </div>
-            </div>
+              <image
+                href={item.imgSrc}
+                width="387"
+                height="187"
+                preserveAspectRatio="xMidYMid slice"
+                clip-path={`url(#wavyClip-${index})`}
+              />
+            </svg>
           </div>
         ))
       }
@@ -69,7 +58,7 @@ for (let i = 0; i < galleryItems.length; i += 6) {
       <div class="flex-1 bg-[#C0C0C0] rounded-full h-2 backdrop-blur-sm">
         <div
           class="hero-carousel-progress bg-accent-3 h-2 rounded-full transition-all duration-500 ease-out"
-          style="width: 33.33%"
+          style="width: 0%"
         >
         </div>
       </div>
@@ -162,19 +151,72 @@ for (let i = 0; i < galleryItems.length; i += 6) {
       }
 
       const setup = () => {
-        // Solo crear clones si hay más de un slide
+        function getItemsPerView() {
+          const w = window.innerWidth;
+          if (w >= 1024) return 6; // lg and up -> 6 per slide
+          if (w >= 640) return 4; // sm..lg -> 4 per slide
+          return 2; // xs -> 2 per slide
+        }
+
+        // cleanup previous auto
+        if (carousel._heroAuto) {
+          clearInterval(carousel._heroAuto);
+          carousel._heroAuto = null;
+        }
+
+        // gather item nodes
+        const itemNodes = Array.from(track.querySelectorAll('.gallery-item'));
+
+        if (itemNodes.length === 0) return;
+
+        // remove everything from track (we'll rebuild slides)
+        track.innerHTML = '';
+
+        const itemsPerView = getItemsPerView();
+
+        // build slides: each slide contains up to itemsPerView items and uses the original grid layout
+        const slidesBuilt = [];
+        for (let i = 0; i < itemNodes.length; i += itemsPerView) {
+          const slide = document.createElement('div');
+          slide.className =
+            'shrink-0 w-full h-full flex items-center justify-center relative';
+
+          const inner = document.createElement('div');
+          inner.className = 'w-full max-w-[1200px] mx-auto';
+
+          const grid = document.createElement('div');
+          grid.className =
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[50px] w-full';
+
+          const chunk = itemNodes.slice(i, i + itemsPerView);
+          chunk.forEach((n) => {
+            // ensure the item is styled correctly inside grid
+            n.classList.remove('shrink-0');
+            grid.appendChild(n);
+          });
+
+          inner.appendChild(grid);
+          slide.appendChild(inner);
+          track.appendChild(slide);
+          slidesBuilt.push(slide);
+        }
+
+        // now slides are the direct children of track
+        slides = Array.from(track.children);
+
+        // clone first and last for infinite wrap
         if (slides.length > 1) {
           const firstClone = slides[0].cloneNode(true);
           const lastClone = slides[slides.length - 1].cloneNode(true);
+          firstClone.classList.add('clone');
+          lastClone.classList.add('clone');
           track.appendChild(firstClone);
           track.insertBefore(lastClone, track.firstChild);
+          slides = Array.from(track.children);
         }
-
-        slides = Array.from(track.children);
 
         let currentIndex = slides.length > 1 ? 1 : 0;
         let isTransitioning = false;
-        let autoSlide;
 
         function getSlideWidth() {
           return slides[0].getBoundingClientRect().width;
@@ -182,31 +224,21 @@ for (let i = 0; i < galleryItems.length; i += 6) {
 
         function updateProgress() {
           if (slides.length <= 1) return;
-
+          const realSlides = slides.filter(
+            (s) => !s.classList.contains('clone')
+          ).length;
           let realIndex = currentIndex - 1;
-          if (currentIndex === 0) realIndex = slides.length - 3;
+          if (currentIndex === 0) realIndex = realSlides - 1;
           else if (currentIndex === slides.length - 1) realIndex = 0;
-
-          // Calcular progreso (33.33% por slide)
-          const progressPercentage =
-            ((realIndex + 1) / (slides.length - 2)) * 100;
-
-          if (progressBar) {
-            progressBar.style.width = `${progressPercentage}%`;
-          }
-
-          if (counter) {
-            counter.textContent = (realIndex + 1).toString();
-          }
+          const progressPercentage = ((realIndex + 1) / realSlides) * 100;
+          if (progressBar) progressBar.style.width = `${progressPercentage}%`;
         }
 
         function goTo(index, smooth = true) {
           if (slides.length <= 1) return;
-
           const maxIndex = slides.length - 1;
           if (index < 0) index = 0;
           if (index > maxIndex) index = maxIndex;
-
           if (isTransitioning && smooth) return;
           track.style.transition = smooth
             ? 'transform 0.5s ease-in-out'
@@ -217,34 +249,59 @@ for (let i = 0; i < galleryItems.length; i += 6) {
           updateProgress();
         }
 
-        if (slides.length > 1) {
-          track.addEventListener('transitionend', () => {
-            if (slides[currentIndex] === slides[0])
-              goTo(slides.length - 2, false);
-            if (slides[currentIndex] === slides[slides.length - 1])
-              goTo(1, false);
-            isTransitioning = false;
-          });
-        }
+        if (carousel._onTrans)
+          track.removeEventListener('transitionend', carousel._onTrans);
+        const onTrans = () => {
+          const realSlides = slides.filter(
+            (s) => !s.classList.contains('clone')
+          ).length;
+          if (slides[currentIndex] === slides[0]) {
+            // jumped to prepended clone -> move to last real
+            currentIndex = realSlides;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+          }
+          if (slides[currentIndex] === slides[slides.length - 1]) {
+            // jumped to appended clone -> move to first real
+            currentIndex = 1;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+          }
+          isTransitioning = false;
+        };
+        carousel._onTrans = onTrans;
+        track.addEventListener('transitionend', onTrans);
 
-        prevBtn?.addEventListener('click', () => {
+        if (carousel._prevHandler && prevBtn)
+          prevBtn.removeEventListener('click', carousel._prevHandler);
+        if (carousel._nextHandler && nextBtn)
+          nextBtn.removeEventListener('click', carousel._nextHandler);
+
+        carousel._prevHandler = () => {
           goTo(currentIndex - 1);
           resetAuto();
-        });
-
-        nextBtn?.addEventListener('click', () => {
+        };
+        carousel._nextHandler = () => {
           goTo(currentIndex + 1);
           resetAuto();
-        });
+        };
+        prevBtn?.addEventListener('click', carousel._prevHandler);
+        nextBtn?.addEventListener('click', carousel._nextHandler);
 
         function startAuto() {
           if (slides.length > 1) {
-            autoSlide = setInterval(() => goTo(currentIndex + 1), intervalMs);
+            carousel._heroAuto = setInterval(
+              () => goTo(currentIndex + 1),
+              intervalMs
+            );
           }
         }
 
         function stopAuto() {
-          clearInterval(autoSlide);
+          if (carousel._heroAuto) {
+            clearInterval(carousel._heroAuto);
+            carousel._heroAuto = null;
+          }
         }
 
         function resetAuto() {
@@ -252,52 +309,51 @@ for (let i = 0; i < galleryItems.length; i += 6) {
           startAuto();
         }
 
-        carousel.addEventListener('mouseenter', stopAuto, { passive: true });
-        carousel.addEventListener('mouseleave', startAuto, { passive: true });
-
-        // Touch support
+        // touch
+        if (carousel._touchStart && track)
+          track.removeEventListener('touchstart', carousel._touchStart);
+        if (carousel._touchEnd && track)
+          track.removeEventListener('touchend', carousel._touchEnd);
         let startX = 0,
           deltaX = 0;
+        carousel._touchStart = (e) => {
+          startX = e.touches[0].clientX;
+          stopAuto();
+        };
+        carousel._touchEnd = (e) => {
+          deltaX = e.changedTouches[0].clientX - startX;
+          if (Math.abs(deltaX) > 50) {
+            const dir = deltaX < 0 ? 1 : -1;
+            goTo(currentIndex + dir);
+          }
+          resetAuto();
+        };
+        track.addEventListener('touchstart', carousel._touchStart, {
+          passive: true,
+        });
+        track.addEventListener('touchend', carousel._touchEnd, {
+          passive: true,
+        });
 
-        track.addEventListener(
-          'touchstart',
-          (e) => {
-            startX = e.touches[0].clientX;
-            stopAuto();
-          },
-          { passive: true }
-        );
-
-        track.addEventListener(
-          'touchend',
-          (e) => {
-            deltaX = e.changedTouches[0].clientX - startX;
-            if (Math.abs(deltaX) > 50) {
-              const dir = deltaX < 0 ? 1 : -1;
-              goTo(currentIndex + dir);
-            }
-            resetAuto();
-          },
-          { passive: true }
-        );
-
-        // Mouse drag support
-        let isDragging = false;
-        let dragStartX = 0;
-        let dragDelta = 0;
-
-        function onMouseMove(e) {
+        // mouse drag
+        if (carousel._mouseMove)
+          window.removeEventListener('mousemove', carousel._mouseMove);
+        if (carousel._mouseUp)
+          window.removeEventListener('mouseup', carousel._mouseUp);
+        let isDragging = false,
+          dragStartX = 0,
+          dragDelta = 0;
+        carousel._mouseMove = (e) => {
           if (!isDragging) return;
           dragDelta = e.clientX - dragStartX;
           const translate = -getSlideWidth() * currentIndex + dragDelta;
           track.style.transform = `translateX(${translate}px)`;
-        }
-
-        function onMouseUp() {
+        };
+        carousel._mouseUp = () => {
           if (!isDragging) return;
           isDragging = false;
-          window.removeEventListener('mousemove', onMouseMove);
-          window.removeEventListener('mouseup', onMouseUp);
+          window.removeEventListener('mousemove', carousel._mouseMove);
+          window.removeEventListener('mouseup', carousel._mouseUp);
           if (Math.abs(dragDelta) > 50) {
             const dir = dragDelta < 0 ? 1 : -1;
             goTo(currentIndex + dir);
@@ -306,8 +362,7 @@ for (let i = 0; i < galleryItems.length; i += 6) {
           }
           dragDelta = 0;
           resetAuto();
-        }
-
+        };
         track.addEventListener('mousedown', (e) => {
           if (e.button !== 0) return;
           isDragging = true;
@@ -315,23 +370,25 @@ for (let i = 0; i < galleryItems.length; i += 6) {
           dragDelta = 0;
           stopAuto();
           track.style.transition = 'none';
-          window.addEventListener('mousemove', onMouseMove);
-          window.addEventListener('mouseup', onMouseUp);
+          window.addEventListener('mousemove', carousel._mouseMove);
+          window.addEventListener('mouseup', carousel._mouseUp);
           e.preventDefault();
         });
 
         function init() {
           slides = Array.from(track.children);
-          if (slides.length > 1) {
-            goTo(1, false);
-          }
+          if (slides.length > 1) goTo(currentIndex, false);
           updateProgress();
         }
 
-        window.addEventListener(
-          'resize',
-          debounce(() => init(), 120)
-        );
+        // rebuild on resize
+        if (!carousel._resizeAdded) {
+          window.addEventListener(
+            'resize',
+            debounce(() => setup(), 120)
+          );
+          carousel._resizeAdded = true;
+        }
 
         init();
         startAuto();
@@ -368,7 +425,7 @@ for (let i = 0; i < galleryItems.length; i += 6) {
 
 <style>
   .hero-carousel-progress {
-    background: linear-gradient(90deg, #FF0101 0%, #FF0101 100%);
+    background: linear-gradient(90deg, #ff0101 0%, #ff0101 100%);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 

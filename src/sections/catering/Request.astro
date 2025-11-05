@@ -8,7 +8,7 @@ const { content } = Astro.props as Props;
 ---
 
 <section
-  class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-10 mb-[88px]"
+  class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-10 mb-12 md:mb-[88px]"
 >
   <h2
     set:html={content.title}
@@ -178,9 +178,9 @@ const { content } = Astro.props as Props;
     <div
       class="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-[51px] w-full"
     >
-      <div class="w-full md:w-[565px] h-[572px] bg-accent-3"></div>
+      <div class="w-full md:w-[565px] h-[572px] bg-accent-3 order-2 md:order-1"></div>
       <div
-        class="flex flex-col justify-center items-start gap-10 md:gap-[63px]"
+        class="flex flex-col justify-center items-start gap-10 md:gap-[63px] order-1 md:order-2"
       >
         <div class="flex flex-col justify-center items-start gap-8">
           <div class="flex flex-col justify-center items-start gap-4">

@@ -24,14 +24,14 @@ const { content } = Astro.props as Props;
     </div>
   </div>
   <div
-    class="w-full max-w-screen xl:w-[1211px] px-6 xl:pl-0 h-full pt-[156px] flex flex-col justify-center items-center gap-[25px] z-20 pb-8"
+    class="w-full max-w-screen xl:w-[1211px] px-6 xl:pl-0 h-full pt-[156px] flex flex-col justify-center items-center gap-[25px] z-20 pb-8" data-aos="flip-up" data-aos-offset="200"
   >
     <p class="text-[24px] uppercase leading-[110%] font-normal text-white">
       INFO
     </p>
     <h1
       set:html={content.title}
-      class="text-[64px] font-bold leading-[100px] uppercase text-white"
+      class="text-[56px] md:text-[64px] font-bold leading-[70px] md:leading-[100px] uppercase text-white text-center"
     />
     <Button
       text={content.button}

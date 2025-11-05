@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div
+  class="flex items-center gap-3 md:gap-1.5"
+  role="group"
+  aria-label="Cambiar idioma"
+>
+  <button
+    type="button"
+    aria-label="Cambiar a Español"
+    title="Español"
+    class="rounded-full cursor-pointer overflow-hidden h-10 w-10 inline-flex items-center justify-center p-0 hover:scale-105 transition-transform duration-200 ease-in-out"
+    data-lang="es"
+  >
+    <img
+      src="/es.webp"
+      alt="Bandera de España"
+      class="h-full w-auto flag-shadow object-cover"
+      decoding="async"
+      width="3415"
+      height="1793"
+    />
+    <span class="sr-only">Español</span>
+  </button>
+  <button
+    type="button"
+    aria-label="Change to English"
+    title="English"
+    data-lang="en"
+    class="rounded-full cursor-pointer overflow-hidden h-10 w-10 inline-flex items-center justify-center p-0 hover:scale-105 transition-transform duration-200 ease-in-out"
+  >
+    <img
+      src="/usa.webp"
+      alt="Bandera de Inglaterra"
+      class="h-full w-auto flag-shadow object-cover object-[20%_0%]"
+      decoding="async"
+      width="3415"
+      height="1793"
+    />
+    <span class="sr-only">English</span>
+  </button>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Subtle shadow and slight rounding for flags to improve contrast on colored backgrounds */
+  .flag-shadow {
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.28),
+      0 0 0 2px rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    display: inline-block;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('button[data-lang]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      sessionStorage.setItem('langScroll', window.scrollY);
+      const newPath = window.location.pathname.replace(
+        /^\/(es|en)/,
+        `/${lang}`
+      );
+      window.location.href = newPath;
+    });
+
+    // Agregar soporte para teclado
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+</script>
+<script is:inline>
+  // Restauración de posición con prevención de parpadeo
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedPosition = sessionStorage.getItem('langScroll');
+
+    if (savedPosition !== null) {
+      // Restaurar posición antes de mostrar contenido
+      window.scrollTo({
+        top: parseInt(savedPosition, 10),
+        behavior: 'instant',
+      });
+      sessionStorage.removeItem('langScroll');
+    }
+
+    // Mostrar contenido después de restaurar posición
+    document.body.classList.add('visible');
+  });
+</script>

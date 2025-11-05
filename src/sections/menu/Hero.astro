@@ -26,6 +26,7 @@ const lang = match ? match[1] : 'en';
   />
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-5 md:gap-[26px] relative z-30 h-full"
+    data-aos="zoom-in" data-aos-offset="200"
   >
     <div
       class="flex flex-col justify-center items-start w-full relative gap-[26px]"
@@ -63,12 +64,12 @@ const lang = match ? match[1] : 'en';
     </div>
     <div class="flex w-full flex-col md:flex-row justify-between items-center">
       <p
-        class="text-[16px] font-normal leading-[140%] max-w-[454px] text-white"
+        class="text-[16px] font-normal leading-[140%] max-w-[400px] lg:max-w-[454px] text-white"
       >
         {content.text}
       </p>
       <div
-        class="relative md:absolute flex justify-center items-center right-6 md:right-28 z-20"
+        class="relative md:absolute flex justify-center items-center right-6 xl:right-28 z-20"
       >
         <div class="relative">
           <img
@@ -85,7 +86,7 @@ const lang = match ? match[1] : 'en';
             alt="Imagen 1"
             width="283"
             height="284"
-            class="w-60 md:w-[233px] h-auto absolute z-10 -bottom-32 -right-[70px] md:-right-20"
+            class="w-60 md:w-[200px] xl:w-[233px] h-auto absolute z-10 -bottom-32 -right-[70px] md:right-0 xl:-right-20"
             decoding="async"
             loading="eager"
           />

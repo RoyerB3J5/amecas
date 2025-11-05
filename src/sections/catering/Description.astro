@@ -17,15 +17,15 @@ const { content } = Astro.props as Props;
     style="--fondo-color:#147F00; --wave-color:#FCB102; --dots-color:#FF0101"
   />
   <div
-    class="py-40 w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-[69px] pb-[90px] relative"
+    class="pt-20 lg:pt-40 w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-[69px] pb-[90px] relative"
   >
-    <div class="flex flex-col justify-center items-center gap-[50px]">
+    <div class="flex flex-col justify-center items-center gap-[50px]" data-aos="fade-left" data-aos-offset="200">
       <h2
         class="text-[36px] text-accent-2 font-extrabold uppercase leading-[120%] text-center"
         set:html={content.section1.title}
       />
       <div
-        class="flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-[50px]"
+        class="flex flex-col lg:flex-row justify-center items-center gap-10 md:gap-[50px] w-full"
       >
         <p
           class="text-[16px] text-paragraph leading-[140%] max-w-[425px]"
@@ -58,13 +58,14 @@ const { content } = Astro.props as Props;
     </div>
     <div
       class="w-full flex flex-col md:flex-row justify-center items-center gap-[41px]"
+      data-aos="fade-right" data-aos-offset="200"
     >
       <img
         src="/catering/catering-3.webp"
         alt="Imagen de Catering"
         width="1138"
         height="742"
-        class="w-[462px] h-auto rounded-[20px]"
+        class="w-full sm:w-[350px] lg:w-[462px] h-auto rounded-[20px]"
         decoding="async"
         loading="lazy"
       />

@@ -62,18 +62,21 @@ export default {
           button: 'ver más',
           image: 'order',
           color: 'bg-accent-1',
+          href: '#',
         },
         {
           label: 'Catering',
           button: 'ver más',
           image: 'catering',
           color: 'bg-accent-2',
+          href: 'catering',
         },
         {
           label: 'Menú',
           button: 'ver más',
           image: 'menu-2',
           color: 'bg-accent-3',
+          href: 'menu',
         },
       ],
     },
@@ -84,10 +87,10 @@ export default {
         'gallery-2',
         'gallery-3',
         'gallery-4',
-        'gallery-5',
-        'gallery-6',
-        'gallery-7',
-        'gallery-8',
+        'gallery-1',
+        'gallery-2',
+        'gallery-3',
+        'gallery-4',
       ],
     },
     testimony: {
@@ -392,7 +395,7 @@ export default {
       link: '',
       first: {
         name: 'Ostiones crudos',
-        price: 'DOCENA $29.99  ½ DOCENA $19.99',
+        price: 'DOCENA $29.99 <br class="block lg:hidden"/> ½ DOCENA $19.99',
       },
       list: [
         {

@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Button from '../../components/Button.astro';
 
 type Translations = typeof import('../../i18n/es').default;
@@ -8,10 +7,17 @@ interface Props {
   content: ServiceContent;
 }
 const { content } = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
 ---
 
 <section
   class="bg-white pt-[70px] md:pt-[39px] flex flex-col justify-center items-center w-full"
+  data-aos="zoom-in-down"
+  data-aos-offset="200"
 >
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-[62px]"
@@ -27,7 +33,7 @@ const { content } = Astro.props as Props;
       </h2>
     </div>
     <div
-      class="flex flex-col md:flex-row justify-center items-center gap-6 w-full mb-14 md:mb-32"
+      class="flex flex-col md:flex-row justify-center items-center gap-6 w-full mb-14 md:mb-16"
     >
       {
         content.list.map((item) => (
@@ -42,6 +48,7 @@ const { content } = Astro.props as Props;
               extraBtnClass="border border-white px-6"
               textClass="text-[16px] uppercase text-white"
               iconClass=" text-white hidden sm:block"
+              href={`/${lang}/${item.href}`}
             />
             <img
               src={`/${item.image}.webp`}

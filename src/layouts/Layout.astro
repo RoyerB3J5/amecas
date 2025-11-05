@@ -28,7 +28,6 @@ const { lang, t } = Astro.props;
     <style is:inline>
       body {
         visibility: hidden;
-        font-family: 'Poppins', Arial, sans-serif;
       }
       body.visible {
         visibility: visible;
@@ -45,37 +44,37 @@ const { lang, t } = Astro.props;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <meta name="generator" content={Astro.generator} />
-    <title>MG Riox Plumbing</title>
+    <title>Los Amecas - Restaurante y Taquería</title>
     <meta
       name="description"
-      content="MG Riox Plumbing - Experts in plumbing solutions and comprehensive services for homes and businesses. Quality and reliability within your reach."
+      content="Los Amecas has been dedicated to bringing you the true flavors of Mexico, fresh, homemade, and full of heart."
     />
     <!-- SEO additions -->
     <meta
       name="keywords"
-      content="Inkshape, diseño, branding, desarrollo, creatividad, marketing digital, estrategia"
+      content="Los Amecas, catering, eventos, servicios integrales, calidad, confiabilidad"
     />
-    <meta name="author" content="Inkshape Group" />
+    <meta name="author" content="Los Amecas - Restaurante y Taquería" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://inkshapegroup.com/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Inkshape Group - No limits in Art!" />
+    <meta property="og:title" content="Los Amecas" />
     <meta
       property="og:description"
-      content="InkShape Group unifica tecnología, creatividad y pensamiento estratégico en un ecosistema digital cohesionado."
+      content="Los Amecas has been dedicated to bringing you the true flavors of Mexico, fresh, homemade, and full of heart."
     />
     <meta property="og:url" content="https://inkshapegroup.com/" />
     <meta property="og:image" content="/images/hero/fondo.png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@InkshapeGroup" />
-    <meta name="twitter:title" content="Inkshape Group - No limits in Art!" />
+    <meta name="twitter:site" content="@LosAmecas" />
+    <meta name="twitter:title" content="Los Amecas - Restaurante y Taquería" />
     <meta
       name="twitter:description"
-      content="InkShape Group unifica tecnología, creatividad y pensamiento estratégico en un ecosistema digital cohesionado."
+      content="Los Amecas has been dedicated to bringing you the true flavors of Mexico, fresh, homemade, and full of heart."
     />
     <meta name="twitter:image" content="/images/hero/fondo.png" />
 
@@ -84,7 +83,7 @@ const { lang, t } = Astro.props;
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Inkshape Group",
+        "name": "Los Amecas",
         "url": "https://inkshapegroup.com/",
         "logo": "https://inkshapegroup.com/favicon.svg"
       }
@@ -93,13 +92,13 @@ const { lang, t } = Astro.props;
   <body
     class="font-family antialiased overflow-x-hidden bg-[#FFFFFF] flex flex-col justify-center items-center w-screen"
   >
-    <Header content={t?.header}/>
+    <Header content={t?.header} />
     <main class="flex flex-col w-full items-center">
       <slot />
     </main>
     <Baner />
     <Chatbot />
-    <Footer content={t?.footer}/>
+    <Footer content={t?.footer} />
 
     <script>
       import AOS from 'aos';
