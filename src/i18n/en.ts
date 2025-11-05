@@ -90,6 +90,15 @@ export default {
         'gallery-4',
       ],
     },
+    testimony: {
+      title: 'Testimonials',
+      items: [
+        'testimonial-1',
+        'testimonial-1',
+        'testimonial-1',
+        'testimonial-1',
+      ],
+    },
   },
   menu: {
     hero: {
@@ -108,6 +117,7 @@ export default {
     },
     gallery: {
       title1: 'Category',
+      description:"Select what you're looking for",
       menus: [
         {
           label: 'Home Specials',

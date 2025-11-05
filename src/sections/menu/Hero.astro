@@ -15,14 +15,23 @@ const lang = match ? match[1] : 'en';
 ---
 
 <section
-  class="bg-accent-2 h-full min-h-[634px] md:min-h-[434px] flex items-center justify-center relative w-full"
+  class="bg-accent-1 h-full min-h-[634px] md:min-h-[444px] flex items-start justify-center  w-full pt-[147px] relative"
 >
+  <img
+    src="/header-2.webp"
+    alt="Header de Los Amecas"
+    height="97"
+    width="1509"
+    class="absolute w-screen h-auto top-0 right-0 z-10"
+  />
   <div
-    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-5 md:gap-[35px] translate-y-10 relative z-30 h-full min-h-[400px] md:min-h-none"
+    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-5 md:gap-[26px] relative z-30 h-full"
   >
-    <div class="flex justify-center items-center w-full relative flex-col md:flex-row gap-3">
+    <div
+      class="flex flex-col justify-center items-start w-full relative gap-[26px]"
+    >
       <div
-        class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] relative md:absolute left-0"
+        class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px]"
       >
         <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
         <nav class="flex justify-center items-center gap-2 h-4">
@@ -59,7 +68,7 @@ const lang = match ? match[1] : 'en';
         {content.text}
       </p>
       <div
-        class="relative md:absolute flex justify-center items-center right-6 md:right-20 z-20"
+        class="relative md:absolute flex justify-center items-center right-6 md:right-28 z-20"
       >
         <div class="relative">
           <img
@@ -67,31 +76,21 @@ const lang = match ? match[1] : 'en';
             alt="Imagen 2"
             width="366"
             height="264"
-            class="w-[300px] md:w-[366px] h-auto"
-            decoding="async" loading="eager"
+            class="w-[300px] md:w-[320px] h-auto"
+            decoding="async"
+            loading="eager"
           />
           <img
             src="/menu/image-1.webp"
             alt="Imagen 1"
             width="283"
             height="284"
-            class="w-60 md:w-[283px] h-auto absolute z-10 -bottom-40 -right-[70px] md:-right-30 "
-            decoding="async" loading="eager"
+            class="w-60 md:w-[233px] h-auto absolute z-10 -bottom-32 -right-[70px] md:-right-20"
+            decoding="async"
+            loading="eager"
           />
         </div>
       </div>
     </div>
   </div>
-  <img
-    src="/menu-back.webp"
-    alt="Fondo de sección menú"
-    width="335"
-    height="324"
-    class="absolute top-0 right-0 w-[335px] h-auto opacity-30 md:opacity-100"
-    decoding="async" loading="eager"
-  />
-  <Icon
-    name={'ondulade'}
-    class={'absolute bottom-0 lg:-bottom-[5%] xl:-bottom-[12%] w-full h-auto z-20 left-0'}
-  />
 </section>

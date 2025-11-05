@@ -10,7 +10,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 ---
 
 <div
-  class="relative w-full hero-carousel flex flex-col justify-center items-center gap-10"
+  class="relative w-full hero-carousel flex flex-col justify-center items-center gap-[50px]"
   data-interval={interval}
 >
   <!-- Viewport -->
@@ -20,18 +20,18 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
     >
       {
         galleryItems.map((items) => (
-          <div class="shrink-0 w-full md:w-1/2 lg:w-1/4 px-2 md:px-2.5 h-[274px] relative">
+          <div class="shrink-0 w-full md:w-1/2 lg:w-1/3 px-2 h-60 relative">
             {/* Slide content */}
             {/* Cada slide con <section> y fondo de imagen */}
             <section class="w-full h-full flex items-center justify-center relative">
               <img
                 src={`/${items}.webp`}
                 alt="Slide image"
-                width="326"
-                height="257"
+                width="394"
+                height="20"
                 loading="lazy"
                 decoding="async"
-                class="absolute inset-0 w-full h-full object-cover z-20 oobject-center rounded-[15px]"
+                class="absolute inset-0 w-full h-full object-cover z-20 object-center rounded-[15px]"
               />
             </section>
           </div>
@@ -142,7 +142,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
         // helper to detect items per view
         function getItemsPerView() {
           const w = window.innerWidth;
-          if (w >= 1024) return 4; // lg and up -> 4 visible
+          if (w >= 1024) return 3; // lg and up -> 3 visible (this carousel uses 3-per-slide)
           if (w >= 768) return 2; // md -> 2 visible
           return 1; // sm -> 1 visible
         }
@@ -155,7 +155,8 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 
         // recompute responsive values
         let itemsPerView = getItemsPerView();
-        let step = itemsPerView >= 4 ? 2 : itemsPerView;
+        // For the testimonial carousel we want overlapping slides on lg: advance by 1 when showing 3
+        let step = itemsPerView >= 3 ? 1 : itemsPerView;
 
         // Keep originals (non-clone) and remove previous clones
         const originals = Array.from(track.children).filter(
@@ -211,7 +212,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 
           // Recompute itemsPerView and step in case of resize
           itemsPerView = getItemsPerView();
-          step = itemsPerView >= 4 ? 2 : itemsPerView;
+          step = itemsPerView >= 3 ? 1 : itemsPerView;
 
           // Compute realIndex (0-based in originals)
           const cloneCount = itemsPerView;
@@ -426,7 +427,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 
 <style>
   .hero-carousel-progress {
-    background: linear-gradient(90deg, #FF0101 0%, #FF0101 100%);
+    background: linear-gradient(90deg, #ff0101 0%, #ff0101 100%);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 

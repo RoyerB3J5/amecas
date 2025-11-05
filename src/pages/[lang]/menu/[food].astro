@@ -40,8 +40,15 @@ const langBase = match ? match[1] : 'en';
 
 <Layout lang={lang} t={t}>
   <section
-    class="bg-accent-3 py-[142px] pb-[50px] w-full relative flex justify-center items-center"
+    class="bg-primary py-[142px] pb-[50px] w-full relative flex justify-center items-center"
   >
+    <img
+      src="/header-2.webp"
+      alt="Header de Los Amecas"
+      height="97"
+      width="1509"
+      class="absolute w-screen h-auto top-0 right-0 z-10"
+    />
     <div
       class="w-full max-w-screen lg:w-[1211px] px-6 lg:px-0 flex flex-col justify-center items-center gap-[130px]"
     >
@@ -49,7 +56,7 @@ const langBase = match ? match[1] : 'en';
         class="flex flex-col justify-center items-center gap-[72px] w-full relative"
       >
         <div
-          class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] self-start"
+          class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] self-start z-20"
         >
           <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
           <nav class="flex justify-center items-center gap-2 h-4">
@@ -62,7 +69,7 @@ const langBase = match ? match[1] : 'en';
                   <>
                     <a
                       href={`/${langBase}${item.href}`}
-                      class={` uppercase mr-1 text-[15px] leading-4 ${isActive ? 'text-accent-3 font-bold' : 'font-light'}`}
+                      class={` uppercase mr-1 text-[15px] leading-4 cursor-pointer ${isActive ? 'text-accent-3 font-bold' : 'font-light'}`}
                     >
                       {item.label}
                     </a>
@@ -75,8 +82,8 @@ const langBase = match ? match[1] : 'en';
             }
           </nav>
         </div>
-        <h1 class="text-[40px] font-normal leading-[110%] uppercase text-white">
-          Section: <span class="text-accent-1">{foodData.title}</span>
+        <h1 class="text-[40px] font-normal leading-[110%] uppercase text-black">
+          Section: <span class="text-accent-3">{foodData.title}</span>
         </h1>
         <img
           src={`/menu/${foodData.image}.webp`}
@@ -84,18 +91,20 @@ const langBase = match ? match[1] : 'en';
           width="324"
           height="195"
           class="absolute right-0 -bottom-[30%] w-[324px] h-auto"
-          decoding="async" loading="lazy"
+          decoding="async"
+          loading="lazy"
         />
       </div>
-      <div class="w-full flex flex-col justify-center items-center text-white">
-        <h2 class="text-[36px] font-normal uppercase self-start">
+      <div class="w-full flex flex-col justify-center items-center text-black">
+        <h2 class="text-[36px] font-bold uppercase self-start text-accent-2">
           {foodData.text}
         </h2>
         <div
           class="flex justify-between items-center w-full mt-[51px] font-normal gap-[30px]"
         >
           <p class="text-[20px] leading-[120%]">{foodData.first.name}</p>
-          <div class="flex-1 self-end border-b border-dashed border-white mb-2"></div>
+          <div class="flex-1 self-end border-b border-dashed border-black mb-2">
+          </div>
           <p class="text-[20px] leading-[120%]">{foodData.first.price}</p>
         </div>
         <div
@@ -112,7 +121,7 @@ const langBase = match ? match[1] : 'en';
                     {item.description}
                   </p>
                 </div>
-                <div class="flex-1 self-end border-b border-dashed border-white mb-1"></div>
+                <div class="flex-1 self-end border-b border-dashed border-black mb-1" />
                 <p class="text-[24px] leading-[120%]"> ${item.price}</p>
               </div>
             ))
@@ -126,13 +135,5 @@ const langBase = match ? match[1] : 'en';
         />
       </div>
     </div>
-    <img
-      src="/foods.webp"
-      alt="Fondo de sección menú"
-      width="335"
-      height="324"
-      class="absolute top-0 left-0 w-[335px] h-auto opacity-30 md:opacity-100"
-      decoding="async" loading="lazy"
-    />
   </section>
 </Layout>

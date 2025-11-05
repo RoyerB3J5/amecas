@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../sections/main/Gallery.astro';
 import Hero from '../../sections/main/Hero.astro';
 import Service from '../../sections/main/Service.astro';
+import Testimony from '../../sections/main/Testimony.astro';
 import type { Language } from '../../types/language.type';
 export function getStaticPaths() {
   return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
@@ -20,4 +21,5 @@ const t = translations[lang];
   <Hero content={t.main.hero} />
   <Service content={t.main.service}/>
   <Gallery content={t.main.gallery}/>
+  <Testimony content={t.main.testimony}/>
 </Layout>

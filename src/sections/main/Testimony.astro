@@ -1,0 +1,21 @@
+---
+import CarouselTestimonio from '../../components/CarouselTestimonio.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type TestimonyContent = Translations['main']['testimony'];
+interface Props {
+  content: TestimonyContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section class="bg-primary flex justify-center items-center w-full pb-10">
+  <div
+    class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-10"
+  >
+    <h2 class="text-[36px] leading-[120%] font-normal text-start">
+      {content.title}
+    </h2>
+    <CarouselTestimonio galleryItems={content.items} />
+  </div>
+</section>
