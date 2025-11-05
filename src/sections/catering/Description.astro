@@ -21,31 +21,33 @@ const { content } = Astro.props as Props;
   >
     <div class="flex flex-col justify-center items-center gap-[50px]">
       <h2
-        class="text-[36px] text-secondary font-extrabold uppercase leading-[120%] text-center"
+        class="text-[36px] text-accent-2 font-extrabold uppercase leading-[120%] text-center"
         set:html={content.section1.title}
       />
-      <div class="flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-0">
+      <div
+        class="flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-[50px]"
+      >
         <p
-          class="text-[16px] text-paragraph leading-[140%] max-w-[425px] mr-0 md:mr-[42px]"
-        >
-          {content.section1.text1}
-        </p>
+          class="text-[16px] text-paragraph leading-[140%] max-w-[425px]"
+          set:html={content.section1.text1}
+        />
         <div
-          class="h-[214px] w-[263px] bg-accent-2 rounded-[19px] mr-0 md:mr-[63px] relative"
+          class="h-[214px] w-[263px] bg-accent-1 rounded-l-[107px] rounded-tr-[100px] rounded-br-3xl relative"
         >
           <img
-            src="/catering/catering-2.webp"
+            src="/catering/hero.webp"
             alt="Imagen de Catering"
-            width="264"
-            height="215"
-            class="w-[264px] h-auto absolute bottom-10 -right-5"
+            width="1735"
+            height="976"
+            class="w-[289px] max-w-none h-auto absolute bottom-0 right-0"
             decoding="async"
             loading="lazy"
           />
         </div>
-        <p class="text-[16px] leading-[140%] text-paragraph max-w-[418px]">
-          {content.section1.text2}
-        </p>
+        <p
+          class="text-[16px] leading-[140%] text-paragraph max-w-[418px]"
+          set:html={content.section1.text2}
+        />
       </div>
       <Button
         text={content.section1.button}
@@ -54,7 +56,9 @@ const { content } = Astro.props as Props;
         iconClass=" text-white"
       />
     </div>
-    <div class="w-full flex flex-col md:flex-row justify-center items-center gap-[41px]">
+    <div
+      class="w-full flex flex-col md:flex-row justify-center items-center gap-[41px]"
+    >
       <img
         src="/catering/catering-3.webp"
         alt="Imagen de Catering"
@@ -67,17 +71,16 @@ const { content } = Astro.props as Props;
       <div class="flex-1 flex flex-col justify-center items-center gap-[26px]">
         <div class="w-full flex flex-col justify-center items-start gap-5">
           <h3
-            class="text-[32px] font-bold leading-[120%] uppercase text-secondary"
+            class="text-[32px] font-bold leading-[120%] uppercase text-accent-2"
           >
             {content.section2.title1}
           </h3>
-          <p class="text-[16px] leading-[140%] font-light">
-            {content.section2.text1}
+          <p class="text-[16px] leading-[140%] font-light" set:html={content.section2.text1}>
           </p>
         </div>
         <div class="flex flex-col justify-center items-start gap-5 w-full">
           <h4
-            class="text-[24px] font-semibold leading-[120%] uppercase text-secondary"
+            class="text-[24px] font-semibold leading-[120%] uppercase text-accent-2"
           >
             {content.section2.title2}
           </h4>

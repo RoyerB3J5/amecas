@@ -117,7 +117,7 @@ export default {
     },
     gallery: {
       title1: 'Categorias',
-      description:"Selecciona lo que estás buscando",
+      description: 'Selecciona lo que estás buscando',
       menus: [
         {
           label: 'Especiales de la casa',
@@ -540,15 +540,15 @@ export default {
         title:
           'Catering listo para tu <br/> <span class="text-accent-3">próxima fiesta</span>',
         text1:
-          'Celebra tu ocasión especial con el sabor auténtico de Los Amecas Restaurante y Taquería. Nuestro menú de catering lleva el corazón de la tradición mexicana a tu evento con platos caseros preparados frescos todos los días en Orlando. Disfruta de una selección irresistible de tacos con la carne que prefieras: carne asada jugosa, barbacoa sabrosa, al pastor perfectamente sazonado o pollo tierno. Los amantes de los mariscos pueden deleitarse con nuestros famosos tacos de camarón, tacos de pescado, mojarra frita o camarones a la diabla. Cada platillo se prepara con el mismo cuidado y sabor que han hecho de Los Amecas un favorito entre locales y visitantes.',
+          'Celebra tu ocasión especial con el sabor auténtico de Los Amecas Restaurante y Taquería. Nuestro menú de catering lleva el corazón de la tradición mexicana a tu evento con platos caseros preparados frescos todos los días en Orlando. <br/>Disfruta de una selección irresistible de tacos con la carne que prefieras: carne asada jugosa, barbacoa sabrosa, al pastor perfectamente sazonado o pollo tierno. Los amantes de los mariscos pueden deleitarse con nuestros famosos tacos de camarón, tacos de pescado, mojarra frita o camarones a la diabla. Cada platillo se prepara con el mismo cuidado y sabor que han hecho de Los Amecas un favorito entre locales y visitantes.',
         text2:
-          'Llevamos a tu fiesta guacamole recién hecho, totopos crujientes y churros dorados que a tus invitados les encantarán desde el primer bocado. Si organizas un almuerzo de trabajo o una reunión informal, nuestra práctica "Mexican Lunch Box" facilita todo y satisface: cada caja incluye tu elección de plato principal, arroz, frijoles, ensalada y un postre dulce para terminar. Nuestro objetivo es que tu evento se sienta como una verdadera fiesta mexicana. Todo lo que servimos se prepara fresco, se presenta con esmero y se entrega a tiempo.',
+          'Llevamos a tu fiesta guacamole recién hecho, totopos crujientes y churros dorados que a tus invitados les encantarán desde el primer bocado. <br/>Si organizas un almuerzo de trabajo o una reunión informal, nuestra práctica "Mexican Lunch Box" facilita todo y satisface: cada caja incluye tu elección de plato principal, arroz, frijoles, ensalada y un postre dulce para terminar. Nuestro objetivo es que tu evento se sienta como una verdadera fiesta mexicana. Todo lo que servimos se prepara fresco, se presenta con esmero y se entrega a tiempo.',
         button: 'Ver menú',
       },
       section2: {
         title1: 'Interesado',
         text1:
-          'Consulta nuestro menú de catering y completa el formulario a continuación para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso de al menos 24 horas para todos los pedidos de catering, de modo que nuestra cocina pueda preparar todo fresco y listo para tu evento. Una vez enviado, un miembro de nuestro equipo se comunicará contigo para confirmar tu pedido. Si no recibes respuesta en 48 horas, envía un correo a losamecas@gmail.com.',
+          'Consulta nuestro menú de catering y completa el formulario a continuación para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso de al menos 24 horas para todos los pedidos de catering, de modo que nuestra cocina pueda preparar todo fresco y listo para tu evento.<br/> Una vez enviado, un miembro de nuestro equipo se comunicará contigo para confirmar tu pedido. Si no recibes respuesta en 48 horas, envía un correo a losamecas@gmail.com.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
           '3558 S Orange Ave, Orlando, FL 32806 <br/> (407) XXX XXXX <br/> Auténtico sabor mexicano, tradición familiar y los mejores tacos en Orlando. <br/> Cerrado los domingos, pero siempre listos para atender tus fiestas entre semana.',
@@ -672,6 +672,33 @@ export default {
       title: 'NOTES & CONDITIONS',
       description:
         'This form serves as a catering request only. <br/> We require at least 24 hours’ notice for all orders to ensure fresh preparation. <br/> Once submitted, a member of our team will contact you for confirmation. <br/>  If you don’t hear back within 48 hours, please reach out directly at: <br/> <a>📧 losamecas@gmail.com</a> <br/> <a> 📞 (407) XXX-XXXX</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806 <br/>  Authentic Mexican flavor, family tradition, and the best tacos in Orlando.',
+    },
+  },
+  info: {
+    hero: {
+      title:
+        "Bienvenidos a <img src='/plate.webp' alt='Información de Los Amecas' width='64' height='64' class='w-18 h-18'/> Los Amecas <br/> Restaurante y Taquería <img src='/plate.webp' alt='Información de Los Amecas' width='64' height='64' class='w-18 h-18'/>",
+      button: 'Ordena Ya',
+    },
+    description: {
+      text: 'Desde que abrimos nuestras puertas en Orlando, Florida, en Los Amecas nos hemos dedicado a traerte los auténticos sabores de México: frescos, caseros y con mucho corazón. <br/> Nuestra misión es sencilla: servir comida deliciosa y auténtica hecha con cariño, tal como en casa. Cada taco, cada plato y cada salsa se prepara diariamente siguiendo recetas tradicionales que han sido parte de nuestra familia por generaciones.<br/> Desde nuestros famosos tacos de asada, barbacoa y pastor hasta los deliciosos mariscos como camarones a la diabla y mojarra frita, llevamos un pedazo de México a tu mesa en cada bocado. Ya sea que nos visites para el almuerzo, la cena o solicites catering para tu próximo evento, nos aseguramos de que te sientas como en casa. <br/> A nuestros clientes les encanta el servicio amable, las porciones generosas y el ambiente acogedor que hacen de Los Amecas más que un restaurante. Es un lugar donde amigos y familias se reúnen para celebrar, compartir historias y disfrutar de buena comida.',
+      schedules: {
+        title:
+          "Ven y descubre por qué la gente local nos llama <br/> <span class='text-accent-3'>los mejores tacos en Orlando.</span>",
+        hours: {
+          title: 'Horario',
+          content: 'Lunes a sábado: 10:00 AM a 9:30 PM <br/> Domingo: cerrado',
+        },
+        location: {
+          title: 'Ubicación',
+          content: '3558 S Orange Ave, Orlando, FL 32806',
+        },
+        contact: {
+          title: 'Contáctanos',
+          content:
+            'Síguenos en redes sociales para conocer los especiales del día, ver fotos y enterarte de los eventos de la comunidad. <br/>Auténtico sabor mexicano. Tradición familiar. Tu taquería favorita en Orlando.',
+        },
+      },
     },
   },
   footer: {

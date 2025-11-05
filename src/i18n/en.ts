@@ -534,15 +534,15 @@ export default {
         title:
           'Fiesta ready catering for your <br/> <span class="text-accent-3">Next Event</span>',
         text1:
-          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Our catering menu brings the heart of Mexican tradition to your event with homemade dishes prepared fresh every day in Orlando.Enjoy an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, or tender pollo. Seafood lovers can delight in our famous shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is prepared with the same care and flavor that have made Los Amecas a favorite among locals and visitors alike. ',
+          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Our catering menu brings the heart of Mexican tradition to your event with homemade dishes prepared fresh every day in Orlando.<br/>Enjoy an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, or tender pollo. Seafood lovers can delight in our famous shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is prepared with the same care and flavor that have made Los Amecas a favorite among locals and visitors alike. ',
         text2:
-          'We’ll bring to your party freshly made guacamole, crispy tortilla chips, and golden churros that your guests will love from the first bite.If you’re hosting a business lunch or casual gathering, our convenient Mexican Lunch Box makes things simple and satisfying. Each box includes your choice of entrée, rice, beans, salad, and a sweet dessert to finish. Our goal is to make your event feel like a true Mexican fiesta. Everything we serve is made fresh, presented beautifully, and delivered on time because great food brings people together.',
+          'We’ll bring to your party freshly made guacamole, crispy tortilla chips, and golden churros that your guests will love from the first bite.<br/>If you’re hosting a business lunch or casual gathering, our convenient Mexican Lunch Box makes things simple and satisfying. Each box includes your choice of entrée, rice, beans, salad, and a sweet dessert to finish. Our goal is to make your event feel like a true Mexican fiesta. Everything we serve is made fresh, presented beautifully, and delivered on time because great food brings people together.',
         button: 'View - Menu',
       },
       section2: {
         title1: 'Interested',
         text1:
-          'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event. Once submitted, a member of our team will contact you to confirm your order. If you don’t hear from us within 48 hours, please email us at losamecas@gmail.com.',
+          'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event.<br/> Once submitted, a member of our team will contact you to confirm your order. If you don’t hear from us within 48 hours, please email us at losamecas@gmail.com.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
           '3558 S Orange Ave, Orlando, FL 32806 <br/> (407) XXX XXXX <br/> Authentic Mexican flavor, family tradition, and the best tacos in Orlando. <br/> Closed Sundays, but always ready to cater your weekday fiestas.',
@@ -660,6 +660,30 @@ export default {
       description:
         'This form serves as a catering request only. <br/> We require at least 24 hours’ notice for all orders to ensure fresh preparation. <br/> Once submitted, a member of our team will contact you for confirmation. <br/>  If you don’t hear back within 48 hours, please reach out directly at: <br/> <a>📧 losamecas@gmail.com</a> <br/> <a> 📞 (407) XXX-XXXX</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806 <br/>  Authentic Mexican flavor, family tradition, and the best tacos in Orlando.',
     },
+  },
+  info:{
+    hero:{
+      title:"Welcome to <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/> <span class='text-accent-1'>Los Amecas <br/> Restaurante y Taquería</span> <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/>",
+      button:'Order Now',
+    },
+    description:{
+      text:"Since opening our doors in Orlando, Florida, Los Amecas has been dedicated to bringing you the true flavors of Mexico, fresh, homemade, and full of heart. <br/>  Our mission is simple: to serve delicious, authentic food made with love, just like at home. Every taco, every plate, every salsa is prepared daily using traditional recipes that have been part of our family for generations.<br/> From our famous tacos de asada, barbacoa, and pastor to flavorful seafood favorites like camarones a la diabla and mojarra frita, we bring a piece of Mexico to your table with every bite. Whether you’re joining us for lunch, dinner, or catering your next event, we make sure you feel right at home. <br/> Our guests love the friendly service, generous portions, and the cozy atmosphere that make Los Amecas more than a restaurant. It’s a place where friends and families gather to celebrate, share stories, and enjoy good food together.",
+      schedules:{
+        title:"Come and taste why locals call <br/> <span class='text-accent-3'>us the best tacos in Orlando.</span>",
+        hours:{
+          title:"Hours",
+          content:"Monday to Saturday: 10:00 AM to 9:30 PM <br/> Sunday: Close"
+        },
+        location:{
+          title:"Location",
+          content:"3558 S Orange Ave, Orlando, FL 32806"
+        },
+        contact:{
+          title:"Contact us",
+          content:" Follow us on social media for daily specials, photos, and community events. <br/>Authentic Mexican Flavor. Family Tradition. Orlando’s Favorite Taquería."
+        }
+      }
+    }
   },
   footer: {
     part1: {

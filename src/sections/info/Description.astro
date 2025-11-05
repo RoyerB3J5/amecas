@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Translations = typeof import('../../i18n/es').default;
+type DescriptionContent = Translations['info']['description'];
+interface Props {
+  content: DescriptionContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section class="w-full flex justify-center items-center relative">
+  <Icon
+    name={'fondo-menu'}
+    class={'absolute top-0 w-full h-auto z-10 left-0'}
+    style="--fondo-color:#FF0101; --wave-color:#FCB102; --dots-color:#FF0101"
+  />
+  <div
+    class="pt-50 pb-[89px] w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center relative gap-20"
+  >
+    <div class="w-full flex justify-between items-center">
+      <p
+        class="text-[16px] leading-[140%] font-light max-w-[468px]"
+        set:html={content.text}
+      />
+      <div
+        class="relative w-full h-[360px] rounded-[40px] bg-accent-2 max-w-[671px]"
+      >
+        <img
+          src="/info/info-1.webp"
+          alt="Imagen de Grupo de Los Amecas"
+          width="740"
+          height="493"
+          class="absolute bottom-0 rounded-b-[40px] right-0 w-full h-auto"
+        />
+      </div>
+    </div>
+    <div class="w-full justify-center items-center gap-[105px]">
+      <div class="flex flex-col justify-center items-start gap-[26px]">
+        <h2
+          set:html={content.schedules.title}
+          class="text-[32px] uppercase leading-[120%] text-black font-bold"
+        />
+        <div class="flex flex-col justify-center items-start gap-[22px]">
+          <div class="flex flex-col justify-center items-start gap-2">
+            <p class="text-[24px] leading-[120%] uppercase font-bold">
+              {content.schedules.hours.title}
+            </p>
+            <p
+              set:html={content.schedules.hours.content}
+              class="text-[16px] leading-[140%] font-light"
+            />
+          </div>
+          <div class="flex flex-col justify-center items-start gap-2">
+            <p class="text-[24px] leading-[120%] uppercase font-bold">
+              {content.schedules.location.title}
+            </p>
+            <p
+              set:html={content.schedules.location.content}
+              class="text-[16px] leading-[140%] font-light"
+            />
+          </div>
+          <div class="flex flex-col justify-center items-start gap-2">
+            <p class="text-[24px] leading-[120%] uppercase font-bold">
+              {content.schedules.contact.title}
+            </p>
+            <div class="flex flex-col justify-center items-start">
+              <a
+                href="tel:"
+                class="text-[16px] leading-[140%] font-light cursor-pointer hover:text-accent-3 hover:font-medium transform-all duration-300 ease-in-out"
+                >(407) XXX XXXX</a
+              >
+              <a
+                href=""
+                class="text-[16px] leading-[140%] font-light cursor-pointer hover:text-accent-3 hover:font-medium transform-all duration-300 ease-in-out"
+              >
+                losamecas@gmail.com</a
+              >
+              <p
+                set:html={content.schedules.contact.content}
+                class="text-[16px] leading-[140%] font-light"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      src="/info/location.webp"
+      alt="Mapa de ubicacion de Los Amecas"
+      width="1212"
+      height="314"
+      class="w-full h-auto"
+    />
+  </div>
+</section>
