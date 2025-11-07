@@ -7,6 +7,7 @@ import Chatbot from '../components/Chatbot.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Baner from '../components/Baner.astro';
+import Media from '../components/Media.astro';
 
 type Translations = typeof import('../i18n/en').default;
 
@@ -98,6 +99,7 @@ const { lang, t } = Astro.props;
     </main>
     <Baner />
     <Chatbot />
+    <Media/>
     <Footer content={t?.footer} />
 
     <script>

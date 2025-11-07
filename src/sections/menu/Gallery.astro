@@ -10,57 +10,75 @@ const { content } = Astro.props as Props;
 const galleryItems = [
   {
     imgSrc: '/menu/gallery-1.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-2.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-3.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-4.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-5.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-6.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-1.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-2.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-3.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-4.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-5.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-6.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-1.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-2.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-3.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-4.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-5.webp',
+    name: 'Tacos de Carne',
   },
   {
     imgSrc: '/menu/gallery-6.webp',
+    name: 'Tacos de Carne',
   },
 ];
 const currentPath = Astro.url.pathname;
@@ -70,22 +88,26 @@ const match = currentPath.match(/^\/(en|es)/);
 const lang = match ? match[1] : 'en';
 ---
 
-<section
-  class="bg-white w-full flex justify-center items-center relative"
->
+<section class="bg-white w-full flex justify-center items-center relative">
   <Icon
     name={'fondo-menu'}
     class={'absolute top-0 w-full h-auto z-10 left-0'}
-    style="--fondo-color:#FCB102; --wave-color:#147F00; --dots-color:#FCB102"
+    style="--fondo-color:#F4AA02; --wave-color:#8BCE2B; --dots-color:#F4AA02"
   />
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 pt-[100px] md:pt-[121px] pb-15 flex flex-col justify-center items-center gap-[79px]"
   >
-    <div class="w-full flex flex-col justify-center items-start gap-5 border-b border-b-black/30 pb-8 " data-aos="fade-down" data-aos-offset="200">
+    <div
+      class="w-full flex flex-col justify-center items-start gap-5 border-b border-b-black/30 pb-8"
+      data-aos="fade-down"
+      data-aos-offset="200"
+    >
       <h3 class="text-accent-3 text-[24px] font-bold leading-[120%] uppercase">
         {content.title1}
       </h3>
-      <p class="text-[24px] font-bold leading-[120%] uppercase">{content.description}</p>
+      <p class="text-[24px] font-bold leading-[120%] uppercase">
+        {content.description}
+      </p>
       <nav class="flex justify-center items-center gap-8 flex-wrap">
         {
           content.menus.map((item) => (
@@ -104,7 +126,11 @@ const lang = match ? match[1] : 'en';
         }
       </nav>
     </div>
-    <div class="w-full flex flex-col justify-center items-center gap-[50px]" data-aos="fade-up" data-aos-offset="300">
+    <div
+      class="w-full flex flex-col justify-center items-center gap-[50px]"
+      data-aos="fade-up"
+      data-aos-offset="300"
+    >
       <h2
         set:html={content.title}
         class="text-[37px] font-bold text-black leading-[121%] uppercase text-center"

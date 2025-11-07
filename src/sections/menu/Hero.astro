@@ -15,18 +15,23 @@ const lang = match ? match[1] : 'en';
 ---
 
 <section
-  class="bg-accent-1 h-full min-h-[634px] md:min-h-[444px] flex items-start justify-center  w-full pt-[147px] relative"
+  class="bg-accent-1 h-full min-h-[634px] md:min-h-[500px] flex items-start justify-center w-full pt-[147px] relative"
 >
-  <img
-    src="/header-2.webp"
-    alt="Header de Los Amecas"
-    height="97"
-    width="1509"
-    class="absolute w-screen h-auto top-0 right-0 z-10"
-  />
+  <div class="w-full absolute top-0 left-0 z-10">
+    <div class="shrink-0 overflow-hidden relative h-[175px]">
+      <img
+        src="/header-2.webp"
+        alt="Header de Los Amecas"
+        height="97"
+        width="1509"
+        class="absolute inset-0 w-full h-full object-cover object-bottom"
+      />
+    </div>
+  </div>
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-5 md:gap-[26px] relative z-30 h-full"
-    data-aos="zoom-in" data-aos-offset="200"
+    data-aos="zoom-in"
+    data-aos-offset="200"
   >
     <div
       class="flex flex-col justify-center items-start w-full relative gap-[26px]"

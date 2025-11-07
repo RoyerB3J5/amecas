@@ -10,9 +10,11 @@
   --color-primary: #e5dabd;
   --color-back: #E5DABD;
   --color-text: #2f281c;
-  --color-accent-1: #FCB102;
-  --color-accent-2: #147F00;
-  --color-accent-3: #FF0101;
+  --color-accent-1: #F4AA02;
+  --color-accent-2: #8BCE2B;
+  --color-accent-3: #E6007E;
+  --color-accent-4: #47A9FE;
+  --color-accent-5: #A22887;
   --color-paragraph: #6A6A6A;
   --breakpoint-xs: 25rem;
   --breakpoint-3xl: 106rem;

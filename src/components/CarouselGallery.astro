@@ -1,6 +1,7 @@
 ---
 interface GalleryItem {
   imgSrc: string;
+  name: string;
 }
 
 interface Props {
@@ -25,27 +26,49 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
     >
       {
         galleryItems.map((item: GalleryItem, index: number) => (
-          <div class="gallery-item flex justify-center p-2">
-            <svg
-              viewBox="0 0 387 187"
-              width="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              class="max-w-[387px] h-auto"
-            >
-              <defs>
-                <clipPath id={`wavyClip-${index}`}>
-                  <path d="M0 187C0.900685 181.273 3.07163 175.772 6.45794 171.091C12.0723 163.33 14.4876 153.111 12.9537 143.254C10.7992 129.41 16.3223 115.479 26.9174 108.032L27.7573 107.441C35.336 102.115 40.5395 93.4084 42.0653 83.5026C44.2036 69.6221 53.4653 58.4956 65.6367 55.1854L66.8724 54.8499C75.6512 52.4623 83.1545 46.0804 87.5901 37.2293C93.8236 24.7906 105.912 17.559 118.564 18.7003L119.579 18.7913C128.689 19.6131 137.705 16.232 144.555 9.42461C154.247 -0.20748 168.175 -2.65158 180.094 2.99552C188.584 7.01856 198.415 7.01856 206.906 2.99552C218.825 -2.65159 232.753 -0.20749 242.445 9.42461C249.295 16.232 258.311 19.6131 267.421 18.7913L268.436 18.7003C281.088 17.559 293.176 24.7905 299.41 37.2293C303.845 46.0803 311.349 52.4623 320.128 54.8499L321.363 55.1853C333.535 58.4956 342.796 69.6221 344.935 83.5026C346.46 93.4084 351.664 102.115 359.243 107.441L360.083 108.032C370.678 115.479 376.201 129.41 374.046 143.254C372.512 153.111 374.928 163.33 380.542 171.091C383.928 175.772 386.099 181.273 387 187L0 187Z" />
-                </clipPath>
-              </defs>
-
-              <image
-                href={item.imgSrc}
-                width="387"
-                height="187"
-                preserveAspectRatio="xMidYMid slice"
-                clip-path={`url(#wavyClip-${index})`}
-              />
-            </svg>
+          <div class="gallery-item flex justify-center p-2 relative overflow-hidden ">
+            <div class="relative w-full max-w-[387px] h-[187px] flex items-center justify-center">
+              <svg
+                viewBox="0 0 387 187"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-full h-full"
+              >
+                <defs>
+                  <clipPath id={`wavyClip-${index}`}>
+                    <path d="M0 187C0.900685 181.273 3.07163 175.772 6.45794 171.091C12.0723 163.33 14.4876 153.111 12.9537 143.254C10.7992 129.41 16.3223 115.479 26.9174 108.032L27.7573 107.441C35.336 102.115 40.5395 93.4084 42.0653 83.5026C44.2036 69.6221 53.4653 58.4956 65.6367 55.1854L66.8724 54.8499C75.6512 52.4623 83.1545 46.0804 87.5901 37.2293C93.8236 24.7906 105.912 17.559 118.564 18.7003L119.579 18.7913C128.689 19.6131 137.705 16.232 144.555 9.42461C154.247 -0.20748 168.175 -2.65158 180.094 2.99552C188.584 7.01856 198.415 7.01856 206.906 2.99552C218.825 -2.65159 232.753 -0.20749 242.445 9.42461C249.295 16.232 258.311 19.6131 267.421 18.7913L268.436 18.7003C281.088 17.559 293.176 24.7905 299.41 37.2293C303.845 46.0803 311.349 52.4623 320.128 54.8499L321.363 55.1853C333.535 58.4956 342.796 69.6221 344.935 83.5026C346.46 93.4084 351.664 102.115 359.243 107.441L360.083 108.032C370.678 115.479 376.201 129.41 374.046 143.254C372.512 153.111 374.928 163.33 380.542 171.091C383.928 175.772 386.099 181.273 387 187L0 187Z" />
+                  </clipPath>
+                </defs>
+                <g clip-path={`url(#wavyClip-${index})`}>
+                  <image
+                    href={item.imgSrc}
+                    width="387"
+                    height="187"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                  <rect
+                    x="0"
+                    y="0"
+                    width="387"
+                    height="187"
+                    fill="black"
+                    fill-opacity="0.4"
+                  />
+                  <text
+                    x="50%"
+                    y="60%"
+                    text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white"
+                    font-size="22"
+                    font-weight="bold"
+                    style="paint-order:stroke fill; text-shadow: 0 2px 8px #0008; letter-spacing: 1px; text-transform: uppercase;"
+                  >
+                    {(item.name || '').toUpperCase()}
+                  </text>
+                </g>
+              </svg>
+            </div>
           </div>
         ))
       }
@@ -425,7 +448,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 
 <style>
   .hero-carousel-progress {
-    background: linear-gradient(90deg, #ff0101 0%, #ff0101 100%);
+    background: linear-gradient(90deg, #e6007e 0%, #e6007e 100%);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 

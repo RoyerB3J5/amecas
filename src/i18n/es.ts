@@ -28,7 +28,7 @@ export default {
     hero: {
       slides: [
         {
-          image: 'bg-accent-2',
+          image: 'main-1',
           text: 'Nuestros Servicios',
           title:
             "<span class='text-accent-1'>selecciona</span> <br /> lo que<br /> necesites",
@@ -36,7 +36,7 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'bg-accent-3',
+          image: 'main-1',
           text: 'Nuestros Servicios',
           title:
             "<span class='text-accent-2'>selecciona</span> <br /> lo que<br /> necesites",
@@ -44,7 +44,7 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'bg-accent-1',
+          image: 'main-1',
           text: 'Nuestros Servicios',
           title:
             "<span class='text-accent-3'>selecciona</span> <br /> lo que<br /> necesites",
@@ -61,21 +61,21 @@ export default {
           label: 'Orden',
           button: 'ver más',
           image: 'order',
-          color: 'bg-accent-1',
+          color: 'bg-accent-3',
           href: '#',
         },
         {
           label: 'Catering',
           button: 'ver más',
           image: 'catering',
-          color: 'bg-accent-2',
+          color: 'bg-accent-1',
           href: 'catering',
         },
         {
           label: 'Menú',
           button: 'ver más',
           image: 'menu-2',
-          color: 'bg-accent-3',
+          color: 'bg-accent-2',
           href: 'menu',
         },
       ],

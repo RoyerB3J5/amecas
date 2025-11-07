@@ -30,6 +30,8 @@ const { items, interval = 8000 } = Astro.props as Props;
           <div
             class={`${slide.image} shrink-0 w-full h-full min-h-[637px] flex items-center justify-center relative`}
           >
+            <img src={`/${slide.image}.webp`} alt="Imagen de Fondo de Los Amecas" width="1836" height="675" class="absolute inset-0 w-full h-full object-cover -z-20 " loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-black/40 -z-10"></div>
             <div class="h-full w-full max-w-screen md:max-w-[1211px] flex justify-start items-center translate-y-4 lg:translate-y-8 px-5 xl:px-0">
               <div class="flex flex-col justify-center items-start gap-6">
                 <p class="text-[19px] leading-[120%] font-medium uppercase text-white tracking-[2px]">
