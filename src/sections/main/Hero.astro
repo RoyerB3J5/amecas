@@ -11,7 +11,7 @@ const images = ['circle-1', 'circle-2', 'circle-3'];
 ---
 
 <section
-  class="bg-white w-full min-h-[637px] flex items-center justify-center overflow-y-visible relative z-10"
+  class="bg-[#E5DECC] w-full h-auto flex items-center justify-center overflow-y-hidden relative z-10"
 >
   <img
     src="/header.webp"
@@ -21,13 +21,13 @@ const images = ['circle-1', 'circle-2', 'circle-3'];
     class="absolute w-screen h-auto top-0 right-0 z-10"
   />
   <div
-    class="w-full h-full overflow-hidden rounded-bl-[80px] sm:rounded-bl-[100px] lg:rounded-bl-[130px] xl:rounded-bl-[180px]"
+    class="w-full h-full "
   >
     <CarouselHero items={content.slides} />
   </div>
 
   <div
-    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex justify-center sm:justify-end items-center absolute bottom-0"
+    class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0  justify-center sm:justify-end items-center absolute bottom-0 hidden"
   >
     <div
       class="flex justify-center items-center gap-4 md:gap-[29px] translate-y-1/2"

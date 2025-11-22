@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Button from './Button.astro';
 
 interface slide {
@@ -16,37 +17,60 @@ interface Props {
 const { items, interval = 8000 } = Astro.props as Props;
 ---
 
-<div
-  class="relative w-full hero-carousel"
-  data-interval={interval}
->
+<div class="relative w-full hero-carousel" data-interval={interval}>
   <!-- Viewport -->
-  <div class="overflow-x-hidden w-full h-full">
+  <div class="overflow-x-hidden w-full">
     <div
-      class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track h-full w-full"
+      class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track w-full min-h-[676px]"
     >
       {
         items.map((slide) => (
-          <div
-            class={`${slide.image} shrink-0 w-full h-full min-h-[637px] flex items-center justify-center relative`}
-          >
-            <img src={`/${slide.image}.webp`} alt="Imagen de Fondo de Los Amecas" width="1836" height="675" class="absolute inset-0 w-full h-full object-cover -z-20 " loading="lazy" decoding="async">
-            <div class="absolute inset-0 bg-black/40 -z-10"></div>
-            <div class="h-full w-full max-w-screen md:max-w-[1211px] flex justify-start items-center translate-y-4 lg:translate-y-8 px-5 xl:px-0">
-              <div class="flex flex-col justify-center items-start gap-6">
-                <p class="text-[19px] leading-[120%] font-medium uppercase text-white tracking-[2px]">
-                  {slide.text}
-                </p>
-                <h1
-                  class="text-[76px] leading-[78%] text-white uppercase"
-                  set:html={slide.title}
+          <div class="flex flex-col justify-center items-center w-full relative shrink-0">
+            <div
+              class={`shrink-0 w-full h-auto min-h-[676px] flex items-center justify-center relative`}
+            >
+              <img
+                src={`/bg-main.webp`}
+                alt="Imagen de Fondo de Los Amecas"
+                width="1512"
+                height="727"
+                class="absolute inset-0 w-full h-full object-cover -z-10 opacity-50"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-accent-3 -z-20" />
+              <div class="h-full w-full max-w-screen md:max-w-[1211px] flex justify-between items-center translate-y-4 lg:translate-y-8 px-5 xl:px-0">
+                <div class="flex flex-col justify-center items-start gap-6">
+                  <p class="text-[22px] leading-[120%] font-medium uppercase text-white tracking-[3.1px] ">
+                    {slide.text}
+                  </p>
+                  <h1
+                    class="text-[60px] lg:text-[90px] font-extrabold leading-[90%] text-white uppercase"
+                    set:html={slide.title}
+                  />
+                  <Button
+                    text={slide.button}
+                    extraBtnClass="border border-white px-6"
+                    textClass="text-[13px] uppercase text-white"
+                    iconClass=" text-white"
+                    href={slide.href}
+                  />
+                </div>
+                <img
+                  src={`/${slide.image}.webp`}
+                  alt="Imagen decorativa"
+                  width="600"
+                  height="485"
+                  class="hidden sm:block w-[350px] lg:w-[400px] xl:w-[600px] h-auto translate-y-10"
                 />
-                <Button
-                  text={slide.button}
-                  extraBtnClass="border border-white px-6"
-                  textClass="text-[13px] uppercase text-white"
-                  iconClass=" text-white"
-                  href={slide.href}
+              </div>
+            </div>
+            <div class="w-full">
+              <div class="w-full aspect-[1511.61/53.951996]">
+                <Icon
+                  name={'fondo-menu'}
+                  class={'w-full h-full block'}
+                  style="--fondo-color:#E6007E; --wave-color:#8BCE2B; --dots-color:#F4AA02;--svg-bg:#E5DECC"
                 />
               </div>
             </div>
@@ -56,7 +80,7 @@ const { items, interval = 8000 } = Astro.props as Props;
     </div>
   </div>
   <div
-    class="w-full max-w-screen md:w-[1211px] absolute bottom-[116px] lg:bottom-[100px] left-1/2 transform -translate-x-1/2 flex justify-start items-center px-6 xl:px-0"
+    class="w-full max-w-screen md:w-[1211px] absolute bottom-[116px] xl:bottom-[150px] left-1/2 transform -translate-x-1/2 flex justify-start items-center px-6 xl:px-0"
   >
     <div class="flex gap-4 justify-center hero-carousel-indicators">
       {
@@ -121,6 +145,8 @@ const { items, interval = 8000 } = Astro.props as Props;
         let currentIndex = 1;
         let isTransitioning = false;
         let autoSlide;
+        let pendingIndex = null;
+        let rafId = null;
 
         // Force one slide per page (we render each slide as full width)
         function getPerPage() {
@@ -136,19 +162,49 @@ const { items, interval = 8000 } = Astro.props as Props;
           const maxIndex = slides.length - 1;
           if (index < 0) index = 0;
           if (index > maxIndex) index = maxIndex;
-          if (isTransitioning && smooth) return;
+          // If a transition is ongoing, enqueue the request instead of dropping it
+          if (isTransitioning && smooth) {
+            pendingIndex = index;
+            return;
+          }
           track.style.transition = smooth
             ? 'transform 0.5s ease-in-out'
             : 'none';
           track.style.transform = `translateX(-${getSlideWidth() * index}px)`;
           currentIndex = index;
           isTransitioning = smooth;
+          // Keep indicators in sync immediately (so they reflect the intended slide)
+          try {
+            updateIndicators();
+          } catch (e) {
+            // defensive: if updateIndicators isn't available yet, ignore
+          }
         }
 
         function updateIndicators() {
-          let realIndex = currentIndex - 1;
-          if (currentIndex === 0) realIndex = slides.length - 3;
-          else if (currentIndex === slides.length - 1) realIndex = 0;
+          // Determine the index currently visible by reading the track's transform
+          const style = getComputedStyle(track).transform;
+          let indexFromTransform = currentIndex;
+          if (style && style !== 'none') {
+            const m = style.match(/matrix(?:3d)?\((.+)\)/);
+            if (m && m[1]) {
+              const parts = m[1].split(',').map((p) => p.trim());
+              // matrix(a, b, c, d, tx, ty) -> tx is at position 4
+              const tx = parseFloat(parts[4] ?? parts[12] ?? '0') || 0;
+              const slideW = getSlideWidth() || 1;
+              // tx is negative when the track is translated left; compute index accordingly
+              indexFromTransform = Math.round(-tx / slideW);
+              indexFromTransform = Math.max(
+                0,
+                Math.min(indexFromTransform, slides.length - 1)
+              );
+            }
+          }
+
+          let realIndex = indexFromTransform - 1;
+          if (indexFromTransform === 0) realIndex = slides.length - 3;
+          else if (indexFromTransform === slides.length - 1) realIndex = 0;
+
           indicators.forEach((btn, i) => {
             const bar = btn.children[0];
             if (i === realIndex) {
@@ -173,6 +229,14 @@ const { items, interval = 8000 } = Astro.props as Props;
             goTo(slides.length - 2, false);
           isTransitioning = false;
           updateIndicators();
+          // If there was a pending goTo while the previous transition was running,
+          // perform it now (this ensures user/auto requests are not lost).
+          if (pendingIndex !== null) {
+            const idx = pendingIndex;
+            pendingIndex = null;
+            // use a microtask to avoid re-entrancy inside transitionend handler
+            Promise.resolve().then(() => goTo(idx, true));
+          }
         });
 
         prevBtn?.addEventListener('click', () => {
@@ -221,6 +285,27 @@ const { items, interval = 8000 } = Astro.props as Props;
           },
           { passive: true }
         );
+        // touchmove: mirror mouse drag behaviour to update transform and indicators
+        track.addEventListener(
+          'touchmove',
+          (e) => {
+            if (!e.touches || e.touches.length === 0) return;
+            const touchX = e.touches[0].clientX;
+            deltaX = touchX - startX;
+            const translateTouch = -getSlideWidth() * currentIndex + deltaX;
+            track.style.transform = `translateX(${translateTouch}px)`;
+            if (!rafId) {
+              rafId = requestAnimationFrame(() => {
+                try {
+                  updateIndicators();
+                } finally {
+                  rafId = null;
+                }
+              });
+            }
+          },
+          { passive: true }
+        );
         track.addEventListener(
           'touchend',
           (e) => {
@@ -228,6 +313,14 @@ const { items, interval = 8000 } = Astro.props as Props;
             if (Math.abs(deltaX) > 50) {
               const dir = deltaX < 0 ? 1 : -1;
               goTo(currentIndex + dir * getPerPage());
+            } else {
+              // snap back to current
+              goTo(currentIndex, true);
+            }
+            // cancel any pending rAF
+            if (rafId) {
+              cancelAnimationFrame(rafId);
+              rafId = null;
             }
             resetAuto();
           },
@@ -245,6 +338,16 @@ const { items, interval = 8000 } = Astro.props as Props;
           // move track according to drag delta
           const translate = -getSlideWidth() * currentIndex + dragDelta;
           track.style.transform = `translateX(${translate}px)`;
+          // update indicators smoothly while dragging (throttled via rAF)
+          if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+              try {
+                updateIndicators();
+              } finally {
+                rafId = null;
+              }
+            });
+          }
         }
 
         function onMouseUp() {
@@ -260,6 +363,11 @@ const { items, interval = 8000 } = Astro.props as Props;
             goTo(currentIndex, true);
           }
           dragDelta = 0;
+          // cancel any pending rAF
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
           resetAuto();
         }
 

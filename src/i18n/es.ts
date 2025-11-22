@@ -28,7 +28,7 @@ export default {
     hero: {
       slides: [
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Nuestros Servicios',
           title:
             "<span class='text-accent-1'>selecciona</span> <br /> lo que<br /> necesites",
@@ -36,7 +36,7 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Nuestros Servicios',
           title:
             "<span class='text-accent-2'>selecciona</span> <br /> lo que<br /> necesites",
@@ -44,10 +44,10 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Nuestros Servicios',
           title:
-            "<span class='text-accent-3'>selecciona</span> <br /> lo que<br /> necesites",
+            "<span class='text-accent-4'>selecciona</span> <br /> lo que<br /> necesites",
           button: 'CONOCER MÁS',
           href: '/en/menu',
         },
@@ -65,7 +65,7 @@ export default {
           href: '#',
         },
         {
-          label: 'Catering',
+          label: 'Taquizas & Catering',
           button: 'ver más',
           image: 'catering',
           color: 'bg-accent-1',
@@ -79,19 +79,19 @@ export default {
           href: 'menu',
         },
       ],
-    },
-    gallery: {
-      title: 'Our Gallery',
-      items: [
-        'gallery-1',
-        'gallery-2',
-        'gallery-3',
-        'gallery-4',
-        'gallery-1',
-        'gallery-2',
-        'gallery-3',
-        'gallery-4',
-      ],
+      gallery: {
+        title: 'Our Gallery',
+        items: [
+          'bistec',
+          'carne',
+          'flautas',
+          'parrillada',
+          'sopa',
+          'huarache',
+          'quezabirrias',
+          'sopes',
+        ],
+      },
     },
     testimony: {
       title: 'Testimonios',
@@ -163,68 +163,110 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Mariscos',
-          href: '/menu/seafood',
+          label: 'Especiales de la casa',
+          href: '/menu/home-specials',
         },
       ],
-      title: 'Mariscos',
-      image: 'seafood-1',
-      text: 'Ostiones',
+      title: 'Especiales de la casa',
+      image: 'parrillada',
+      text: '',
       link: '',
       first: {
-        name: 'Ostiones crudos',
-        price: 'DOCENA $29.99  ½ DOCENA $19.99',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Filete de pescado a la plancha',
+          name: 'Parrillada especial para dos',
           description:
-            '2 filetes de pescado a la plancha servidos con arroz, frijoles, ensalada y tortillas',
+            'Bistec a la parrilla, chorizo, guacamole grande, 3 quesadillas de queso, chile relleno, pollo a la parrilla, cebolla y jalapeño frito.',
+          price: '35.75',
+        },
+        {
+          name: 'Parrillada El Solitario',
+          description:
+            'Bistec a la parrilla, chorizo, 2 oz de guacamole, 2 quesadillas de queso, papas fritas y pollo a la parrilla.',
+          price: '24.99',
+        },
+        {
+          name: 'Mojacajete',
+          description:
+            'Molcajete con pollo, bistec, chorizo, camarones y queso fresco, servido con cebolla, nopal, jalapeño y tortillas. Acompañado de arroz y frijoles.',
+          price: '33.99',
+        },
+        {
+          name: 'Carne asada',
+          description:
+            'Bistec a la parrilla servido con cebolla asada, jalapeño, arroz, frijoles, ensalada y tortillas.',
+          price: '19.99',
+        },
+        {
+          name: 'Bistec ranchero',
+          description:
+            'Bistec en salsa ranchera servido con arroz, frijoles, ensalada y tortillas.',
+          price: '20.75',
+        },
+        {
+          name: 'Chuleta ahumada',
+          description:
+            'Chuleta de cerdo a la parrilla con cebolla y jalapeño, servida con arroz, frijoles, ensalada y tortillas.',
           price: '15.99',
         },
         {
-          name: 'Camarones a la diabla',
+          name: 'Chuleta ahumada a la mexicana',
           description:
-            '15 camarones grandes en salsa diabla (picante o suave), servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Chuleta de cerdo preparada con cebolla, jalapeño y tomate, servida con arroz, frijoles, ensalada y tortillas.',
+          price: '17.75',
         },
         {
-          name: 'Camarones a la plancha',
+          name: 'Mar y Tierra',
           description:
-            '15 camarones grandes a la parrilla, servidos con arroz, frijoles y ensalada',
+            'Bistec a la parrilla con seis camarones grandes a la parrilla, cebolla y jalapeño; servido con arroz, frijoles, ensalada y tortillas.',
+          price: '24.99',
+        },
+        {
+          name: 'Filete empanizado',
+          description:
+            'Filete de res empanizado servido con arroz, frijoles, ensalada y tortillas.',
           price: '18.99',
         },
         {
-          name: 'Camarones a la mexicana',
+          name: 'Chiles rellenos',
           description:
-            '15 camarones grandes preparados con pico de gallo, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+            '2 chiles poblanos rellenos de queso, cubiertos con crema y queso, servidos con arroz, frijoles, ensalada y tortillas.',
+          price: '15.75',
         },
         {
-          name: 'Camarones al mojo de ajo',
+          name: 'Pollo a la Diabla',
           description:
-            '15 camarones grandes cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Mojarra frita',
-          description: 'Mojarra frita servida con arroz, frijoles y ensalada',
+            'Pechuga de pollo en salsa diabla (picante o suave), servida con arroz y frijoles.',
           price: '18.99',
         },
         {
-          name: 'Mojarra a la diabla',
+          name: 'Filete de pollo empanizado',
           description:
-            'Mojarra frita con salsa picante, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Pechuga de pollo empanizada servida con arroz, frijoles, ensalada y tortillas.',
+          price: '18.99',
         },
         {
-          name: 'Mojarra al mojo de ajo',
+          name: 'Pollo a la plancha',
           description:
-            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Pechuga de pollo a la parrilla servida con arroz, frijoles, ensalada y tortillas.',
+          price: '16.99',
+        },
+        {
+          name: 'Pollo a la mexicana',
+          description:
+            'Pechuga de pollo con pico de gallo, servida con arroz, frijoles, ensalada y tortillas.',
+          price: '18.99',
         },
       ],
-      button: 'Ordenar Ahora',
+      button: 'Ordenar ahora',
     },
     tacos: {
       nav: [
@@ -237,68 +279,50 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Mariscos',
-          href: '/menu/seafood',
+          label: 'Tacos',
+          href: '/menu/tacos',
         },
       ],
-      title: 'Mariscos',
-      image: 'seafood-1',
-      text: 'Ostiones',
+      title: 'Tacos',
+      image: 'quezabirrias',
+      text: '',
       link: '',
       first: {
-        name: 'Ostiones crudos',
-        price: 'DOCENA $29.99  ½ DOCENA $19.99',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
+        { name: 'Asada', description: '', price: '2.99' },
+        { name: 'Pollo', description: '', price: '2.99' },
+        { name: 'Carnitas', description: '', price: '2.99' },
+        { name: 'Al pastor', description: '', price: '2.99' },
+        { name: 'Cabeza', description: '', price: '2.99' },
+        { name: 'Barbacoa', description: '', price: '2.99' },
+        { name: 'Chicharrón', description: '', price: '2.99' },
+        { name: 'Suadero', description: '', price: '2.99' },
+        { name: 'Chorizo', description: '', price: '2.99' },
+        { name: 'Buche', description: '', price: '2.99' },
+        { name: 'Tripa', description: '', price: '3.25' },
+        { name: 'Lengua', description: '', price: '3.49' },
+        { name: 'Birria (res)', description: '', price: '2.99' },
+        { name: 'Birria (borrego)', description: '', price: '3.75' },
         {
-          name: 'Filete de pescado a la plancha',
-          description:
-            '2 filetes de pescado a la plancha servidos con arroz, frijoles, ensalada y tortillas',
-          price: '15.99',
+          name: 'Tacos de camarón',
+          description: 'Tacos de camarón en tortilla de maíz (3 piezas)',
+          price: '13.99',
         },
         {
-          name: 'Camarones a la diabla',
-          description:
-            '15 camarones grandes en salsa diabla (picante o suave), servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Camarones a la plancha',
-          description:
-            '15 camarones grandes a la parrilla, servidos con arroz, frijoles y ensalada',
-          price: '18.99',
-        },
-        {
-          name: 'Camarones a la mexicana',
-          description:
-            '15 camarones grandes preparados con pico de gallo, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Camarones al mojo de ajo',
-          description:
-            '15 camarones grandes cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Mojarra frita',
-          description: 'Mojarra frita servida con arroz, frijoles y ensalada',
-          price: '18.99',
-        },
-        {
-          name: 'Mojarra a la diabla',
-          description:
-            'Mojarra frita con salsa picante, servida con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Mojarra al mojo de ajo',
-          description:
-            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+          name: 'Tacos de pescado',
+          description: 'Tacos de pescado en tortilla de maíz (3 piezas)',
+          price: '13.99',
         },
       ],
-      button: 'Ordenar Ahora',
+      button: 'Ordenar ahora',
     },
     'mexican-snacks': {
       nav: [
@@ -311,68 +335,95 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Mariscos',
-          href: '/menu/seafood',
+          label: 'Antojitos Mexicanos',
+          href: '/menu/mexican-snacks',
         },
       ],
-      title: 'Mariscos',
-      image: 'seafood-1',
-      text: 'Ostiones',
+      title: 'Antojitos Mexicanos',
+      image: 'sopes',
+      text: '',
       link: '',
       first: {
-        name: 'Ostiones crudos',
-        price: 'DOCENA $29.99  ½ DOCENA $19.99',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Filete de pescado a la plancha',
+          name: 'Quesadilla supreme',
+          description: 'Opción de carne servida con arroz, frijoles y ensalada',
+          price: '14.99',
+        },
+        {
+          name: 'Quesadilla (harina)',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Quesadilla (maíz)',
+          description: '',
+          price: '5.49',
+        },
+        {
+          name: 'Burrito',
           description:
-            '2 filetes de pescado a la plancha servidos con arroz, frijoles, ensalada y tortillas',
+            'Opción de carne con arroz, frijoles, queso mozzarella, lechuga y crema',
+          price: '11.75',
+        },
+        {
+          name: 'Enchiladas Suizas',
+          description:
+            '4 enchiladas con opción de carne en salsa verde, servidas con arroz, frijoles y ensalada',
+          price: '15.75',
+        },
+        {
+          name: 'Gorditas',
+          description:
+            'Gordita frita con opción de carne, frijoles, crema, tomate, lechuga y queso',
+          price: '7.99',
+        },
+        {
+          name: 'Sopes',
+          description:
+            '5 sopes con frijoles, carne a elección, crema, tomate, lechuga y queso',
+          price: '13.99',
+        },
+        {
+          name: 'Sopes (tripa)',
+          description:
+            '5 sopes con tripa, frijoles, crema, tomate, lechuga y queso',
+          price: '14.99',
+        },
+        {
+          name: 'Sopes (lengua)',
+          description:
+            '5 sopes con lengua, frijoles, crema, tomate, lechuga y queso',
           price: '15.99',
         },
         {
-          name: 'Camarones a la diabla',
+          name: 'Flautas de pollo',
           description:
-            '15 camarones grandes en salsa diabla (picante o suave), servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+            '4 flautas de pollo fritas con crema, lechuga, queso, cebolla y tomate',
+          price: '14.75',
         },
         {
-          name: 'Camarones a la plancha',
+          name: 'Tostadas con carne',
           description:
-            '15 camarones grandes a la parrilla, servidos con arroz, frijoles y ensalada',
-          price: '18.99',
+            'Tostada crujiente con carne a elección, frijoles, lechuga, cebolla, tomate, queso y crema',
+          price: '6.75',
         },
         {
-          name: 'Camarones a la mexicana',
+          name: 'Ensalada taco',
           description:
-            '15 camarones grandes preparados con pico de gallo, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Camarones al mojo de ajo',
-          description:
-            '15 camarones grandes cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Mojarra frita',
-          description: 'Mojarra frita servida con arroz, frijoles y ensalada',
-          price: '18.99',
-        },
-        {
-          name: 'Mojarra a la diabla',
-          description:
-            'Mojarra frita con salsa picante, servida con arroz, frijoles y ensalada',
-          price: '19.99',
-        },
-        {
-          name: 'Mojarra al mojo de ajo',
-          description:
-            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Plato con carne a elección, arroz, frijoles, lechuga, tomate, cebolla, queso y crema',
+          price: '12.75',
         },
       ],
-      button: 'Ordenar Ahora',
+      button: 'Ordenar ahora',
     },
     seafood: {
       nav: [
@@ -391,62 +442,90 @@ export default {
       ],
       title: 'Mariscos',
       image: 'seafood-1',
-      text: 'Ostiones',
+      text: 'Mariscos',
       link: '',
       first: {
-        name: 'Ostiones crudos',
-        price: 'DOCENA $29.99 <br class="block lg:hidden"/> ½ DOCENA $19.99',
+        name: 'Ostras crudas',
+        price: 'DOCENA $22.99, <br class="block lg:hidden"/>½ DOCENA $12.99 ',
+      },
+      second: {
+        name: 'Ostras preparadas',
+        description:
+          'Ostras crudas cubiertas con salsa especial, camarón y pulpo',
+        price: 'DOCENA $34.99, <br class="block lg:hidden"/>½ DOCENA $19.99 ',
       },
       list: [
         {
           name: 'Filete de pescado a la plancha',
           description:
-            '2 filetes de pescado a la plancha servidos con arroz, frijoles, ensalada y tortillas',
-          price: '15.99',
+            '2 filetes de pescado a la parrilla servidos con arroz, frijoles, ensalada y tortillas',
+          price: '16.99',
+        },
+        {
+          name: 'Filete de pescado empanizado',
+          description:
+            '2 filetes empanizados servidos con arroz, frijoles, ensalada y tortillas',
+          price: '18.99',
         },
         {
           name: 'Camarones a la diabla',
           description:
             '15 camarones grandes en salsa diabla (picante o suave), servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+          price: '20.75',
         },
         {
           name: 'Camarones a la plancha',
           description:
             '15 camarones grandes a la parrilla, servidos con arroz, frijoles y ensalada',
-          price: '18.99',
+          price: '19.99',
         },
         {
           name: 'Camarones a la mexicana',
           description:
-            '15 camarones grandes preparados con pico de gallo, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+            '15 camarones cocinados con pico de gallo, servidos con arroz, frijoles y ensalada',
+          price: '20.75',
         },
         {
           name: 'Camarones al mojo de ajo',
           description:
-            '15 camarones grandes cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+            '15 camarones cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
+          price: '20.75',
         },
         {
           name: 'Mojarra frita',
-          description: 'Mojarra frita servida con arroz, frijoles y ensalada',
-          price: '18.99',
+          description:
+            'Mojarra frita servida con arroz, frijoles, ensalada y tortillas',
+          price: '19.99',
         },
         {
           name: 'Mojarra a la diabla',
           description:
-            'Mojarra frita con salsa picante, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Mojarra frita cubierta con salsa picante o suave, servida con arroz, frijoles, ensalada y tortillas',
+          price: '20.99',
         },
         {
           name: 'Mojarra al mojo de ajo',
           description:
-            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles y ensalada',
+            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles, ensalada y tortillas',
+          price: '20.99',
+        },
+        {
+          name: 'Torre de mariscos',
+          description: '',
+          price: '23.99',
+        },
+        {
+          name: 'Camarones aguachile',
+          description: '',
           price: '19.99',
         },
+        {
+          name: 'Botana marisquera',
+          description: '',
+          price: '23.99',
+        },
       ],
-      button: 'Ordenar Ahora',
+      button: 'Ordenar ahora',
     },
     'drinks-desserts': {
       nav: [
@@ -459,69 +538,235 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Mariscos',
-          href: '/menu/seafood',
+          label: 'Bebidas y Postres',
+          href: '/menu/drinks-desserts',
         },
       ],
-      title: 'Mariscos',
-      image: 'seafood-1',
-      text: 'Ostiones',
+      title: 'Bebidas y Postres',
+      image: 'limonada',
+      text: '',
       link: '',
       first: {
-        name: 'Ostiones crudos',
-        price: 'DOCENA $29.99  ½ DOCENA $19.99',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Filete de pescado a la plancha',
-          description:
-            '2 filetes de pescado a la plancha servidos con arroz, frijoles, ensalada y tortillas',
-          price: '15.99',
+          name: 'Agua fresca - Mediana',
+          description: 'Horchata / Piña / Jamaica',
+          price: '4.25',
         },
         {
-          name: 'Camarones a la diabla',
-          description:
-            '15 camarones grandes en salsa diabla (picante o suave), servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+          name: 'Agua fresca - Grande',
+          description: 'Horchata / Piña / Jamaica',
+          price: '5.25',
         },
         {
-          name: 'Camarones a la plancha',
-          description:
-            '15 camarones grandes a la parrilla, servidos con arroz, frijoles y ensalada',
-          price: '18.99',
+          name: 'Café',
+          description: '',
+          price: '3.25',
         },
         {
-          name: 'Camarones a la mexicana',
-          description:
-            '15 camarones grandes preparados con pico de gallo, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+          name: 'Café de olla',
+          description: '',
+          price: '3.75',
         },
         {
-          name: 'Camarones al mojo de ajo',
-          description:
-            '15 camarones grandes cocinados en mantequilla de ajo con cebolla, servidos con arroz, frijoles y ensalada',
-          price: '19.99',
+          name: 'Chocolate Abuelita',
+          description: '',
+          price: '4.99',
         },
         {
-          name: 'Mojarra frita',
-          description: 'Mojarra frita servida con arroz, frijoles y ensalada',
-          price: '18.99',
+          name: 'Coca-Cola (botella 500 ml)',
+          description: '',
+          price: '4.99',
         },
         {
-          name: 'Mojarra a la diabla',
-          description:
-            'Mojarra frita con salsa picante, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+          name: 'Jarritos',
+          description: '',
+          price: '3.99',
         },
         {
-          name: 'Mojarra al mojo de ajo',
+          name: 'Agua embotellada',
+          description: '',
+          price: '2.25',
+        },
+        {
+          name: 'Refresco (lata)',
+          description: '',
+          price: '2.75',
+        },
+        {
+          name: 'Jumex',
+          description: '',
+          price: '2.75',
+        },
+        {
+          name: 'Malteada',
+          description: 'Fresa / Chocolate',
+          price: '6.99',
+        },
+        {
+          name: 'Limonada fresca',
+          description: '',
+          price: '7.99',
+        },
+        {
+          name: 'Cerveza',
           description:
-            'Mojarra frita sazonada con ajo y cebolla, servida con arroz, frijoles y ensalada',
-          price: '19.99',
+            'Corona / Corona Familiar / Victoria / Modelo Especial / Pacifico / Heineken / Miller Lite / Coors Lite',
+          price: '5.25',
+        },
+        {
+          name: 'Michelada',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Caguama Corona',
+          description: '',
+          price: '13.99',
+        },
+        {
+          name: 'Caguama Victoria',
+          description: '',
+          price: '13.99',
+        },
+        {
+          name: 'Michelada Botanera',
+          description: '',
+          price: '16.99',
+        },
+        {
+          name: 'Smirnoff',
+          description: '',
+          price: '5.99',
+        },
+        {
+          name: 'Margarita Cayman Jack',
+          description: '',
+          price: '5.99',
+        },
+        {
+          name: 'Fresas con crema',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Fresas Dubai',
+          description: '',
+          price: '16.99',
+        },
+        {
+          name: 'Fresas con crema y chocolate',
+          description: '',
+          price: '12.99',
+        },
+        {
+          name: 'Churros con helado',
+          description: '',
+          price: '11.99',
         },
       ],
-      button: 'Ordenar Ahora',
+      button: 'Ordenar ahora',
     },
+  },
+  promotion: {
+    nav: [
+      {
+        label: 'Home',
+        href: '/',
+      },
+      {
+        label: 'Menu',
+        href: '/menu',
+      },
+      {
+        label: 'Promotion',
+        href: '/menu/promotions',
+      },
+    ],
+    title: 'Promociones',
+    image: 'sopes',
+    list: [
+      {
+        title: 'Menú infantil',
+        items: [
+          {
+            name: 'Tenders de pollo con papas fritas',
+            description: '',
+            price: '9.99',
+          },
+          {
+            name: '2 tacos con arroz y frijoles',
+            description: '',
+            price: '9.99',
+          },
+          {
+            name: 'Quesadilla de queso con arroz y frijoles',
+            description: '',
+            price: '8.99',
+          },
+          {
+            name: 'Torta del Chavo con papas fritas',
+            description: 'Jamón, mayonesa y queso',
+            price: '10.75',
+          },
+          {
+            name: 'Quesadilla de camarón',
+            description: 'Servida con arroz y frijoles',
+            price: '13.75',
+          },
+          {
+            name: 'Carne asada',
+            description: 'Servida con arroz y frijoles',
+            price: '13.99',
+          },
+        ],
+      },
+      {
+        title: 'Fin de semana',
+        items: [
+          {
+            name: 'Birria de borrego',
+            description:
+              'Opción de carne servida con arroz, frijoles y ensalada',
+            price: '18.99',
+          },
+          {
+            name: 'Birria de res',
+            description: '',
+            price: '17.99',
+          },
+          {
+            name: 'Pozole',
+            description: '',
+            price: '14.99',
+          },
+          {
+            name: 'Menudo',
+            description: '',
+            price: '15.75',
+          },
+          {
+            name: 'Quesabirria (2 pzas)',
+            description: '',
+            price: '10.99',
+          },
+          {
+            name: '3 tacos de birria de borrego',
+            description: '',
+            price: '13.99',
+          },
+        ],
+      },
+    ],
+    button: 'Ordenar ahora',
   },
   catering: {
     hero: {
@@ -554,7 +799,7 @@ export default {
           'Consulta nuestro menú de catering y completa el formulario a continuación para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso de al menos 24 horas para todos los pedidos de catering, de modo que nuestra cocina pueda preparar todo fresco y listo para tu evento.<br/> Una vez enviado, un miembro de nuestro equipo se comunicará contigo para confirmar tu pedido. Si no recibes respuesta en 48 horas, envía un correo a losamecas@gmail.com.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
-          '3558 S Orange Ave, Orlando, FL 32806 <br/> (407) XXX XXXX <br/> Auténtico sabor mexicano, tradición familiar y los mejores tacos en Orlando. <br/> Cerrado los domingos, pero siempre listos para atender tus fiestas entre semana.',
+          '3558 S Orange Ave, Orlando, FL 32806 <br/> <a href="tel:+14072031512"> +1 (407) 203 1512</a> <br/> Auténtico sabor mexicano, tradición familiar y los mejores tacos en Orlando. <br/> Cerrado los domingos, pero siempre listos para atender tus fiestas entre semana.',
       },
     },
     request: {
@@ -672,9 +917,9 @@ export default {
       },
     },
     notes: {
-      title: 'NOTES & CONDITIONS',
+      title: 'NOTAS Y CONDICIONES',
       description:
-        'This form serves as a catering request only. <br/> We require at least 24 hours’ notice for all orders to ensure fresh preparation. <br/> Once submitted, a member of our team will contact you for confirmation. <br/>  If you don’t hear back within 48 hours, please reach out directly at: <br/> <a>📧 losamecas@gmail.com</a> <br/> <a> 📞 (407) XXX-XXXX</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806 <br/>  Authentic Mexican flavor, family tradition, and the best tacos in Orlando.',
+        'Este formulario sirve únicamente como solicitud de catering. <br/> Requerimos un aviso mínimo de 24 horas para todos los pedidos, para asegurar la preparación fresca de los alimentos. <br/> Una vez enviado, un miembro de nuestro equipo se comunicará contigo para la confirmación. <br/> Si no recibes respuesta en 48 horas, por favor contáctanos directamente en: <br/> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=losamecastaqueria@outlook.com" target="_blank" rel="noopener noreferrer">📧 losamecastaqueria@outlook.com</a> <br/> <a href="tel:+14072031512"> 📞+1 (407) 203 1512</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806',
     },
   },
   info: {
@@ -690,7 +935,8 @@ export default {
           "Ven y descubre por qué la gente local nos llama <br/> <span class='text-accent-3'>los mejores tacos en Orlando.</span>",
         hours: {
           title: 'Horario',
-          content: 'Lunes a sábado: 10:00 AM a 9:30 PM <br/> Domingo: cerrado',
+          content:
+            'Lunes a Jueves y Domingos: 9:00 AM a 9:00 PM <br/> Viernes y Sábado: 9:00 AM a 9:30 PM',
         },
         location: {
           title: 'Ubicación',

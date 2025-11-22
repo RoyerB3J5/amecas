@@ -9,76 +9,76 @@ interface Props {
 const { content } = Astro.props as Props;
 const galleryItems = [
   {
-    imgSrc: '/menu/gallery-1.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/aguachiles.webp',
+    name: 'Aguachiles',
   },
   {
-    imgSrc: '/menu/gallery-2.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/carne.webp',
+    name: 'Carne Asada',
   },
   {
-    imgSrc: '/menu/gallery-3.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/chilaquiles.webp',
+    name: 'Chilaquiles con Carne y Huevo',
   },
   {
-    imgSrc: '/menu/gallery-4.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/chiles.webp',
+    name: 'Chiles Rellenos',
   },
   {
-    imgSrc: '/menu/gallery-5.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/flautas.webp',
+    name: 'Flautas de Pollo',
   },
   {
-    imgSrc: '/menu/gallery-6.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/quezabirrias.webp',
+    name: 'orden de Quezabirrias',
   },
   {
-    imgSrc: '/menu/gallery-1.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/mojarra.webp',
+    name: 'Mojarra a la Diabla',
   },
   {
-    imgSrc: '/menu/gallery-2.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/parrillada.webp',
+    name: 'Parrillada para 2',
   },
   {
-    imgSrc: '/menu/gallery-3.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/quezadilla.webp',
+    name: 'Quezadilla supreme',
   },
   {
-    imgSrc: '/menu/gallery-4.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/ostiones.webp',
+    name: 'Ostiones Preparados',
   },
   {
-    imgSrc: '/menu/gallery-5.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/huarache.webp',
+    name: 'Huarache',
   },
   {
-    imgSrc: '/menu/gallery-6.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/botana.webp',
+    name: 'Botana Marisquera',
   },
   {
-    imgSrc: '/menu/gallery-1.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/california.webp',
+    name: 'California Burrito',
   },
   {
-    imgSrc: '/menu/gallery-2.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/enchiladas.webp',
+    name: 'Enchiladas Suizas',
   },
   {
-    imgSrc: '/menu/gallery-3.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/sopes.webp',
+    name: 'Orden de Sopes',
   },
   {
-    imgSrc: '/menu/gallery-4.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/gordita.webp',
+    name: 'Gordita',
   },
   {
-    imgSrc: '/menu/gallery-5.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/bistec.webp',
+    name: 'Bistec Ranchero',
   },
   {
-    imgSrc: '/menu/gallery-6.webp',
-    name: 'Tacos de Carne',
+    imgSrc: '/menu/sopa.webp',
+    name: 'Sopa',
   },
 ];
 const currentPath = Astro.url.pathname;
@@ -108,7 +108,7 @@ const lang = match ? match[1] : 'en';
       <p class="text-[24px] font-bold leading-[120%] uppercase">
         {content.description}
       </p>
-      <nav class="flex justify-center items-center gap-8 flex-wrap">
+      <nav class="flex justify-start items-center gap-8 flex-wrap">
         {
           content.menus.map((item) => (
             <a

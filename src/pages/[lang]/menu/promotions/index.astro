@@ -1,0 +1,124 @@
+---
+import Button from '../../../../components/Button.astro';
+import en from '../../../../i18n/en';
+import es from '../../../../i18n/es';
+import Layout from '../../../../layouts/Layout.astro';
+import type { Language } from '../../../../types/language.type';
+export function getStaticPaths() {
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+
+export const defaultRedirect = '/en';
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en };
+const t = translations[lang];
+// Obtener los datos del servicio específico
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const langBase = match ? match[1] : 'en';
+---
+
+<Layout lang={lang} t={t}>
+  <section
+    class="bg-primary py-[142px] pb-[50px] w-full relative flex justify-center items-center"
+  >
+    <img
+      src="/header-2.webp"
+      alt="Header de Los Amecas"
+      height="97"
+      width="1509"
+      class="absolute w-screen h-auto top-0 right-0 z-10"
+    />
+    <div
+      class="w-full max-w-screen lg:w-[1211px] px-6 lg:px-0 flex flex-col justify-center items-center gap-[100px] z-20"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-[72px] w-full relative"
+      >
+        <div
+          class="bg-white flex justify-center items-center gap-3 px-4 py-[15px] rounded-[10px] self-start z-20"
+        >
+          <div class="w-2.5 h-2.5 bg-accent-2 rounded-full"></div>
+          <nav class="flex justify-center items-center gap-2 h-4">
+            {
+              t.promotion.nav.map((item, i) => {
+                const itemPathWithoutHash = item.href.split('#')[0];
+                const isActive = normalized === itemPathWithoutHash;
+                const isLast = i === t.promotion.nav.length - 1;
+                return (
+                  <>
+                    <a
+                      href={`/${langBase}${item.href}`}
+                      class={` uppercase mr-1 text-[15px] leading-4 cursor-pointer hover:font-bold ${isActive ? 'text-accent-3 font-bold' : 'font-light'}`}
+                    >
+                      {item.label}
+                    </a>
+                    {!isLast && (
+                      <p class="text-[15px] font-light leading-4 mr-1">{`>`}</p>
+                    )}
+                  </>
+                );
+              })
+            }
+          </nav>
+        </div>
+        <h1 class="text-[40px] font-normal leading-[110%] uppercase text-black">
+          Section: <span class="text-accent-3">{t.promotion.title}</span>
+        </h1>
+        <img
+          src={`/menu/${t.promotion.image}.webp`}
+          alt="Imagen del Menu de Comida"
+          width="900"
+          height="675"
+          class="absolute right-0 -bottom-[75%] lg:-bottom-[80%] w-[250px] lg:w-[324px] h-auto rounded-[10px]"
+          decoding="async"
+          loading="lazy"
+        />
+      </div>
+      <div
+        class="w-full flex flex-col justify-center items-center text-black gap-10"
+        data-aos="flip-left"
+        data-aos-offset="200"
+      >
+        {
+          t.promotion.list.map((item) => (
+            <div class="flex flex-col justify-center items-start gap-5 w-full">
+              <h2 class="text-[36px] font-bold uppercase self-start text-accent-2">
+                {item.title}
+              </h2>
+              <div class="flex flex-col justify-center items-center gap-[58px] w-full">
+                {item.items.map((i) => (
+                  <div
+                    class={`flex justify-between ${i.description == '' ? 'items-center' : 'items-end'} w-full gap-2 md:gap-[30px]`}
+                  >
+                    <div class="flex flex-col justify-center items-start gap-2.5 max-w-[600px]">
+                      <p class="text-[20px] leading-[120%] font-bold">
+                        {i.name}
+                      </p>
+                      <p class="text-[16px] leading-[120%] font-light">
+                        {i.description}
+                      </p>
+                    </div>
+                    <div
+                      class={`flex-1 h-full border-b border-dashed border-black/80 mb-1 mx-3 min-w-10`}
+                    />
+                    <p class="text-[24px] leading-[120%]"> ${i.price}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <Button
+          text={t.promotion.button}
+          extraBtnClass="bg-accent-1 px-6"
+          textClass="text-[16px] uppercase text-white"
+          iconClass=" text-white"
+        />
+    </div>
+  </section>
+</Layout>

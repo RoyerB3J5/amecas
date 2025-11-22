@@ -28,7 +28,7 @@ export default {
     hero: {
       slides: [
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Enjoy the taste of Mexico',
           title:
             "<span class='text-accent-1'>authentic</span> <br /> Mexican <br /> flavor",
@@ -36,7 +36,7 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Our Services',
           title:
             "<span class='text-accent-2'>select</span> <br /> what you <br /> need",
@@ -44,10 +44,10 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'main-1',
+          image: 'hero-1',
           text: 'Our Services',
           title:
-            "<span class='text-accent-3'>select</span> <br /> what you <br /> need",
+            "<span class='text-accent-4'>select</span> <br /> what you <br /> need",
           button: 'LEARN MORE',
           href: '/en/menu',
         },
@@ -62,36 +62,36 @@ export default {
           button: 'see more',
           image: 'order',
           color: 'bg-accent-3',
-          href:'#'
+          href: '#',
         },
         {
-          label: 'Catering',
+          label: 'Taquizas & Catering',
           button: 'see more',
           image: 'catering',
           color: 'bg-accent-1',
-          href:'catering'
+          href: 'catering',
         },
         {
           label: 'Menu',
           button: 'see more',
           image: 'menu-2',
           color: 'bg-accent-2',
-          href:'menu'
+          href: 'menu',
         },
       ],
-    },
-    gallery: {
-      title: 'Our Gallery',
-      items: [
-        'gallery-1',
-        'gallery-2',
-        'gallery-3',
-        'gallery-4',
-        'gallery-1',
-        'gallery-2',
-        'gallery-3',
-        'gallery-4',
-      ],
+      gallery: {
+        title: 'Our Gallery',
+        items: [
+          'bistec',
+          'carne',
+          'flautas',
+          'parrillada',
+          'sopa',
+          'huarache',
+          'quezabirrias',
+          'sopes',
+        ],
+      },
     },
     testimony: {
       title: 'Testimonials',
@@ -147,6 +147,11 @@ export default {
           href: 'drinks-desserts',
           icon: 'dessert',
         },
+        {
+          label: 'Promotions',
+          href: 'promotions',
+          icon: 'promotions',
+        },
       ],
       title: 'Our <span class="text-accent-3">Gallery</span>',
     },
@@ -163,65 +168,107 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Seafood',
-          href: '/menu/seafood',
+          label: 'Home Specials',
+          href: '/menu/home-specials',
         },
       ],
-      title: 'Seafood',
-      image: 'seafood-1',
-      text: 'Oysters',
+      title: 'Home Specials',
+      image: 'parrillada',
+      text: '',
       link: '',
       first: {
-        name: 'Raw oysters',
-        price: 'DOZEN $29.99  ½ DOZEN $19.99 ',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Grilled Fish Fillet',
+          name: 'Parrillada especial for two',
           description:
-            '2 grilled fish fillets served with rice, beans, salad and tortillas',
+            '100oz of grill steak, Mexican sausage, big size of guacamole, 3 cheese quesadillas, chile relleno, grilled chicken, onion and fried jalapeño.',
+          price: '35.75',
+        },
+        {
+          name: 'Parrillada El Solitario',
+          description:
+            'Grill steak, Mexican sausage, 2 oz of guacamole, 2 cheese quesadillas, fries, grilled chicken, onion and fried jalapeño.',
+          price: '24.99',
+        },
+        {
+          name: 'Mojacajete',
+          description:
+            'Lava rock bowl fillet with grilled chicken, steak, chorizo, shrimp and slice of queso fresco marinated and with onions, cactus, jalapeño toreado. Served with rice, beans salad and tortillas',
+          price: '33.99',
+        },
+        {
+          name: 'Carne asada',
+          description:
+            'Grilled steak, served with grilled onion, grilled jalapeño, rice, beans, salad and tortillas.',
+          price: '19.99',
+        },
+        {
+          name: 'Bistec ranchero',
+          description:
+            'Beef steak in Mexican red sauce served with rice, beans, salad and tortillas.',
+          price: '20.75',
+        },
+        {
+          name: 'Chuleta ahumada',
+          description:
+            'Grilled pork chop onion and jalapeño served with rice and beans, salad and tortillas.',
           price: '15.99',
         },
         {
-          name: 'Diabla Shrimp',
+          name: 'Chuleta ahumada a la mexicana',
           description:
-            '15 jumbo shrimps in diabla sauce (hot or mild), served with rice, beans and salad',
-          price: '19.99',
+            'Grilled pork chop mixed with onion, jalapeño and tomato served with rice, beans, salad and tortillas.',
+          price: '17.75',
         },
         {
-          name: 'Grilled Shrimp',
+          name: 'Mar y Tierra',
           description:
-            '15 jumbo shrimps grilled, served with rice, beans and salad',
+            'Grilled steak with six big grilled shrimps, grilled onion and jalapeño with rice beans, salad and tortillas.',
+          price: '24.99',
+        },
+        {
+          name: 'Filete de Res empanizado',
+          description:
+            'Breaded steak served with rice, beans, salad and tortillas.',
           price: '18.99',
         },
         {
-          name: 'Mexican-style Shrimp',
+          name: 'Chile’s rellenos',
           description:
-            '15 jumbo shrimps cooked with pico de gallo, served with rice, beans and salad',
-          price: '19.99',
+            '2 poblano peppers filled with cheese topped with sour cream and cheese, served with rice, beans, salad and tortillas.',
+          price: '15.75',
         },
         {
-          name: 'Garlic Butter Shrimp',
+          name: 'Pollo a la Diabla',
           description:
-            '15 jumbo shrimps cooked in garlic butter with onion, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Fried Tilapia',
-          description: 'Fried tilapia served with rice, beans and salad',
+            'Grilled chicken breast with spicy or mild sauce served with rice and beans.',
           price: '18.99',
         },
         {
-          name: 'Spicy Tilapia',
+          name: 'Filete de pollo empanizado',
           description:
-            'Fried tilapia with spicy sauce, served with rice, beans and salad',
-          price: '19.99',
+            'Breaded chicken served with rice, beans, salad and tortillas.',
+          price: '18.99',
         },
         {
-          name: 'Tilapia with Garlic',
+          name: 'Grilled chicken / Pollo a la plancha',
           description:
-            'Fried tilapia seasoned with garlic and onion, served with rice, beans and salad',
-          price: '19.99',
+            'Grilled chicken breast served with rice, beans, salad and tortillas.',
+          price: '16.99',
+        },
+        {
+          name: 'Pollo a la Mexicana',
+          description:
+            'Grilled chicken breast mixed with pico de gallo served with rice, beans, salad and tortillas.',
+          price: '18.99',
         },
       ],
       button: 'Order Now',
@@ -237,65 +284,47 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Seafood',
-          href: '/menu/seafood',
+          label: 'Tacos',
+          href: '/menu/tacos',
         },
       ],
-      title: 'Seafood',
-      image: 'seafood-1',
-      text: 'Oysters',
+      title: 'Tacos',
+      image: 'quezabirrias',
+      text: '',
       link: '',
       first: {
-        name: 'Raw oysters',
-        price: 'DOZEN $29.99  ½ DOZEN $19.99 ',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
+        { name: 'Asada/Steak', description: '', price: '2.99' },
+        { name: 'Pollo/Chicken', description: '', price: '2.99' },
+        { name: 'Carnitas/Roasted pork', description: '', price: '2.99' },
+        { name: 'Pastor/Marinated Pork', description: '', price: '2.99' },
+        { name: 'Cabeza/Beef head', description: '', price: '2.99' },
+        { name: 'Barbacoa/Brisket', description: '', price: '2.99' },
+        { name: 'Chicharron/Pork Belly', description: '', price: '2.99' },
+        { name: 'Suadero', description: '', price: '2.99' },
+        { name: 'Chorizo/Mexican sausage', description: '', price: '2.99' },
+        { name: 'Buche/Pork stomach', description: '', price: '2.99' },
+        { name: 'Tripa/Tripe', description: '', price: '3.25' },
+        { name: 'Lengua/Beef tongue', description: '', price: '3.49' },
+        { name: 'Birria res', description: '', price: '2.99' },
+        { name: 'Birria Borrego', description: '', price: '3.75' },
         {
-          name: 'Grilled Fish Fillet',
-          description:
-            '2 grilled fish fillets served with rice, beans, salad and tortillas',
-          price: '15.99',
+          name: 'Tacos Camaron',
+          description: 'Shrimp tacos corn flour tortilla 3 pieces',
+          price: '13.99',
         },
         {
-          name: 'Diabla Shrimp',
-          description:
-            '15 jumbo shrimps in diabla sauce (hot or mild), served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Grilled Shrimp',
-          description:
-            '15 jumbo shrimps grilled, served with rice, beans and salad',
-          price: '18.99',
-        },
-        {
-          name: 'Mexican-style Shrimp',
-          description:
-            '15 jumbo shrimps cooked with pico de gallo, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Garlic Butter Shrimp',
-          description:
-            '15 jumbo shrimps cooked in garlic butter with onion, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Fried Tilapia',
-          description: 'Fried tilapia served with rice, beans and salad',
-          price: '18.99',
-        },
-        {
-          name: 'Spicy Tilapia',
-          description:
-            'Fried tilapia with spicy sauce, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Tilapia with Garlic',
-          description:
-            'Fried tilapia seasoned with garlic and onion, served with rice, beans and salad',
-          price: '19.99',
+          name: 'Tacos de Pescado',
+          description: 'Fish tacos corn flour (3 pieces)',
+          price: '13.99',
         },
       ],
       button: 'Order Now',
@@ -311,65 +340,92 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Seafood',
-          href: '/menu/seafood',
+          label: 'Mexican Snacks',
+          href: '/menu/mexican-snacks',
         },
       ],
-      title: 'Seafood',
-      image: 'seafood-1',
-      text: 'Oysters',
+      title: 'Mexican Snacks',
+      image: 'sopes',
+      text: '',
       link: '',
       first: {
-        name: 'Raw oysters',
-        price: 'DOZEN $29.99  ½ DOZEN $19.99 ',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Grilled Fish Fillet',
+          name: 'Quezadilla supreme',
+          description: 'Choice of meat served with rice, beans and salad',
+          price: '14.99',
+        },
+        {
+          name: 'Quezadilla harina sola',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Quezadilla maiz sola',
+          description: '',
+          price: '5.49',
+        },
+        {
+          name: 'Burrito',
           description:
-            '2 grilled fish fillets served with rice, beans, salad and tortillas',
+            'Choice of meat fillet with rice, beans, mozzarella cheese, lettuce and sour cream',
+          price: '11.75',
+        },
+        {
+          name: 'Enchiladas Suizas',
+          description:
+            '4 enchiladas choice of meat topped special green sauce served with rice, beans and salad',
+          price: '15.75',
+        },
+        {
+          name: 'Gorditas',
+          description:
+            'Fried gordita, choice of meat fillet with beans, sour cream, tomato, lettuce and cheese',
+          price: '7.99',
+        },
+        {
+          name: 'Sopes',
+          description:
+            'Order with 5 sopes topped with beans, choice of meat, sour cream, tomato, lettuce and cheese',
+          price: '13.99',
+        },
+        {
+          name: 'Sopes Tripa',
+          description:
+            'Order with 5 sopes topped with beans, choice of meat, sour cream, tomato, lettuce and cheese',
+          price: '14.99',
+        },
+        {
+          name: 'Sopes Lengua',
+          description:
+            'Order with 5 sopes topped with beans, choice of meat, sour cream, tomato, lettuce and cheese',
           price: '15.99',
         },
         {
-          name: 'Diabla Shrimp',
+          name: 'Flautas de pollo',
           description:
-            '15 jumbo shrimps in diabla sauce (hot or mild), served with rice, beans and salad',
-          price: '19.99',
+            '4 rolled fried tortillas topped with sour cream, lettuce, cheese, onion and tomato',
+          price: '14.75',
         },
         {
-          name: 'Grilled Shrimp',
+          name: 'Tostadas with meat',
           description:
-            '15 jumbo shrimps grilled, served with rice, beans and salad',
-          price: '18.99',
+            'Hard shell topped with choice of meat, beans, lettuce, onion, tomato, cheese and sour cream',
+          price: '6.75',
         },
         {
-          name: 'Mexican-style Shrimp',
+          name: 'Taco Salad',
           description:
-            '15 jumbo shrimps cooked with pico de gallo, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Garlic Butter Shrimp',
-          description:
-            '15 jumbo shrimps cooked in garlic butter with onion, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Fried Tilapia',
-          description: 'Fried tilapia served with rice, beans and salad',
-          price: '18.99',
-        },
-        {
-          name: 'Spicy Tilapia',
-          description:
-            'Fried tilapia with spicy sauce, served with rice, beans and salad',
-          price: '19.99',
-        },
-        {
-          name: 'Tilapia with Garlic',
-          description:
-            'Fried tilapia seasoned with garlic and onion, served with rice, beans and salad',
-          price: '19.99',
+            'Fillet with choice of meat, rice, beans, lettuce, tomato, onion, cheese and sour cream',
+          price: '12.75',
         },
       ],
       button: 'Order Now',
@@ -395,55 +451,83 @@ export default {
       link: '',
       first: {
         name: 'Raw oysters',
-        price: 'DOZEN $29.99 <br class="block lg:hidden"/>½ DOZEN $19.99 ',
+        price: 'DOZEN $22.99, <br class="block lg:hidden"/>½ DOZEN $12.99 ',
+      },
+      second: {
+        name: 'Prepared oysters',
+        description:
+          'Raw oysters topped with special sauce with shrimp and octopus',
+        price: 'DOZEN $34.99, <br class="block lg:hidden"/>½ DOZEN $19.99 ',
       },
       list: [
         {
-          name: 'Grilled Fish Fillet',
+          name: 'Filete de Pescado a la Plancha',
           description:
             '2 grilled fish fillets served with rice, beans, salad and tortillas',
-          price: '15.99',
+          price: '16.99',
         },
         {
-          name: 'Diabla Shrimp',
+          name: 'Filete de Pescado Empanizado',
+          description:
+            '2 fish breaded fillets served with rice, beans, salad and tortillas',
+          price: '18.99',
+        },
+        {
+          name: 'Camarones a la diabla',
           description:
             '15 jumbo shrimps in diabla sauce (hot or mild), served with rice, beans and salad',
-          price: '19.99',
+          price: '20.75',
         },
         {
-          name: 'Grilled Shrimp',
+          name: 'Camarones a la plancha',
           description:
             '15 jumbo shrimps grilled, served with rice, beans and salad',
-          price: '18.99',
+          price: '19.99',
         },
         {
-          name: 'Mexican-style Shrimp',
+          name: 'Camarones a la Mexicana',
           description:
             '15 jumbo shrimps cooked with pico de gallo, served with rice, beans and salad',
-          price: '19.99',
+          price: '20.75',
         },
         {
-          name: 'Garlic Butter Shrimp',
+          name: 'Camarones al mojo de Ajo',
           description:
             '15 jumbo shrimps cooked in garlic butter with onion, served with rice, beans and salad',
-          price: '19.99',
+          price: '20.75',
         },
         {
-          name: 'Fried Tilapia',
-          description: 'Fried tilapia served with rice, beans and salad',
-          price: '18.99',
-        },
-        {
-          name: 'Spicy Tilapia',
+          name: 'Mojarra Frita',
           description:
-            'Fried tilapia with spicy sauce, served with rice, beans and salad',
+            'Fried red tilapia served with rice, beans,  salad and tortill',
           price: '19.99',
         },
         {
-          name: 'Tilapia with Garlic',
+          name: 'Mojarra a la Diabla',
           description:
-            'Fried tilapia seasoned with garlic and onion, served with rice, beans and salad',
+            'Fried Tilapia topped with spicy or mild sauce served with rice, beans, salad and tortillas',
+          price: '20.99',
+        },
+        {
+          name: 'Mojarra al Mojo de Ajo',
+          description:
+            'Fried tilapia seasoned with garlic and onion, served with rice, beans, salad and tortillas',
+          price: '20.99',
+        },
+        {
+          name: 'Torre de Mariscos',
+          description: '',
+          price: '23.99',
+        },
+        {
+          name: 'Camarones Aguachile',
+          description: '',
           price: '19.99',
+        },
+        {
+          name: 'Botana Marisquera',
+          description: '',
+          price: '23.99',
         },
       ],
       button: 'Order Now',
@@ -459,69 +543,234 @@ export default {
           href: '/menu',
         },
         {
-          label: 'Seafood',
-          href: '/menu/seafood',
+          label: 'Drinks & Desserts',
+          href: '/menu/drinks-desserts',
         },
       ],
-      title: 'Seafood',
-      image: 'seafood-1',
-      text: 'Oysters',
+      title: 'Drinks & Desserts',
+      image: 'limonada',
+      text: '',
       link: '',
       first: {
-        name: 'Raw oysters',
-        price: 'DOZEN $29.99  ½ DOZEN $19.99 ',
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
       },
       list: [
         {
-          name: 'Grilled Fish Fillet',
-          description:
-            '2 grilled fish fillets served with rice, beans, salad and tortillas',
-          price: '15.99',
+          name: 'Agua Fresca - Mediana',
+          description: 'Rice water / Pineapple / Jamaica',
+          price: '4.25',
         },
         {
-          name: 'Diabla Shrimp',
-          description:
-            '15 jumbo shrimps in diabla sauce (hot or mild), served with rice, beans and salad',
-          price: '19.99',
+          name: 'Agua Fresca - Grande',
+          description: 'Rice water / Pineapple / Jamaica',
+          price: '5.25',
         },
         {
-          name: 'Grilled Shrimp',
-          description:
-            '15 jumbo shrimps grilled, served with rice, beans and salad',
-          price: '18.99',
+          name: 'Cafe',
+          description: '',
+          price: '3.25',
         },
         {
-          name: 'Mexican-style Shrimp',
-          description:
-            '15 jumbo shrimps cooked with pico de gallo, served with rice, beans and salad',
-          price: '19.99',
+          name: 'Cafe de Olla',
+          description: '',
+          price: '3.75',
         },
         {
-          name: 'Garlic Butter Shrimp',
-          description:
-            '15 jumbo shrimps cooked in garlic butter with onion, served with rice, beans and salad',
-          price: '19.99',
+          name: 'Chocolate Abuelita',
+          description: '',
+          price: '4.99',
         },
         {
-          name: 'Fried Tilapia',
-          description: 'Fried tilapia served with rice, beans and salad',
-          price: '18.99',
+          name: 'CocaCola Vidrio 500 ml',
+          description: '',
+          price: '4.99',
         },
         {
-          name: 'Spicy Tilapia',
-          description:
-            'Fried tilapia with spicy sauce, served with rice, beans and salad',
-          price: '19.99',
+          name: 'Jarritos',
+          description: '',
+          price: '3.99',
         },
         {
-          name: 'Tilapia with Garlic',
+          name: 'Bottle water',
+          description: '',
+          price: '2.25',
+        },
+        {
+          name: 'Can Soda',
+          description: '',
+          price: '2.75',
+        },
+        {
+          name: 'Jumex',
+          description: '',
+          price: '2.75',
+        },
+        {
+          name: 'Milkshake',
+          description: 'Strawberry / Chocomilk',
+          price: '6.99',
+        },
+        {
+          name: 'Fresh Lemonade',
+          description: '',
+          price: '7.99',
+        },
+        {
+          name: 'Beer',
           description:
-            'Fried tilapia seasoned with garlic and onion, served with rice, beans and salad',
-          price: '19.99',
+            'Corona / Corona Familiar / Victoria / Modelo Especial / Pacifico / Heineken / 2 X large / 2X amber / Miller lite / Coors lite',
+          price: '5.25',
+        },
+        {
+          name: 'Michelada',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Caguama Corona',
+          description: '',
+          price: '13.99',
+        },
+        {
+          name: 'Caguama Victoria',
+          description: '',
+          price: '13.99',
+        },
+        {
+          name: 'Michelada Botanera',
+          description: '',
+          price: '16.99',
+        },
+        {
+          name: 'Smirnoff',
+          description: '',
+          price: '5.99',
+        },
+        {
+          name: 'Margarita Cayman jack',
+          description: '',
+          price: '5.99',
+        },
+        {
+          name: 'Fresas con Crema',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Fresas Dubai',
+          description: '',
+          price: '16.99',
+        },
+        {
+          name: 'Fresas con crema y chocolate',
+          description: '',
+          price: '12.99',
+        },
+        {
+          name: 'Churros with ice cream',
+          description: '',
+          price: '11.99',
         },
       ],
       button: 'Order Now',
     },
+  },
+  promotion: {
+    nav: [
+      {
+        label: 'Home',
+        href: '/',
+      },
+      {
+        label: 'Menu',
+        href: '/menu',
+      },
+      {
+        label: 'Promotion',
+        href: '/menu/promotions',
+      },
+    ],
+    title: 'Promotion',
+    image: 'quezadilla',
+    list: [
+      {
+        title: 'Kids Menu',
+        items: [
+          {
+            name: 'Chiken tender with fries',
+            description: '',
+            price: '9.99',
+          },
+          {
+            name: '2 tacos with rice and beans',
+            description: '',
+            price: '9.99',
+          },
+          {
+            name: 'Cheese quesadilla with rice and beans',
+            description: '',
+            price: '8.99',
+          },
+          {
+            name: 'Torta del chavo with fries',
+            description: 'Ham, mayonnaise and cheese',
+            price: '10.75',
+          },
+          {
+            name: 'Shrimp quesadilla',
+            description: 'Served with rice and beans',
+            price: '13.75',
+          },
+          {
+            name: 'Carne asada',
+            description: 'Served with rice and beans',
+            price: '13.99',
+          },
+        ],
+      },
+      {
+        title: 'Fin de Semana',
+        items: [
+          {
+            name: 'Lamb Birria',
+            description: 'Choice of meat served with rice, beans and salad',
+            price: '18.99',
+          },
+          {
+            name: 'Birria de Res',
+            description: '',
+            price: '17.99',
+          },
+          {
+            name: 'Pozole',
+            description: '',
+            price: '14.99',
+          },
+          {
+            name: 'Menudo',
+            description: '',
+            price: '15.75',
+          },
+          {
+            name: 'Queza Birrria 2 pzas',
+            description: '',
+            price: '10.99',
+          },
+          {
+            name: '3 Tacos Birria de Borrego',
+            description: '',
+            price: '13.99',
+          },
+        ],
+      },
+    ],
+    button: 'Order Now',
   },
   catering: {
     hero: {
@@ -548,7 +797,7 @@ export default {
           'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event.<br/> Once submitted, a member of our team will contact you to confirm your order. If you don’t hear from us within 48 hours, please email us at losamecas@gmail.com.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
-          '3558 S Orange Ave, Orlando, FL 32806 <br/> (407) XXX XXXX <br/> Authentic Mexican flavor, family tradition, and the best tacos in Orlando. <br/> Closed Sundays, but always ready to cater your weekday fiestas.',
+          '3558 S Orange Ave, Orlando, FL 32806 <br/> <a href="tel:+14072031512"> +1 (407) 203 1512</a>  <br/> Authentic Mexican flavor, family tradition, and the best tacos in Orlando. <br/> Closed Sundays, but always ready to cater your weekday fiestas.',
       },
     },
     request: {
@@ -661,13 +910,13 @@ export default {
     notes: {
       title: 'NOTES & CONDITIONS',
       description:
-        'This form serves as a catering request only. <br/> We require at least 24 hours’ notice for all orders to ensure fresh preparation. <br/> Once submitted, a member of our team will contact you for confirmation. <br/>  If you don’t hear back within 48 hours, please reach out directly at: <br/> <a>📧 losamecas@gmail.com</a> <br/> <a> 📞 (407) XXX-XXXX</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806 <br/>  Authentic Mexican flavor, family tradition, and the best tacos in Orlando.',
+        'This form serves as a catering request only. <br/> We require at least 24 hours’ notice for all orders to ensure fresh preparation. <br/> Once submitted, a member of our team will contact you for confirmation. <br/>  If you don’t hear back within 48 hours, please reach out directly at: <br/> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=losamecastaqueria@outlook.com" target="_blank" rel="noopener noreferrer">📧 losamecastaqueria@outlook.com</a> <br/> <a href="tel:+14072031512"> 📞+1 (407) 203 1512</a> <br/> Los Amecas Restaurante y Taquería – 3558 S Orange Ave, Orlando FL 32806 <br/>  Authentic Mexican flavor, family tradition, and the best tacos in Orlando.',
     },
   },
   info: {
     hero: {
       title:
-        "Welcome to <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/> <span class='text-accent-1'>Los Amecas <br/> Restaurante y Taquería</span> <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/>",
+        "Welcome to <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/> Los Amecas <br/> Restaurante y Taquería <img src='/plate.webp' alt='Informacion de Los Amecas' width='64' height='64' class='w-18 h-18 inline'/>",
       button: 'Order Now',
     },
     description: {
@@ -678,7 +927,7 @@ export default {
         hours: {
           title: 'Hours',
           content:
-            'Monday to Saturday: 10:00 AM to 9:30 PM <br/> Sunday: Close',
+            'Monday to Thursday and Sundays: 9:00 AM to 9:00 PM <br/> Friday and Saturday: 9:00 AM to 9:30 PM',
         },
         location: {
           title: 'Location',

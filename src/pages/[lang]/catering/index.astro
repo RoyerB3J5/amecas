@@ -5,7 +5,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Conditions from '../../../sections/catering/Conditions.astro';
 import Description from '../../../sections/catering/Description.astro';
 import Hero from '../../../sections/catering/Hero.astro';
-import Request from '../../../sections/catering/Request.astro';
+import Request from '../../../sections/catering/Request';
 import type { Language } from '../../../types/language.type';
 export function getStaticPaths() {
   return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
@@ -17,9 +17,11 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en };
 const t = translations[lang];
 ---
+
 <Layout lang={lang} t={t}>
-  <Hero content={t.catering.hero}/>
+  <Hero content={t.catering.hero} />
   <Description content={t.catering.description} />
-  <Request content={t.catering.request}/>
-  <Conditions content={t.catering.notes}/>
+  {/*<Request content={t.catering.request}/> */}
+  <Request client:idle />
+  <Conditions content={t.catering.notes} />
 </Layout>

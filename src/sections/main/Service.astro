@@ -1,5 +1,6 @@
 ---
 import Button from '../../components/Button.astro';
+import CarouselMainGallery from '../../components/CarouselMainGallery.astro';
 
 type Translations = typeof import('../../i18n/es').default;
 type ServiceContent = Translations['main']['service'];
@@ -15,12 +16,12 @@ const lang = match ? match[1] : 'en';
 ---
 
 <section
-  class="bg-white pt-[70px] md:pt-[39px] flex flex-col justify-center items-center w-full"
-  data-aos="zoom-in-down"
-  data-aos-offset="200"
+  class="bg-[#E5DECC] pt-[70px] md:pt-[39px] flex flex-col justify-center items-center w-full pb-[334px] relative"
 >
   <div
     class="w-full max-w-screen md:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-center gap-[62px]"
+    data-aos="zoom-in-down"
+    data-aos-offset="200"
   >
     <div
       class="flex flex-col justify-center items-start gap-5 pb-5 border-b border-b-text/30 w-full"
@@ -33,7 +34,7 @@ const lang = match ? match[1] : 'en';
       </h2>
     </div>
     <div
-      class="flex flex-col md:flex-row justify-center items-center gap-6 w-full mb-14 md:mb-16"
+      class="flex flex-col md:flex-row justify-center items-center gap-6 w-full"
     >
       {
         content.list.map((item) => (
@@ -61,5 +62,13 @@ const lang = match ? match[1] : 'en';
         ))
       }
     </div>
+  </div>
+  <div
+    class="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex flex-col justify-center items-start gap-10 z-10 absolute bottom-0 translate-y-1/2"
+  >
+    <h2 class="text-[36px] leading-[120%] font-normal text-start">
+      {content.gallery.title}
+    </h2>
+    <CarouselMainGallery galleryItems={content.gallery.items} />
   </div>
 </section>

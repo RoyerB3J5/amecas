@@ -25,10 +25,10 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
             {/* Cada slide con <section> y fondo de imagen */}
             <section class="w-full h-full flex items-center justify-center relative">
               <img
-                src={`/${items}.webp`}
+                src={`/menu/${items}.webp`}
                 alt="Slide image"
-                width="326"
-                height="257"
+                width="288"
+                height="274"
                 loading="lazy"
                 decoding="async"
                 class="absolute inset-0 w-full h-full object-cover z-20 oobject-center rounded-[15px]"
@@ -426,7 +426,7 @@ const { galleryItems, interval = 8000 } = Astro.props as Props;
 
 <style>
   .hero-carousel-progress {
-    background: linear-gradient(90deg, #E6007E 0%, #E6007E 100%);
+    background: linear-gradient(90deg, #e6007e 0%, #e6007e 100%);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 
