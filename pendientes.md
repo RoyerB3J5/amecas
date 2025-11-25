@@ -3,15 +3,26 @@
 - Links de redes sociales para el footer
 
 - INICIO:
-   - Cambiar imagen de catering y orders - PEDIR IMAGEN
-   - Reviews si es que son imagenes o se hace un fetch - Mejor por imagen
+  - Imagen del Hero
+  - Cambiar imagen de catering y orders
+  - Imagenes de Reviews
 - CATERING:
   - Cambios de fotos que mandara la CLIENTA
-  - Cambio de Notas y Condificones - Mandara la CLIENTA
-  - Manta lista para catering
+  - Cambio de Notas y Condicicones - Mandara la CLIENTA
+  - Revisar y confirmar lista para catering de ingredientes, platos o lo que se ofrezca
 - INFO:
-  - Cambiar fotos relacionado a restaurantes mexicanos - Envia CLIENTA
-  - Pedir Formulario
+  - Cambio de imagenes
+  - Formulario de Contacto
 
 - FOOTER:
   - Camibar correo (Posiblemente)
+
+- SHAPE HUB:
+  -Se usara el tiktok?
+  - Se usara youtube?
+  - Poner our service o our menu?
+  - usara download flyer
+  - FALTA:
+    - Formulario
+    - Link del Review
+    - Link de youtube
