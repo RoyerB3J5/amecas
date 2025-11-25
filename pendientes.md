@@ -4,14 +4,11 @@
 
 - INICIO:
   - Imagen del Hero
-  - Cambiar imagen de catering y orders
-  - Imagenes de Reviews
 - CATERING:
   - Cambios de fotos que mandara la CLIENTA
   - Cambio de Notas y Condicicones - Mandara la CLIENTA
   - Revisar y confirmar lista para catering de ingredientes, platos o lo que se ofrezca
 - INFO:
-  - Cambio de imagenes
   - Formulario de Contacto
 
 - FOOTER:

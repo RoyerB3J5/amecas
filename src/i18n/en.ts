@@ -97,9 +97,10 @@ export default {
       title: 'Testimonials',
       items: [
         'testimonial-1',
-        'testimonial-1',
-        'testimonial-1',
-        'testimonial-1',
+        'testimonial-2',
+        'testimonial-3',
+        'testimonial-4',
+        'testimonial-5',
       ],
     },
   },
