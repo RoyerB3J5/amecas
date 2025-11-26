@@ -15,9 +15,9 @@
   - Camibar correo (Posiblemente)
 
 - SHAPE HUB:
-  -Se usara el tiktok?
+  - Se usara el tiktok?
   - Se usara youtube?
-  - Poner our service o our menu?
+  - our menu?
   - usara download flyer
   - FALTA:
     - Formulario
