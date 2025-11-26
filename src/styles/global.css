@@ -2,24 +2,23 @@
 @import 'tailwindcss';
 
 * {
-  font-family: 'Sofia Sans','Apple Color Emoji', sans-serif;
+  font-family: 'Sofia Sans', 'Apple Color Emoji', sans-serif;
 }
 
 @theme {
-  --font-family: 'Sofia Sans', 'Apple Color Emoji',sans-serif;
+  --font-family: 'Sofia Sans', 'Apple Color Emoji', sans-serif;
   --color-primary: #e5dabd;
-  --color-back: #E5DABD;
+  --color-back: #e5dabd;
   --color-text: #2f281c;
-  --color-accent-1: #F4AA02;
-  --color-accent-2: #8BCE2B;
-  --color-accent-3: #E6007E;
-  --color-accent-4: #47A9FE;
-  --color-accent-5: #A22887;
-  --color-paragraph: #6A6A6A;
+  --color-accent-1: #f4aa02;
+  --color-accent-2: #8bce2b;
+  --color-accent-3: #e6007e;
+  --color-accent-4: #47a9fe;
+  --color-accent-5: #a22887;
+  --color-paragraph: #6a6a6a;
   --breakpoint-xs: 25rem;
   --breakpoint-3xl: 106rem;
 }
-
 
 .slider {
   --animation-duration: 30s;
@@ -73,8 +72,34 @@
 }
 
 .emoji {
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui, sans-serif;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', system-ui,
+    sans-serif;
   /* line-height y display ayudan a que quede alineado */
   line-height: 1;
   display: inline-block;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-3px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-shake {
+  animation: shake 2s ease-in-out infinite;
 }
