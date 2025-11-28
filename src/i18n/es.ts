@@ -29,27 +29,26 @@ export default {
       slides: [
         {
           image: 'hero-1',
-          text: 'Nuestros Servicios',
+          text: 'Disfruta el sabor de México',
           title:
-            "<span class='text-accent-1'>selecciona</span> <br /> lo que<br /> necesites",
-          button: 'CONOCER MÁS',
-          href: '/en/menu',
+            "<span class='text-accent-1'>auténtico</span> <br /> sabor <br /> mexicano",
+          button: 'VER MENÚ',
+          href: '/es/menu',
         },
         {
           image: 'hero-1',
-          text: 'Nuestros Servicios',
+          text: 'CATERING PARA TODAS LAS OCASIONES',
           title:
-            "<span class='text-accent-2'>selecciona</span> <br /> lo que<br /> necesites",
-          button: 'CONOCER MÁS',
-          href: '/en/menu',
+            "<span class='text-accent-2'>Catering</span> <br /> para cada <br /> evento",
+          button: 'VER CATERING',
+          href: '/es/catering',
         },
         {
           image: 'hero-1',
-          text: 'Nuestros Servicios',
-          title:
-            "<span class='text-accent-4'>selecciona</span> <br /> lo que<br /> necesites",
-          button: 'CONOCER MÁS',
-          href: '/en/menu',
+          text: 'VISÍTANOS O CONTÁCTANOS',
+          title: "<span class='text-accent-4'>Auténtica </span> <br /> comida",
+          button: 'CONTÁCTANOS',
+          href: '/es/info',
         },
       ],
     },
@@ -80,7 +79,7 @@ export default {
         },
       ],
       gallery: {
-        title: 'Our Gallery',
+        title: 'Nuestra Galería',
         items: [
           'bistec',
           'carne',
@@ -108,16 +107,16 @@ export default {
     hero: {
       nav: [
         {
-          label: 'Home',
+          label: 'Inicio',
           href: '/',
         },
         {
-          label: 'Menu',
+          label: 'Menú',
           href: '/menu',
         },
       ],
-      title: 'Menu',
-      text: 'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event. Once submitted, a member of our team will contact you to confirm your order.',
+      title: 'Menú',
+      text: 'Echa un vistazo a nuestro menú de catering y completa el formulario abajo para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso mínimo de 24 horas para todos los pedidos de catering para que nuestra cocina pueda preparar todo fresco y listo para tu evento. Una vez enviado, un miembro de nuestro equipo se pondrá en contacto contigo para confirmar tu pedido.',
     },
     gallery: {
       title1: 'Categorias',
@@ -680,15 +679,15 @@ export default {
   promotion: {
     nav: [
       {
-        label: 'Home',
+        label: 'Inicio',
         href: '/',
       },
       {
-        label: 'Menu',
+        label: 'Menú',
         href: '/menu',
       },
       {
-        label: 'Promotion',
+        label: 'Promociones',
         href: '/menu/promotions',
       },
     ],
@@ -772,32 +771,26 @@ export default {
   catering: {
     hero: {
       nav: [
-        {
-          label: 'Inicio',
-          href: '/',
-        },
-        {
-          label: 'Catering',
-          href: '/catering',
-        },
+        { label: 'Inicio', href: '/' },
+        { label: 'Catering y Eventos', href: '/catering' },
       ],
-      title: 'Catering',
-      text: 'Consulte nuestro menú de catering y complete el formulario a continuación para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso de al menos 24 horas para todos los pedidos de catering, de modo que nuestra cocina pueda preparar todo fresco y listo para su evento. Una vez enviado, un miembro de nuestro equipo se comunicará con usted para confirmar su pedido. ',
+      title: 'Catering y Eventos',
+      text: 'Consulta nuestros servicios de Catering y Eventos y elige la opción que mejor se adapte a tu celebración. Tanto si necesitas platos frescos, hechos desde cero para tu reunión, como servicio completo para un evento especial, estamos aquí para ayudarte a que tu día sea inolvidable.',
     },
     description: {
       section1: {
         title:
-          'Catering listo para tu <br/> <span class="text-accent-3">próxima fiesta</span>',
+          'Catering y Eventos listos para su <br/> <span class="text-accent-3"> Próxima Celebración</span>',
         text1:
-          'Celebra tu ocasión especial con el sabor auténtico de Los Amecas Restaurante y Taquería. Nuestro menú de catering lleva el corazón de la tradición mexicana a tu evento con platos caseros preparados frescos todos los días en Orlando. <br/>Disfruta de una selección irresistible de tacos con la carne que prefieras: carne asada jugosa, barbacoa sabrosa, al pastor perfectamente sazonado o pollo tierno. Los amantes de los mariscos pueden deleitarse con nuestros famosos tacos de camarón, tacos de pescado, mojarra frita o camarones a la diabla. Cada platillo se prepara con el mismo cuidado y sabor que han hecho de Los Amecas un favorito entre locales y visitantes.',
+          'Celebra tu ocasión especial con el auténtico sabor de Los Amecas Restaurante y Taquería. Ya sea que elijas nuestro Servicio de Catering o nuestro Servicio de Eventos, llevamos el corazón de la tradición mexicana a tu reunión con platillos preparados frescos todos los días en Orlando. Nuestro servicio de catering ofrece una selección irresistible de tacos con la carne que prefieras —jugosa carne asada, sabrosa barbacoa, pastor perfectamente sazonado o pollo tierno. Los amantes de los mariscos pueden disfrutar de nuestros populares tacos de camarón, tacos de pescado, mojarra frita o camarones a la diabla. Cada platillo se prepara con el mismo cuidado y sabor que han hecho de Los Amecas un favorito entre locales y visitantes. También preparamos guacamole fresco, totopos crujientes y churros dorados que a tus invitados les encantarán desde el primer bocado. Para almuerzos de trabajo o reuniones informales, nuestra "Mexican Lunch Box" ofrece una opción conveniente y satisfactoria con platillos acompañados de arroz, frijoles, ensalada y un postre dulce.',
         text2:
-          'Llevamos a tu fiesta guacamole recién hecho, totopos crujientes y churros dorados que a tus invitados les encantarán desde el primer bocado. <br/>Si organizas un almuerzo de trabajo o una reunión informal, nuestra práctica "Mexican Lunch Box" facilita todo y satisface: cada caja incluye tu elección de plato principal, arroz, frijoles, ensalada y un postre dulce para terminar. Nuestro objetivo es que tu evento se sienta como una verdadera fiesta mexicana. Todo lo que servimos se prepara fresco, se presenta con esmero y se entrega a tiempo.',
+          'Nuestro Servicio de Eventos es perfecto para celebraciones que van más allá de la comida. Desde cumpleaños y reuniones corporativas hasta reuniones familiares y fiestas privadas, te ayudamos a crear una experiencia inolvidable con montajes personalizados, opciones de servicio en sitio y menús adaptados a tu celebración. Llevamos el espíritu cálido y festivo de la hospitalidad mexicana a tu evento, asegurando un ambiente memorable donde buena comida y grandes momentos se unen. No importa qué servicio elijas, nuestro objetivo es que tu evento se sienta como una verdadera fiesta mexicana. Todo lo que ofrecemos se prepara fresco, se presenta con esmero y se entrega con el servicio confiable que define a Los Amecas; porque la buena comida reúne a las personas.',
         button: 'Ver menú',
       },
       section2: {
         title1: 'Interesado',
         text1:
-          'Consulta nuestro menú de catering y completa el formulario a continuación para solicitar un presupuesto. Este formulario es solo una solicitud. Requerimos un aviso de al menos 24 horas para todos los pedidos de catering, de modo que nuestra cocina pueda preparar todo fresco y listo para tu evento.<br/> Una vez enviado, un miembro de nuestro equipo se comunicará contigo para confirmar tu pedido. Si no recibes respuesta en 48 horas, envía un correo a losamecas@gmail.com.',
+          'Cuéntanos más sobre tu próxima celebración. Si solicitas nuestro Servicio de Catering o nuestro Servicio de Eventos, simplemente completa el formulario correspondiente abajo y nuestro equipo te asistirá con los siguientes pasos.<br/>Para solicitudes de catering, revisa nuestro menú de catering y envía el formulario para que podamos preparar un presupuesto. Requerimos un aviso mínimo de 24 horas para todos los pedidos de catering, para asegurarnos de que todo se prepare fresco y listo para tu evento.<br/>Para solicitudes de servicio de eventos, comparte los detalles de tu celebración y el tipo de montaje o apoyo que necesitas. <br/>Nuestro equipo te ayudará a crear una experiencia memorable a la medida de tus necesidades. Una vez enviado el formulario, un miembro de nuestro equipo se pondrá en contacto contigo para confirmar los detalles. Si no recibes noticias nuestras en 48 horas, por favor escríbenos a <a href="https://mail.google.com/mail/?view=cm&fs=1&to=losamecastaqueria@outlook.com" target="_blank" rel="noopener noreferrer">📧 losamecastaqueria@outlook.com</a> para que podamos asistirte de inmediato.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
           '3558 S Orange Ave, Orlando, FL 32806 <br/> <a href="tel:+14072031512"> +1 (407) 203 1512</a> <br/> Auténtico sabor mexicano, tradición familiar y los mejores tacos en Orlando. <br/> Cerrado los domingos, pero siempre listos para atender tus fiestas entre semana.',

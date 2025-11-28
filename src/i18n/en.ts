@@ -37,19 +37,18 @@ export default {
         },
         {
           image: 'hero-1',
-          text: 'Our Services',
+          text: 'CATERING FOR EVERY OCCASION',
           title:
-            "<span class='text-accent-2'>select</span> <br /> what you <br /> need",
-          button: 'LEARN MORE',
-          href: '/en/menu',
+            "<span class='text-accent-2'>Catering </span> <br /> for Every <br /> Event",
+          button: 'View catering',
+          href: '/en/catering',
         },
         {
           image: 'hero-1',
-          text: 'Our Services',
-          title:
-            "<span class='text-accent-4'>select</span> <br /> what you <br /> need",
-          button: 'LEARN MORE',
-          href: '/en/menu',
+          text: 'VISIT OR REACH OUT',
+          title: "<span class='text-accent-4'>Authentic </span> <br /> Food ",
+          button: 'Contact US',
+          href: '/en/info',
         },
       ],
     },
@@ -777,25 +776,25 @@ export default {
     hero: {
       nav: [
         { label: 'Home', href: '/' },
-        { label: 'Catering', href: '/catering' },
+        { label: 'Catering & Events', href: '/catering' },
       ],
-      title: 'Catering',
-      text: 'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event. Once submitted, a member of our team will contact you to confirm your order. ',
+      title: 'Catering & Events',
+      text: 'Take a look at our Catering and Events services and choose the option that best fits your celebration. Whether you need fresh, made from scratch dishes for your gathering or full service for a special event, we’re here to help make your day unforgettable. ',
     },
     description: {
       section1: {
         title:
-          'Fiesta ready catering for your <br/> <span class="text-accent-3">Next Event</span>',
+          'Fiesta Ready Catering & Events for Your <br/> <span class="text-accent-3"> Next Celebration</span>',
         text1:
-          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Our catering menu brings the heart of Mexican tradition to your event with homemade dishes prepared fresh every day in Orlando.<br/>Enjoy an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, or tender pollo. Seafood lovers can delight in our famous shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is prepared with the same care and flavor that have made Los Amecas a favorite among locals and visitors alike. ',
+          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Whether you choose our Catering Service or our Events Service, we bring the heart of Mexican tradition to your gathering with dishes prepared fresh every day in Orlando. <br/> Our Catering Service offers an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, and tender pollo. Seafood lovers can enjoy our popular shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is crafted with the same care and flavor that have made Los Amecas a favorite among locals and visitors. We also prepare fresh guacamole, crispy tortilla chips, and golden churros your guests will love from the very first bite. For business lunches or casual gatherings, our Mexican Lunch Box provides a convenient and satisfying option with entrées served alongside rice, beans, salad, and a sweet dessert.',
         text2:
-          'We’ll bring to your party freshly made guacamole, crispy tortilla chips, and golden churros that your guests will love from the first bite.<br/>If you’re hosting a business lunch or casual gathering, our convenient Mexican Lunch Box makes things simple and satisfying. Each box includes your choice of entrée, rice, beans, salad, and a sweet dessert to finish. Our goal is to make your event feel like a true Mexican fiesta. Everything we serve is made fresh, presented beautifully, and delivered on time because great food brings people together.',
+          'Our Events Service is perfect for celebrations that go beyond food. From birthdays and corporate gatherings to family reunions and private parties, we help you create an unforgettable experience with customized setups, on-site service options, and menus tailored to your celebration. We bring the warm and festive spirit of Mexican hospitality to your event, ensuring a memorable atmosphere where great food and great moments come together. No matter which service you choose, our goal is to make your event feel like a true Mexican fiesta. Everything we provide is prepared fresh, beautifully presented, and delivered with the reliable service that defines Los Amecas, because great food brings people together.',
         button: 'View - Menu',
       },
       section2: {
         title1: 'Interested',
         text1:
-          'Take a look at our catering menu and fill out the form below to request a quote. This form is only a request. We require at least 24 hours notice for all catering orders so that our kitchen can prepare everything fresh and ready for your event.<br/> Once submitted, a member of our team will contact you to confirm your order. If you don’t hear from us within 48 hours, please email us at losamecas@gmail.com.',
+          'Tell us more about your upcoming celebration. Whether you are requesting our Catering Service or our Events Service, simply fill out the appropriate form below and our team will assist you with the next steps.<br/> For catering requests, please review our catering menu and submit the form so we can prepare a quote for you. We require at least 24 hours notice for all catering orders to ensure everything is prepared fresh and ready for your event.<br/> For event service requests, share the details of your celebration and the type of setup or support you are looking for. <br/> Our team will help you create a memorable experience tailored to your needs. Once your form is submitted, a member of our team will contact you to confirm the details. If you do not hear from us within 48 hours, please email us at <a href="https://mail.google.com/mail/?view=cm&fs=1&to=losamecastaqueria@outlook.com" target="_blank" rel="noopener noreferrer">📧 losamecastaqueria@outlook.com</a> so we can assist you right away.',
         title2: 'Los Amecas Restaurante y Taquería',
         text2:
           '3558 S Orange Ave, Orlando, FL 32806 <br/> <a href="tel:+14072031512"> +1 (407) 203 1512</a>  <br/> Authentic Mexican flavor, family tradition, and the best tacos in Orlando. <br/> Closed Sundays, but always ready to cater your weekday fiestas.',
