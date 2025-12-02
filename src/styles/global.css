@@ -103,3 +103,11 @@
 .animate-shake {
   animation: shake 2s ease-in-out infinite;
 }
+
+.img-slide {
+  mask-image: linear-gradient(black 95%, transparent);
+}
+
+.img-slide-2 {
+  mask-image: linear-gradient(black 60%, transparent);
+}

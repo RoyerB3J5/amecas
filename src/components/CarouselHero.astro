@@ -45,7 +45,7 @@ const { items, interval = 8000 } = Astro.props as Props;
                     {slide.text}
                   </p>
                   <h1
-                    class="text-[60px] lg:text-[90px] font-extrabold leading-[90%] text-white uppercase"
+                    class="text-[60px] lg:text-[70px] font-extrabold leading-[90%] text-white uppercase"
                     set:html={slide.title}
                   />
                   <Button
@@ -61,7 +61,7 @@ const { items, interval = 8000 } = Astro.props as Props;
                   alt="Imagen decorativa"
                   width="600"
                   height="485"
-                  class="hidden sm:block w-[350px] lg:w-[400px] xl:w-[600px] h-auto translate-y-10"
+                  class={`hidden sm:block w-[350px] lg:w-[400px] xl:w-[600px]  ${slide.image == 'hero-3' ? 'img-slide' : ''} ${slide.image == 'hero-2' ? 'img-slide-2 translate-y-20' : 'translate-y-10'} h-auto translate-y-10`}
                 />
               </div>
             </div>
@@ -154,7 +154,13 @@ const { items, interval = 8000 } = Astro.props as Props;
         }
 
         function getSlideWidth() {
-          return slides[0].getBoundingClientRect().width;
+          // Use the carousel container width as the authoritative slide width.
+          // Fallback to the first slide or track if needed (images may still be loading).
+          const w =
+            carousel.getBoundingClientRect().width ||
+            slides[0]?.getBoundingClientRect().width ||
+            track.getBoundingClientRect().width;
+          return w || 0;
         }
 
         function goTo(index, smooth = true) {
@@ -257,13 +263,16 @@ const { items, interval = 8000 } = Astro.props as Props;
         );
 
         function startAuto() {
+          // Ensure we don't create multiple intervals
+          stopAuto();
           autoSlide = setInterval(
             () => goTo(currentIndex + getPerPage()),
             intervalMs
           );
         }
         function stopAuto() {
-          clearInterval(autoSlide);
+          if (autoSlide) clearInterval(autoSlide);
+          autoSlide = null;
         }
         function resetAuto() {
           stopAuto();
@@ -389,6 +398,8 @@ const { items, interval = 8000 } = Astro.props as Props;
           slides = Array.from(track.children);
           goTo(1, false);
           updateIndicators();
+          // restart autoplay safely when layout changes (e.g., resize)
+          resetAuto();
         }
         window.addEventListener(
           'resize',

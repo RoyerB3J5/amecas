@@ -36,7 +36,7 @@ export default {
           href: '/en/menu',
         },
         {
-          image: 'hero-1',
+          image: 'hero-2',
           text: 'CATERING FOR EVERY OCCASION',
           title:
             "<span class='text-accent-2'>Catering </span> <br /> for Every <br /> Event",
@@ -44,11 +44,11 @@ export default {
           href: '/en/catering',
         },
         {
-          image: 'hero-1',
+          image: 'hero-3',
           text: 'VISIT OR REACH OUT',
-          title: "<span class='text-accent-4'>Authentic </span> <br /> Food ",
+          title: "<span class='text-accent-4'>Authentic </span> <br /> Food <br /> friendly Faces",
           button: 'Contact US',
-          href: '/en/info',
+          href: '/en/info#contact',
         },
       ],
     },
@@ -786,9 +786,9 @@ export default {
         title:
           'Fiesta Ready Catering & Events for Your <br/> <span class="text-accent-3"> Next Celebration</span>',
         text1:
-          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Whether you choose our Catering Service or our Events Service, we bring the heart of Mexican tradition to your gathering with dishes prepared fresh every day in Orlando. <br/> Our Catering Service offers an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, and tender pollo. Seafood lovers can enjoy our popular shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is crafted with the same care and flavor that have made Los Amecas a favorite among locals and visitors. We also prepare fresh guacamole, crispy tortilla chips, and golden churros your guests will love from the very first bite. For business lunches or casual gatherings, our Mexican Lunch Box provides a convenient and satisfying option with entrées served alongside rice, beans, salad, and a sweet dessert.',
+          'Celebrate your special occasion with the authentic flavor of Los Amecas Restaurante y Taquería. Whether you choose our Catering Service or our Events Service, we bring the heart of Mexican tradition to your gathering with dishes prepared fresh every day in Orlando. <br/> Our Catering Service offers an irresistible selection of tacos filled with your choice of meats such as juicy carne asada, flavorful barbacoa, perfectly seasoned al pastor, and tender pollo. Seafood lovers can enjoy our popular shrimp tacos, fish tacos, mojarra frita, or camarones a la diabla. Every dish is crafted with the same care and flavor that have made Los Amecas a favorite among locals and visitors. We also prepare fresh guacamole, crispy tortilla chips, and golden churros your guests will love from the very first bite. ',
         text2:
-          'Our Events Service is perfect for celebrations that go beyond food. From birthdays and corporate gatherings to family reunions and private parties, we help you create an unforgettable experience with customized setups, on-site service options, and menus tailored to your celebration. We bring the warm and festive spirit of Mexican hospitality to your event, ensuring a memorable atmosphere where great food and great moments come together. No matter which service you choose, our goal is to make your event feel like a true Mexican fiesta. Everything we provide is prepared fresh, beautifully presented, and delivered with the reliable service that defines Los Amecas, because great food brings people together.',
+          'For business lunches or casual gatherings, our Mexican Lunch Box provides a convenient and satisfying option with entrées served alongside rice, beans, salad, and a sweet dessert. Our Events Service is perfect for celebrations that go beyond food. From birthdays and corporate gatherings to family reunions and private parties, we help you create an unforgettable experience with customized setups, on-site service options, and menus tailored to your celebration. We bring the warm and festive spirit of Mexican hospitality to your event, ensuring a memorable atmosphere where great food and great moments come together. No matter which service you choose, our goal is to make your event feel like a true Mexican fiesta. Everything we provide is prepared fresh, beautifully presented, and delivered with the reliable service that defines Los Amecas, because great food brings people together.',
         button: 'View - Menu',
       },
       section2: {
