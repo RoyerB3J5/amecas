@@ -6,12 +6,15 @@ export default function NuvisionForm() {
 
   useEffect(() => {
     // Only run in the browser
-    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return;
 
-    const SRC = 'https://link.nuvisionwindowsusa.com/js/form_embed.js';
+    const SRC = 'https://link.losamecasrestaurant.com/js/form_embed.js';
     // Avoid injecting the script multiple times
     let addedByUs = false;
-    let script = document.querySelector(`script[src="${SRC}"]`) as HTMLScriptElement | null;
+    let script = document.querySelector(
+      `script[src="${SRC}"]`
+    ) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement('script');
       script.src = SRC;
@@ -33,12 +36,12 @@ export default function NuvisionForm() {
       style={{
         position: 'relative',
         width: '350px',
-        height: '510px', // Altura específica basada en data-height
+        height: '520px', // Altura específica basada en data-height
         padding: 0,
         overflow: 'hidden',
         // Oculta cualquier contenido que se desborde
       }}
-      className="bg-accent-3 rounded-[50px]"
+      className="bg-accent-5 rounded-[50px]"
     >
       {!loaded && (
         <div
@@ -51,15 +54,15 @@ export default function NuvisionForm() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#fff',
+            background: '#a22887',
           }}
         >
           Cargando…
         </div>
       )}
       <iframe
-        id="inline-OsQZDeAvTnQMdWxaa15Q"
-        src="https://link.nuvisionwindowsusa.com/widget/form/OsQZDeAvTnQMdWxaa15Q"
+        id="inline-E8cU0atDkzTPCVIy8GWO"
+        src="https://link.losamecasrestaurant.com/widget/form/E8cU0atDkzTPCVIy8GWO"
         title="Form Reviews"
         loading="lazy"
         onLoad={() => setLoaded(true)}
@@ -79,8 +82,8 @@ export default function NuvisionForm() {
         data-deactivation-type="neverDeactivate"
         data-form-name="Form Reviews"
         data-height="466"
-        data-layout-iframe-id="inline-OsQZDeAvTnQMdWxaa15Q"
-        data-form-id="OsQZDeAvTnQMdWxaa15Q"
+        data-layout-iframe-id="inline-E8cU0atDkzTPCVIy8GWO"
+        data-form-id="E8cU0atDkzTPCVIy8GWO"
       />
     </div>
   );
