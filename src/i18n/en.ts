@@ -46,7 +46,8 @@ export default {
         {
           image: 'hero-3',
           text: 'VISIT OR REACH OUT',
-          title: "<span class='text-accent-4'>Authentic </span> <br /> Food <br /> friendly Faces",
+          title:
+            "<span class='text-accent-4'>Authentic </span> <br /> Food <br /> friendly Faces",
           button: 'Contact US',
           href: '/en/info#contact',
         },
@@ -152,6 +153,11 @@ export default {
           href: 'promotions',
           icon: 'promotions',
         },
+        {
+          label: 'Kids Menu',
+          href: 'kids-menu',
+          icon: 'kids',
+        },
       ],
       title: 'Our <span class="text-accent-3">Gallery</span>',
     },
@@ -173,7 +179,7 @@ export default {
         },
       ],
       title: 'Home Specials',
-      image: 'parrillada',
+      image: 'aguachiles',
       text: '',
       link: '',
       first: {
@@ -289,7 +295,7 @@ export default {
         },
       ],
       title: 'Tacos',
-      image: 'quezabirrias',
+      image: 'TACOS',
       text: '',
       link: '',
       first: {
@@ -446,7 +452,7 @@ export default {
         },
       ],
       title: 'Seafood',
-      image: 'seafood-1',
+      image: 'botana',
       text: 'Oysters',
       link: '',
       first: {
@@ -680,6 +686,68 @@ export default {
       ],
       button: 'Order Now',
     },
+    'kids-menu': {
+      nav: [
+        {
+          label: 'Home',
+          href: '/',
+        },
+        {
+          label: 'Menu',
+          href: '/menu',
+        },
+        {
+          label: 'Kids Menu',
+          href: '/menu/kids-menu',
+        },
+      ],
+      title: 'Kids Menu',
+      image: 'carne-asada',
+      text: '',
+      link: '',
+      first: {
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
+      },
+      list: [
+        {
+          name: 'Chiken tender with fries',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: '2 tacos with rice and beans',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Cheese quesadilla with rice and beans',
+          description: '',
+          price: '8.99',
+        },
+        {
+          name: 'Torta del chavo with fries',
+          description: 'Ham, mayonnaise and cheese',
+          price: '10.75',
+        },
+        {
+          name: 'Shrimp quesadilla',
+          description: 'Served with rice and beans',
+          price: '13.75',
+        },
+        {
+          name: 'Carne asada',
+          description: 'Served with rice and beans',
+          price: '13.99',
+        },
+      ],
+      button: 'Order Now',
+    },
   },
   promotion: {
     nav: [
@@ -699,41 +767,6 @@ export default {
     title: 'Promotion',
     image: 'quezadilla',
     list: [
-      {
-        title: 'Kids Menu',
-        items: [
-          {
-            name: 'Chiken tender with fries',
-            description: '',
-            price: '9.99',
-          },
-          {
-            name: '2 tacos with rice and beans',
-            description: '',
-            price: '9.99',
-          },
-          {
-            name: 'Cheese quesadilla with rice and beans',
-            description: '',
-            price: '8.99',
-          },
-          {
-            name: 'Torta del chavo with fries',
-            description: 'Ham, mayonnaise and cheese',
-            price: '10.75',
-          },
-          {
-            name: 'Shrimp quesadilla',
-            description: 'Served with rice and beans',
-            price: '13.75',
-          },
-          {
-            name: 'Carne asada',
-            description: 'Served with rice and beans',
-            price: '13.99',
-          },
-        ],
-      },
       {
         title: 'Fin de Semana',
         items: [

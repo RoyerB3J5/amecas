@@ -46,7 +46,8 @@ export default {
         {
           image: 'hero-3',
           text: 'VISÍTANOS O CONTÁCTANOS',
-          title: "<span class='text-accent-4'>Auténtica </span> <br /> comida <br /> caras amigables ",
+          title:
+            "<span class='text-accent-4'>Auténtica </span> <br /> comida <br /> caras amigables ",
           button: 'CONTÁCTANOS',
           href: '/es/info#contact',
         },
@@ -147,6 +148,16 @@ export default {
           href: 'drinks-desserts',
           icon: 'dessert',
         },
+        {
+          label: 'Promotions',
+          href: 'promotions',
+          icon: 'promotions',
+        },
+        {
+          label: 'Kids Menu',
+          href: 'kids-menu',
+          icon: 'kids',
+        },
       ],
       title: "Nuestra <span class='text-accent-3'>Galería</span>",
     },
@@ -168,7 +179,7 @@ export default {
         },
       ],
       title: 'Especiales de la casa',
-      image: 'parrillada',
+      image: 'aguachiles',
       text: '',
       link: '',
       first: {
@@ -284,7 +295,7 @@ export default {
         },
       ],
       title: 'Tacos',
-      image: 'quezabirrias',
+      image: 'TACOS',
       text: '',
       link: '',
       first: {
@@ -441,7 +452,7 @@ export default {
         },
       ],
       title: 'Mariscos',
-      image: 'seafood-1',
+      image: 'botana',
       text: 'Mariscos',
       link: '',
       first: {
@@ -675,6 +686,68 @@ export default {
       ],
       button: 'Ordenar ahora',
     },
+    'kids-menu': {
+      nav: [
+        {
+          label: 'Inicio',
+          href: '/',
+        },
+        {
+          label: 'Menú',
+          href: '/menu',
+        },
+        {
+          label: 'Menú Infantil',
+          href: '/menu/kids-menu',
+        },
+      ],
+      title: 'Menú Infantil',
+      image: 'carne-asada',
+      text: '',
+      link: '',
+      first: {
+        name: '',
+        price: '',
+      },
+      second: {
+        name: '',
+        description: '',
+        price: ' ',
+      },
+      list: [
+        {
+          name: 'Tenders de pollo con papas fritas',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: '2 tacos con arroz y frijoles',
+          description: '',
+          price: '9.99',
+        },
+        {
+          name: 'Quesadilla de queso con arroz y frijoles',
+          description: '',
+          price: '8.99',
+        },
+        {
+          name: 'Torta del Chavo con papas fritas',
+          description: 'Jamón, mayonesa y queso',
+          price: '10.75',
+        },
+        {
+          name: 'Quesadilla de camarón',
+          description: 'Servida con arroz y frijoles',
+          price: '13.75',
+        },
+        {
+          name: 'Carne asada',
+          description: 'Servida con arroz y frijoles',
+          price: '13.99',
+        },
+      ],
+      button: 'Ordenar ahora',
+    },
   },
   promotion: {
     nav: [
@@ -694,41 +767,6 @@ export default {
     title: 'Promociones',
     image: 'sopes',
     list: [
-      {
-        title: 'Menú infantil',
-        items: [
-          {
-            name: 'Tenders de pollo con papas fritas',
-            description: '',
-            price: '9.99',
-          },
-          {
-            name: '2 tacos con arroz y frijoles',
-            description: '',
-            price: '9.99',
-          },
-          {
-            name: 'Quesadilla de queso con arroz y frijoles',
-            description: '',
-            price: '8.99',
-          },
-          {
-            name: 'Torta del Chavo con papas fritas',
-            description: 'Jamón, mayonesa y queso',
-            price: '10.75',
-          },
-          {
-            name: 'Quesadilla de camarón',
-            description: 'Servida con arroz y frijoles',
-            price: '13.75',
-          },
-          {
-            name: 'Carne asada',
-            description: 'Servida con arroz y frijoles',
-            price: '13.99',
-          },
-        ],
-      },
       {
         title: 'Fin de semana',
         items: [
