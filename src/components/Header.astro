@@ -30,7 +30,8 @@ const lang = match ? match[1] : 'en';
         height="204"
         width="1130"
         class="h-auto w-[130px] sm:w-[263px]"
-        decoding="async" loading="eager"
+        decoding="async"
+        loading="eager"
       />
     </a>
 
@@ -38,6 +39,8 @@ const lang = match ? match[1] : 'en';
       <ChangeLanguage />
       <Button
         text={content?.button}
+        href="https://www.clover.com/online-ordering/los-amecas-restaurante-orlando"
+        target="_blank"
         extraBtnClass="border border-black px-2.5 sm:px-6 hidden sm:flex"
         textClass="text-[16px] uppercase text-black"
         iconClass=" text-black hidden sm:block"
@@ -79,7 +82,8 @@ const lang = match ? match[1] : 'en';
           height="204"
           width="1130"
           class="h-auto w-[263px]"
-          decoding="async" loading="eager"
+          decoding="async"
+          loading="eager"
         />
       </a>
 
@@ -89,12 +93,19 @@ const lang = match ? match[1] : 'en';
           class="relative flex items-start flex-col justify-center w-full gap-5"
         >
           {
-            content?.nav.map((item) => {
+            content?.nav.map((item, i) => {
               const itemPathWithoutHash = item.href.split('#')[0];
-              const isActive = normalized === itemPathWithoutHash;
+              const isExternalIndex = i === 3;
+              const isActive =
+                !isExternalIndex && normalized === itemPathWithoutHash;
+              const href = isExternalIndex ? item.href : `/${lang}${item.href}`;
+              const target = isExternalIndex ? '_blank' : undefined;
+              const rel = isExternalIndex ? 'noopener noreferrer' : undefined;
               return (
                 <a
-                  href={`/${lang}${item.href}`}
+                  href={href}
+                  target={target}
+                  rel={rel}
                   class={`text-[20px] font-medium uppercase text-[#645044] leading-[130%] hover:text-[#64504480] transition-all duration-300 ease-in-out ${isActive ? 'text-[#64504480] ' : ''}`}
                 >
                   {item.label}
@@ -105,12 +116,14 @@ const lang = match ? match[1] : 'en';
         </nav>
       </div>
     </div>
-    <Button
+    {
+      /*<Button
       text="reservar"
       extraBtnClass="bg-accent-3 px-6"
       textClass="text-[13px] uppercase text-white"
       iconClass=" text-white"
-    />
+    /> */
+    }
   </div>
   <div class="flex-1 h-full bg-black/50"></div>
   <button

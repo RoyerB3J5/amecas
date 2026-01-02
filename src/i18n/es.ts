@@ -16,7 +16,7 @@ export default {
       },
       {
         label: 'Pedido',
-        href: '#',
+        href: 'https://www.clover.com/online-ordering/los-amecas-restaurante-orlando',
       },
       {
         label: 'Info',
@@ -62,7 +62,7 @@ export default {
           button: 'ver más',
           image: 'order',
           color: 'bg-accent-3',
-          href: '#',
+          href: 'https://www.clover.com/online-ordering/los-amecas-restaurante-orlando',
         },
         {
           label: 'Taquizas & Catering',
@@ -890,7 +890,7 @@ export default {
         },
         {
           label: 'Pedido',
-          href: '/order',
+          href: 'https://www.clover.com/online-ordering/los-amecas-restaurante-orlando',
         },
         {
           label: 'Info',

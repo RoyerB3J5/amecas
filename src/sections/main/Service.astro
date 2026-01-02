@@ -37,7 +37,7 @@ const lang = match ? match[1] : 'en';
       class="flex flex-col md:flex-row justify-center items-center gap-6 w-full"
     >
       {
-        content.list.map((item) => (
+        content.list.map((item, i) => (
           <div
             class={`w-full md:w-1/3 flex flex-col justify-between items-start px-6 ${item.color} py-10 rounded-4xl rounded-br-[100px] h-[455px] relative text-white overflow-hidden`}
           >
@@ -49,7 +49,9 @@ const lang = match ? match[1] : 'en';
               extraBtnClass="border border-white px-6"
               textClass="text-[16px] uppercase text-white"
               iconClass=" text-white hidden sm:block"
-              href={`/${lang}/${item.href}`}
+              href={i === 0 ? item.href : `/${lang}/${item.href}`}
+              target={i === 0 ? '_blank' : undefined}
+              rel={i === 0 ? 'noopener noreferrer' : undefined}
             />
             <img
               src={`/${item.image}.webp`}
