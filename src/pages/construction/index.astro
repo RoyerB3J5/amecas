@@ -1,0 +1,100 @@
+---
+import { Icon } from 'astro-icon/components';
+import LayoutSec from '../../layouts/LayoutSec.astro';
+const icons = [
+  {
+    icon: 'facebook',
+    href: 'https://www.facebook.com/people/Taqueria-Amecas/100073312594879/?ref=_ig_profile_ac',
+  },
+  {
+    icon: 'instagram',
+    href: 'https://www.instagram.com/taqueriaameca/',
+  },
+  {
+    icon: 'tiktok',
+    href: 'https://www.tiktok.com/@taqueriaamecaoficial',
+  },
+];
+---
+
+<LayoutSec>
+  <section
+    class="w-full flex flex-col justify-center items-center h-screen overflow-y-hidden"
+  >
+    <div
+      class="w-full h-[20%] sm:h-[30%] lg:h-[35%] bg-back flex justify-center items-end relative pb-5 sm:pb-10 lg:pb-0"
+    >
+      <img
+        src="/header-3.webp"
+        alt="Header de Los Amecas"
+        height="168"
+        width="1508"
+        class="absolute w-screen h-auto top-0 right-0 z-10"
+      />
+      <img
+        src="/logo.webp"
+        alt="Logo de Los Amecas"
+        class="w-[350px] sm:w-[700px] lg:w-[575px] h-auto z-20"
+        width="1130"
+        height="204"
+      />
+    </div>
+    <div
+      class="w-full h-[80%] sm:h-[70%] lg:h-[65%] bg-accent-3 flex flex-col justify-center items-center relative gap-6 px-5 md:px-0"
+    >
+      <Icon
+        name={'fondo-menu'}
+        class={'absolute top-0 w-full h-auto z-10 left-0'}
+        style="--fondo-color:#e5dabd; --wave-color:#8BCE2B; --dots-color:#F4AA02"
+      />
+      <img
+        src="/bg-main.webp"
+        alt="Fondo"
+        width="1512"
+        height="727"
+        class="absolute inset-0 w-full h-full object-cover top-0 right-0 z-0"
+      />
+      <h1
+        class="relative z-20 text-[48px] sm:text-[64px] leading-[117%] font-bold text-center text-white"
+      >
+        Website Under Construction
+      </h1>
+      <div
+        class="relative z-20 flex flex-col justify-center items-center gap-4"
+      >
+        <p class="text-[24px] sm:text-[32px] text-white text-center font-bold">
+          We’ll be ready to welcome you very soon!
+        </p>
+        <p
+          class="text-[16px] sm:text-[20px] text-white text-center font-normal leading-[140%]"
+        >
+          We are currently working on our new website to offer you a better
+          experience, where you’ll <br class="hidden md:block" /> be able to explore
+          our menu and discover all the latest updates from our restaurant.
+        </p>
+        <div class="flex justify-center items-center gap-[15px]">
+          {
+            icons.map((item) => (
+              <a
+                class="w-10 md:w-12 h-10 md:h-12 bg-accent-2 rounded-full flex justify-center items-center cursor-pointer hover:bg-accent-1 transition-all duration-200 ease-in-out"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name={item.icon} class={'w-5 h-5'} />
+              </a>
+            ))
+          }
+        </div>
+        <p
+          class="text-[16px] sm:text-[20px] text-white text-center font-normal leading-[140%]"
+        >
+          We’ll be happy to assist you and answer any questions you may have.<br
+            class="hidden md:block"
+          />
+          Thank you for your patience. See you very soon!
+        </p>
+      </div>
+    </div>
+  </section>
+</LayoutSec>
