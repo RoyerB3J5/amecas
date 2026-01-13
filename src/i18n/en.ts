@@ -179,7 +179,7 @@ export default {
         },
       ],
       title: 'Home Specials',
-      image: 'aguachiles',
+      image: 'home-special',
       text: '',
       link: '',
       first: {
@@ -765,7 +765,7 @@ export default {
       },
     ],
     title: 'Promotion',
-    image: 'quezadilla',
+    image: 'promotion',
     list: [
       {
         title: 'Fin de Semana',

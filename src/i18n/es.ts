@@ -179,7 +179,7 @@ export default {
         },
       ],
       title: 'Especiales de la casa',
-      image: 'aguachiles',
+      image: 'home-special',
       text: '',
       link: '',
       first: {
@@ -765,7 +765,7 @@ export default {
       },
     ],
     title: 'Promociones',
-    image: 'sopes',
+    image: 'promotion',
     list: [
       {
         title: 'Fin de semana',
