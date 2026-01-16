@@ -10,20 +10,20 @@ const currentLang = match ? match[1] : 'en';
     ENG
   </p>
   <div
-    class="lang-switch bg-accent-3 p-1 flex justify-center items-center gap-0.5 relative"
+    class="lang-switch bg-accent-3 p-1 flex justify-center items-center gap-0.5 relative rounded-full "
     data-current-lang={currentLang}
   >
     <span class="switch-thumb" aria-hidden="true"></span>
     <button
       data-lang="en"
       aria-pressed={currentLang === 'en' ? 'true' : 'false'}
-      class={`w-3.75 h-3.75 md:w-5 md:h-5 flex justify-center items-center cursor-pointer ${currentLang === 'en' ? 'bg-white' : ''}`}
+      class={`w-3.75 h-3.75 md:w-5 md:h-5 flex justify-center items-center cursor-pointer rounded-full ${currentLang === 'en' ? 'bg-white' : ''}`}
     >
     </button>
     <button
       data-lang="es"
       aria-pressed={currentLang === 'es' ? 'true' : 'false'}
-      class={`w-3.75 h-3.75 md:w-5 md:h-5 flex justify-center items-center cursor-pointer ${currentLang === 'es' ? 'bg-white' : ''}`}
+      class={`w-3.75 h-3.75 md:w-5 md:h-5 rounded-full flex justify-center items-center cursor-pointer ${currentLang === 'es' ? 'bg-white' : ''}`}
     >
     </button>
   </div>
