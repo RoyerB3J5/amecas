@@ -85,7 +85,7 @@ const langBase = match ? match[1] : 'en';
           </nav>
         </div>
         <h1
-          class="text-[40px] font-normal leading-[110%] uppercase text-black text-center"
+          class="text-[40px] font-normal leading-[110%] uppercase text-black text-center max-w-[400px]"
         >
           Section: <span class="text-accent-3">{foodData.title}</span>
         </h1>
@@ -94,7 +94,7 @@ const langBase = match ? match[1] : 'en';
           alt="Imagen del Menu de Comida"
           width="900"
           height="675"
-          class={`absolute right-0 -bottom-[75%] lg:-bottom-[80%] w-[150px] lg:w-[324px] h-auto ${normalized == '/menu/drinks-desserts' || normalized == '/menu/kids-menu' ? 'rounded-[20px]' : 'rounded-[100px]'}`}
+          class={`absolute right-0 -bottom-[75%] lg:-bottom-[80%] w-[220px] lg:w-[324px] h-auto ${normalized == '/menu/drinks-desserts' || normalized == '/menu/kids-menu' ? 'rounded-[20px]' : 'rounded-[100px]'}`}
           decoding="async"
           loading="lazy"
         />

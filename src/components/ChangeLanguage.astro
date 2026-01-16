@@ -1,46 +1,35 @@
 ---
-import { Icon } from 'astro-icon/components';
+// Detect language from path like other components
+const currentPath = Astro.url.pathname;
+const match = currentPath.match(/^\/(en|es)/);
+const currentLang = match ? match[1] : 'en';
 ---
 
-<div
-  class="flex items-center gap-3 md:gap-1.5"
-  role="group"
-  aria-label="Cambiar idioma"
->
-  <button
-    type="button"
-    aria-label="Cambiar a Español"
-    title="Español"
-    class="rounded-full cursor-pointer overflow-hidden h-10 w-10 inline-flex items-center justify-center p-0 hover:scale-105 transition-transform duration-200 ease-in-out"
-    data-lang="es"
+<div class="flex justify-center items-center gap-2">
+  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-accent-3 uppercase">
+    ENG
+  </p>
+  <div
+    class="lang-switch bg-accent-3 p-1 flex justify-center items-center gap-0.5 relative"
+    data-current-lang={currentLang}
   >
-    <img
-      src="/es.webp"
-      alt="Bandera de España"
-      class="h-full w-auto flag-shadow object-cover"
-      decoding="async"
-      width="3415"
-      height="1793"
-    />
-    <span class="sr-only">Español</span>
-  </button>
-  <button
-    type="button"
-    aria-label="Change to English"
-    title="English"
-    data-lang="en"
-    class="rounded-full cursor-pointer overflow-hidden h-10 w-10 inline-flex items-center justify-center p-0 hover:scale-105 transition-transform duration-200 ease-in-out"
-  >
-    <img
-      src="/usa.webp"
-      alt="Bandera de Inglaterra"
-      class="h-full w-auto flag-shadow object-cover object-[20%_0%]"
-      decoding="async"
-      width="3415"
-      height="1793"
-    />
-    <span class="sr-only">English</span>
-  </button>
+    <span class="switch-thumb" aria-hidden="true"></span>
+    <button
+      data-lang="en"
+      aria-pressed={currentLang === 'en' ? 'true' : 'false'}
+      class={`w-3.75 h-3.75 md:w-5 md:h-5 flex justify-center items-center cursor-pointer ${currentLang === 'en' ? 'bg-white' : ''}`}
+    >
+    </button>
+    <button
+      data-lang="es"
+      aria-pressed={currentLang === 'es' ? 'true' : 'false'}
+      class={`w-3.75 h-3.75 md:w-5 md:h-5 flex justify-center items-center cursor-pointer ${currentLang === 'es' ? 'bg-white' : ''}`}
+    >
+    </button>
+  </div>
+  <p class="text-[16px] md:text-[20px] font-normal leading-[120%] text-accent-3 uppercase">
+    SPA
+  </p>
 </div>
 
 <style>
@@ -64,29 +53,93 @@ import { Icon } from 'astro-icon/components';
     border-radius: 6px;
     display: inline-block;
   }
+
+  .lang-switch {
+    position: relative;
+  }
+  .lang-switch .switch-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background: white;
+    transition:
+      left 0.22s cubic-bezier(0.22, 0.9, 0.36, 1),
+      width 0.22s cubic-bezier(0.22, 0.9, 0.36, 1);
+    z-index: 5;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  }
+  /* Ensure buttons sit above the thumb for text visibility */
+  .lang-switch button {
+    position: relative;
+    z-index: 10;
+  }
 </style>
 
 <script is:inline>
-  document.querySelectorAll('button[data-lang]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      sessionStorage.setItem('langScroll', window.scrollY);
-      const newPath = window.location.pathname.replace(
-        /^\/(es|en)/,
-        `/${lang}`
-      );
-      window.location.href = newPath;
-    });
+  // Animated switch behaviour: position thumb on current language and animate before navigation
+  (function () {
+    const container = document.querySelector('.lang-switch');
+    if (!container) return;
+    const thumb = container.querySelector('.switch-thumb');
+    const buttons = container.querySelectorAll('button[data-lang]');
+    const current = container.getAttribute('data-current-lang');
 
-    // Agregar soporte para teclado
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
+    function positionThumb(lang, instant) {
+      const btn = container.querySelector(`button[data-lang="${lang}"]`);
+      if (!btn) return;
+      const left = btn.offsetLeft;
+      const width = btn.offsetWidth;
+      thumb.style.width = width + 'px';
+      if (instant) {
+        thumb.style.transition = 'none';
+      } else {
+        thumb.style.transition = '';
       }
+      // set left after clearing transition if needed
+      requestAnimationFrame(() => {
+        thumb.style.left = left + 'px';
+      });
+    }
+
+    // initial position
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () =>
+        positionThumb(current, true)
+      );
+    } else positionThumb(current, true);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-lang');
+        if (!lang) return;
+        if (lang === current) {
+          return;
+        }
+        sessionStorage.setItem('langScroll', window.scrollY);
+        positionThumb(lang, false);
+        const newPath = window.location.pathname.replace(
+          /^\/(es|en)/,
+          `/${lang}`
+        );
+        // wait a bit to let animation play
+        setTimeout(() => {
+          window.location.href = newPath;
+        }, 220);
+      });
+
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
     });
-  });
+  })();
 </script>
+
 <script is:inline>
   // Restauración de posición con prevención de parpadeo
   document.addEventListener('DOMContentLoaded', () => {

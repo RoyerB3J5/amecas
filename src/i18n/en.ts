@@ -765,40 +765,30 @@ export default {
       },
     ],
     title: 'Promotion',
-    image: 'promotion',
+    image: 'imagen-26',
     list: [
       {
-        title: 'Fin de Semana',
+        title: '',
         items: [
           {
-            name: 'Lamb Birria',
-            description: 'Choice of meat served with rice, beans and salad',
-            price: '18.99',
+            name: 'Taco Tuesday ',
+            description: '5 tacos',
+            price: '19.99',
           },
           {
-            name: 'Birria de Res',
+            name: 'Happy Hour',
             description: '',
-            price: '17.99',
+            price: '',
           },
           {
-            name: 'Pozole',
-            description: '',
-            price: '14.99',
+            name: 'Michelada 2x1',
+            description: 'Monday - Friday, 3:00 p.m. - 7:00 p.m.',
+            price: '',
           },
           {
-            name: 'Menudo',
-            description: '',
-            price: '15.75',
-          },
-          {
-            name: 'Queza Birrria 2 pzas',
-            description: '',
-            price: '10.99',
-          },
-          {
-            name: '3 Tacos Birria de Borrego',
-            description: '',
-            price: '13.99',
+            name: 'Lunch Menu Special',
+            description: 'Monday - Friday, 11:00 a.m. - 3:00 p.m.',
+            price: '',
           },
         ],
       },

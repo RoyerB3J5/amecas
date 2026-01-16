@@ -157,13 +157,15 @@ export default function Request() {
     setFormSecondary(initialFormState);
     setPhoneRaw('');
   };
-  const MAKE_WEBHOOK =
-    'https://hook.us2.make.com/8big5sykchcb9s0e3bdxzcilr48y5ppy';
-  const apiKey = 'catering2025';
+
+  const WEBHOOK = import.meta.env.PUBLIC_N8N_WEBHOOK;
+  const USER = import.meta.env.PUBLIC_N8N_USER;
+  const PASS = import.meta.env.PUBLIC_N8N_PASS;
+
   const dataPrueba = {
     name: 'Royer Prueba',
     phone: '+16723456789',
-    eventDate: '2025-10-22',
+    eventDate: '2025-10-25',
     deliveryAddress: 'Las Magnolias',
     typeOfEvent: 'Corporate Lunch',
     numberOfAttendees: '100',
@@ -173,29 +175,30 @@ export default function Request() {
     notes: '',
     acceptPrivacy: true,
   };
+
   const handleSubmit2 = async () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch(MAKE_WEBHOOK, {
+      const res = await fetch(WEBHOOK, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-make-apikey': apiKey,
+          Authorization: 'Basic ' + btoa(`${USER}:${PASS}`),
         },
         body: JSON.stringify(dataPrueba),
       });
+
       const text = await res.text();
-      console.log('Make response status:', res.status, text);
+      console.log('n8n response status:', res.status, text);
     } catch (err: any) {
       console.error(err);
       alert('Error al enviar: ' + err.message);
     } finally {
-      // Aquí puedes enviar `data` al backend con fetch/axios
-      console.log('Request form data:', dataPrueba);
       setIsLoading(false);
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -488,7 +491,7 @@ export default function Request() {
         className={`${isLoading ? 'opacity-50 cursor-not-allowed' : ''} bg-accent-3 py-[18px] px-6 rounded-3xl justify-center items-center hover:bg-accent-4 transition-all duration-200 ease-in-out hover:-translate-y-1 w-full cursor-pointer hidden`}
         disabled={isLoading}
       >
-        <p className="text-white text-[16px] font-medium">Enviar (Make)</p>
+        <p className="text-white text-[16px] font-medium">Enviar n8n</p>
       </button>
     </form>
   );
