@@ -186,7 +186,7 @@ export default function Request() {
 
       if (!res.ok) {
         showSendError();
-        throw new Error(`n8n responded with ${res.status}`);
+        throw new Error(`n8n responded :${res.status}`);
       }
 
       // éxito: limpiar formulario y mostrar confirmación temporal
