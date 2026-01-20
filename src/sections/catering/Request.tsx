@@ -3,7 +3,9 @@ import React, { useMemo, useRef, useState, useEffect } from 'react';
 export default function Request() {
   const [isLoading, setIsLoading] = useState(false);
   const [seeConfirmation, setSeeConfirmation] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const confirmTimeoutRef = useRef<number | null>(null);
+  const errorTimeoutRef = useRef<number | null>(null);
   interface FormSecondary {
     name: string;
     phone: string; // stored as digits or canonical +1... depending on implementation
@@ -160,6 +162,15 @@ export default function Request() {
     console.log('USER:', USER);
     console.log('PASS:', PASS);
 
+    const showSendError = () => {
+      setSendError(true);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+      errorTimeoutRef.current = window.setTimeout(() => {
+        setSendError(false);
+        errorTimeoutRef.current = null;
+      }, 6000);
+    };
+
     try {
       const res = await fetch(WEBHOOK, {
         method: 'POST',
@@ -174,6 +185,7 @@ export default function Request() {
       console.log('n8n response status:', res.status, text);
 
       if (!res.ok) {
+        showSendError();
         throw new Error(`n8n responded with status ${res.status}`);
       }
 
@@ -189,8 +201,7 @@ export default function Request() {
         confirmTimeoutRef.current = null;
       }, 6000);
     } catch (err: any) {
-      console.error(err);
-      alert('Error al enviar: ' + (err?.message || String(err)));
+      showSendError();
     } finally {
       setIsLoading(false);
     }
@@ -199,6 +210,7 @@ export default function Request() {
   useEffect(() => {
     return () => {
       if (confirmTimeoutRef.current) clearTimeout(confirmTimeoutRef.current);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
     };
   }, []);
 
@@ -218,6 +230,19 @@ export default function Request() {
         <p className="text-[16px] font-medium">
           Thank you for contacting us! Your answers have been successfully
           submitted, we will be in touch soon!!
+        </p>
+      </div>
+      <div
+        className={`fixed top-5 right-5 transform transition-all  duration-500 ease-in-out bg-accent-4 text-white p-6 rounded-[15px] flex justify-center items-center z-100 max-w-[350px] ${
+          sendError
+            ? 'translate-x-0 opacity-100 pointer-events-auto'
+            : 'translate-x-full opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!sendError}
+      >
+        <p className="text-[16px] font-medium">
+          We're sorry, an error has occurred. Please resubmit your answers or
+          try later
         </p>
       </div>
       <div className="w-full max-w-[565px] h-auto flex flex-col justify-center items-center gap-3.5">
