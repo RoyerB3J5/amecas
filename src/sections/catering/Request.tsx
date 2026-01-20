@@ -1,7 +1,9 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState, useEffect } from 'react';
 
 export default function Request() {
   const [isLoading, setIsLoading] = useState(false);
+  const [seeConfirmation, setSeeConfirmation] = useState(false);
+  const confirmTimeoutRef = useRef<number | null>(null);
   interface FormSecondary {
     name: string;
     phone: string; // stored as digits or canonical +1... depending on implementation
@@ -136,7 +138,11 @@ export default function Request() {
     }, 0);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const WEBHOOK = import.meta.env.PUBLIC_N8N_WEBHOOK;
+  const USER = import.meta.env.PUBLIC_N8N_USER;
+  const PASS = import.meta.env.PUBLIC_N8N_PASS;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formSecondary.acceptPrivacy) {
       alert(
@@ -150,35 +156,6 @@ export default function Request() {
       ...formSecondary,
     };
 
-    // Aquí puedes enviar `data` al backend con fetch/axios
-    console.log('Request form data:', data);
-    setIsLoading(false);
-
-    setFormSecondary(initialFormState);
-    setPhoneRaw('');
-  };
-
-  const WEBHOOK = import.meta.env.PUBLIC_N8N_WEBHOOK;
-  const USER = import.meta.env.PUBLIC_N8N_USER;
-  const PASS = import.meta.env.PUBLIC_N8N_PASS;
-
-  const dataPrueba = {
-    name: 'Royer Prueba',
-    phone: '+16723456789',
-    eventDate: '2025-10-25',
-    deliveryAddress: 'Las Magnolias',
-    typeOfEvent: 'Corporate Lunch',
-    numberOfAttendees: '100',
-    preferredMeats: 'Beef, Chicken',
-    desiredSpiceLevel: 'medium',
-    foodAllergies: 'None',
-    notes: '',
-    acceptPrivacy: true,
-  };
-
-  const handleSubmit2 = async () => {
-    setIsLoading(true);
-
     try {
       const res = await fetch(WEBHOOK, {
         method: 'POST',
@@ -186,24 +163,59 @@ export default function Request() {
           'Content-Type': 'application/json',
           Authorization: 'Basic ' + btoa(`${USER}:${PASS}`),
         },
-        body: JSON.stringify(dataPrueba),
+        body: JSON.stringify(data),
       });
 
       const text = await res.text();
       console.log('n8n response status:', res.status, text);
+
+      if (!res.ok) {
+        throw new Error(`n8n responded with status ${res.status}`);
+      }
+
+      // éxito: limpiar formulario y mostrar confirmación temporal
+      setFormSecondary(initialFormState);
+      setPhoneRaw('');
+      setSeeConfirmation(true);
+      if (confirmTimeoutRef.current) {
+        clearTimeout(confirmTimeoutRef.current);
+      }
+      confirmTimeoutRef.current = window.setTimeout(() => {
+        setSeeConfirmation(false);
+        confirmTimeoutRef.current = null;
+      }, 6000);
     } catch (err: any) {
       console.error(err);
-      alert('Error al enviar: ' + err.message);
+      alert('Error al enviar: ' + (err?.message || String(err)));
     } finally {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (confirmTimeoutRef.current) clearTimeout(confirmTimeoutRef.current);
+    };
+  }, []);
 
   return (
     <form
       onSubmit={handleSubmit}
       className="w-full max-w-screen xl:w-[1211px] px-6 xl:px-0 flex justify-center items-center mb-12"
     >
+      <div
+        className={`fixed top-5 right-5 transform transition-all  duration-500 ease-in-out bg-accent-5 text-white p-6 rounded-[15px] flex justify-center items-center z-100 max-w-[350px] ${
+          seeConfirmation
+            ? 'translate-x-0 opacity-100 pointer-events-auto'
+            : 'translate-x-full opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!seeConfirmation}
+      >
+        <p className="text-[16px] font-medium">
+          Thank you for contacting us! Your answers have been successfully
+          submitted, we will be in touch soon!!
+        </p>
+      </div>
       <div className="w-full max-w-[565px] h-auto flex flex-col justify-center items-center gap-3.5">
         <label className="relative block w-full">
           <span className="sr-only">Full Name</span>
@@ -485,14 +497,6 @@ export default function Request() {
           <p className="text-white text-[16px] font-medium">Send </p>
         </button>
       </div>
-      <button
-        type="button"
-        onClick={handleSubmit2}
-        className={`${isLoading ? 'opacity-50 cursor-not-allowed' : ''} bg-accent-3 py-[18px] px-6 rounded-3xl justify-center items-center hover:bg-accent-4 transition-all duration-200 ease-in-out hover:-translate-y-1 w-full cursor-pointer hidden`}
-        disabled={isLoading}
-      >
-        <p className="text-white text-[16px] font-medium">Enviar n8n</p>
-      </button>
     </form>
   );
 }
