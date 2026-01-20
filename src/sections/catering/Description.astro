@@ -27,7 +27,7 @@ const { content } = Astro.props as Props;
         class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-10 md:gap-8 w-full"
       >
         <p
-          class="text-[16px] text-paragraph leading-[140%] max-w-[425px]"
+          class="text-[16px] text-paragraph leading-[140%] max-w-none lg:max-w-[425px]"
           set:html={content.section1.text1}
         />
         <img
@@ -40,7 +40,7 @@ const { content } = Astro.props as Props;
           loading="lazy"
         />
         <p
-          class="text-[16px] leading-[140%] text-paragraph max-w-[418px]"
+          class="text-[16px] leading-[140%] text-paragraph max-w-none lg:max-w-[418px]"
           set:html={content.section1.text2}
         />
       </div>
