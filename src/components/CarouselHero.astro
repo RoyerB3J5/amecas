@@ -19,27 +19,27 @@ const { items, interval = 8000 } = Astro.props as Props;
 
 <div class="relative w-full hero-carousel" data-interval={interval}>
   <!-- Viewport -->
-  <div class="overflow-x-hidden w-full">
+  <div class="overflow-hidden w-full relative">
     <div
-      class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track w-full min-h-[676px]"
+      class="flex flex-nowrap transition-transform duration-800 ease-in-out hero-carousel-track w-full min-h-[700px] 3xl:min-h-[750px]"
     >
       {
         items.map((slide) => (
           <div class="flex flex-col justify-center items-center w-full relative shrink-0">
+            <img
+              src={`/bg-main.webp`}
+              alt="Imagen de Fondo de Los Amecas"
+              width="1512"
+              height="727"
+              class="absolute inset-0 w-full h-full object-cover -z-10 opacity-50"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-accent-3 -z-20" />
             <div
-              class={`shrink-0 w-full h-auto min-h-[676px] flex items-center justify-center relative`}
+              class={`shrink-0 w-full h-auto min-h-[700px] 3xl:min-h-[750px] flex items-center justify-center `}
             >
-              <img
-                src={`/bg-main.webp`}
-                alt="Imagen de Fondo de Los Amecas"
-                width="1512"
-                height="727"
-                class="absolute inset-0 w-full h-full object-cover -z-10 opacity-50"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="absolute inset-0 bg-accent-3 -z-20" />
-              <div class="h-full w-full max-w-screen md:max-w-[1211px] flex justify-between items-center translate-y-4 lg:translate-y-8 px-5 xl:px-0">
+              <div class="h-full w-full max-w-screen md:max-w-[1211px] flex justify-between items-center translate-y-4 lg:translate-y-4 px-5 xl:px-0">
                 <div class="flex flex-col justify-center items-start gap-6">
                   <p class="text-[22px] leading-[120%] font-medium uppercase text-white tracking-[3.1px] ">
                     {slide.text}
@@ -56,27 +56,38 @@ const { items, interval = 8000 } = Astro.props as Props;
                     href={slide.href}
                   />
                 </div>
+                {slide.image == 'hero-2' ? null : (
+                  <img
+                    src={`/${slide.image}.webp`}
+                    alt="Imagen decorativa"
+                    width="600"
+                    height="485"
+                    class={`hidden sm:block w-[350px] lg:w-[400px] xl:w-[600px] ${slide.image == 'hero-3' ? 'img-slide' : ''} translate-y-10 h-auto`}
+                  />
+                )}
+              </div>
+              {slide.image == 'hero-2' ? (
                 <img
                   src={`/${slide.image}.webp`}
                   alt="Imagen decorativa"
                   width="600"
                   height="485"
-                  class={`hidden sm:block w-[350px] lg:w-[400px] xl:w-[600px]  ${slide.image == 'hero-3' ? 'img-slide' : ''} ${slide.image == 'hero-2' ? 'rounded-[20px] translate-y-10' : 'translate-y-10'} h-auto translate-y-10`}
+                  class={`hidden sm:block absolute right-0 bottom-0 w-[70%] lg:w-[60%] xl:w-[50%] h-auto`}
                 />
-              </div>
-            </div>
-            <div class="w-full">
-              <div class="w-full aspect-[1511.61/53.951996]">
-                <Icon
-                  name={'fondo-menu'}
-                  class={'w-full h-full block'}
-                  style="--fondo-color:#E6007E; --wave-color:#8BCE2B; --dots-color:#F4AA02;--svg-bg:#E5DECC"
-                />
-              </div>
+              ) : null}
             </div>
           </div>
         ))
       }
+    </div>
+    <div class="w-full absolute bottom-0 left-0 z-20">
+      <div class="w-full aspect-[1511.61/53.951996]">
+        <Icon
+          name={'fondo-menu2'}
+          class={'w-full h-full block translate-y-px'}
+          style=" --fondo-color:transparent;--wave-color:#8BCE2B; --dots-color:#F4AA02; --svg-bg:#E5DECC; "
+        />
+      </div>
     </div>
   </div>
   <div
@@ -163,6 +174,24 @@ const { items, interval = 8000 } = Astro.props as Props;
           return w || 0;
         }
 
+        function getIndexFromTransform() {
+          const style = getComputedStyle(track).transform;
+          if (!style || style === 'none') return currentIndex;
+          const m = style.match(/matrix(?:3d)?\((.+)\)/);
+          if (m && m[1]) {
+            const parts = m[1].split(',').map((p) => p.trim());
+            const tx = parseFloat(parts[4] ?? parts[12] ?? '0') || 0;
+            const slideW = getSlideWidth() || 1;
+            let indexFromTransform = Math.round(-tx / slideW);
+            indexFromTransform = Math.max(
+              0,
+              Math.min(indexFromTransform, slides.length - 1)
+            );
+            return indexFromTransform;
+          }
+          return currentIndex;
+        }
+
         function goTo(index, smooth = true) {
           // clamp index to valid range
           const maxIndex = slides.length - 1;
@@ -188,28 +217,9 @@ const { items, interval = 8000 } = Astro.props as Props;
         }
 
         function updateIndicators() {
-          // Determine the index currently visible by reading the track's transform
-          const style = getComputedStyle(track).transform;
-          let indexFromTransform = currentIndex;
-          if (style && style !== 'none') {
-            const m = style.match(/matrix(?:3d)?\((.+)\)/);
-            if (m && m[1]) {
-              const parts = m[1].split(',').map((p) => p.trim());
-              // matrix(a, b, c, d, tx, ty) -> tx is at position 4
-              const tx = parseFloat(parts[4] ?? parts[12] ?? '0') || 0;
-              const slideW = getSlideWidth() || 1;
-              // tx is negative when the track is translated left; compute index accordingly
-              indexFromTransform = Math.round(-tx / slideW);
-              indexFromTransform = Math.max(
-                0,
-                Math.min(indexFromTransform, slides.length - 1)
-              );
-            }
-          }
-
-          let realIndex = indexFromTransform - 1;
-          if (indexFromTransform === 0) realIndex = slides.length - 3;
-          else if (indexFromTransform === slides.length - 1) realIndex = 0;
+          const indexFromTransform = getIndexFromTransform();
+          const slideCount = Math.max(0, slides.length - 2); // real slides count
+          let realIndex = (indexFromTransform - 1 + slideCount) % slideCount;
 
           indicators.forEach((btn, i) => {
             const bar = btn.children[0];
@@ -319,12 +329,13 @@ const { items, interval = 8000 } = Astro.props as Props;
           'touchend',
           (e) => {
             deltaX = e.changedTouches[0].clientX - startX;
+            const visibleIdx = getIndexFromTransform();
             if (Math.abs(deltaX) > 50) {
               const dir = deltaX < 0 ? 1 : -1;
-              goTo(currentIndex + dir * getPerPage());
+              goTo(visibleIdx + dir * getPerPage());
             } else {
-              // snap back to current
-              goTo(currentIndex, true);
+              // snap to nearest based on transform
+              goTo(visibleIdx, true);
             }
             // cancel any pending rAF
             if (rafId) {
@@ -364,12 +375,13 @@ const { items, interval = 8000 } = Astro.props as Props;
           isDragging = false;
           window.removeEventListener('mousemove', onMouseMove);
           window.removeEventListener('mouseup', onMouseUp);
+          const visibleIdx = getIndexFromTransform();
           if (Math.abs(dragDelta) > 50) {
             const dir = dragDelta < 0 ? 1 : -1;
-            goTo(currentIndex + dir * getPerPage());
+            goTo(visibleIdx + dir * getPerPage());
           } else {
-            // snap back
-            goTo(currentIndex, true);
+            // snap to nearest
+            goTo(visibleIdx, true);
           }
           dragDelta = 0;
           // cancel any pending rAF

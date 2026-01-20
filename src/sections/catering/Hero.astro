@@ -16,8 +16,9 @@ const lang = match ? match[1] : 'en';
 
 <!-- SVG overlay con Tailwind -->
 <section
-  class="relative bg-accent-2 flex justify-center min-h-[645px] sm:min-h-[450px] items-start w-full overflow-hidden"
+  class="relative bg-accent-2 flex justify-center min-h-[60vh] sm:min-h-[40vh] lg:min-h-[65vh] 3xl:min-h-[55vh] items-start w-full overflow-hidden"
 >
+  <img src="/catering/banner.webp" alt="Banner de Catering" class="absolute bottom-0 right-0 w-[60%] sm:w-[50%] h-auto lg:w-auto lg:h-full  z-11" width="900" height="507"/>
   <div class="w-full absolute top-0 left-0 z-10">
     <div class="shrink-0 overflow-hidden relative h-[175px]">
       <img
@@ -31,7 +32,8 @@ const lang = match ? match[1] : 'en';
   </div>
   <div
     class="w-full max-w-screen xl:w-[1211px] px-6 xl:pl-0 h-full pt-[134px] z-30 flex flex-col lg:flex-row justify-center lg:justify-between items-cener sm:items-end lg:items-center lg:pr-0 g:pr-14 pb-12 lg:pb-0"
-    data-aos="zoom-out" data-aos-offset="200"
+    data-aos="zoom-out"
+    data-aos-offset="200"
   >
     <div class="gap-8 w-full flex flex-col justify-center items-start">
       <div
@@ -66,19 +68,19 @@ const lang = match ? match[1] : 'en';
         {content.title}
       </h1>
       <p
-        class="text-[16px] font-normal leading-[140%] max-w-[454px] text-white"
+        class="text-[16px] font-normal leading-[140%] max-w-[350px] lg:max-w-[454px] text-white"
       >
         {content.text}
       </p>
     </div>
-    <img
-      src="/catering/catering-2.webp"
-      alt="Imagen de fondo del Catering"
-      width="315"
-      height="256"
-      class="w-[250px] lg:w-[315px] h-auto translate-y-5"
-      decoding="async"
-      loading="eager"
-    />
+  </div>
+  <div class="w-full absolute bottom-0 left-0 z-20">
+    <div class="w-auto h-[50px] sm:h-auto sm:w-full aspect-[1511.61/53.951996]">
+      <Icon
+        name={'fondo-menu2'}
+        class={'w-full h-full block translate-y-px'}
+        style=" --fondo-color:transparent;--wave-color:#f4aa02; --dots-color:#47a9fe; --svg-bg:#FFF; "
+      />
+    </div>
   </div>
 </section>
