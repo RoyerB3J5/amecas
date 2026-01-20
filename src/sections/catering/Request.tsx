@@ -156,6 +156,10 @@ export default function Request() {
       ...formSecondary,
     };
 
+    console.log('WEBHOOK:', WEBHOOK);
+    console.log('USER:', USER);
+    console.log('PASS:', PASS);
+
     try {
       const res = await fetch(WEBHOOK, {
         method: 'POST',
