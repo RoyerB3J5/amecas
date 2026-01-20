@@ -182,11 +182,11 @@ export default function Request() {
       });
 
       const text = await res.text();
-      console.log('n8n response status:', res.status, text);
+      console.log('n8n response:', res.status, text);
 
       if (!res.ok) {
         showSendError();
-        throw new Error(`n8n responded with status ${res.status}`);
+        throw new Error(`n8n responded with ${res.status}`);
       }
 
       // éxito: limpiar formulario y mostrar confirmación temporal
